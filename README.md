@@ -1,6 +1,5 @@
 # front-end
 
-# back-end
 
 ## Proposal
 - What problem does your app solve?
