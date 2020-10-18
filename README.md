@@ -1,76 +1,68 @@
-# front-end
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Available Scripts
 
-## Proposal
-- What problem does your app solve?
-All in one location to meet your fitness class needs.
+In the project directory, you can run:
 
+### `yarn start`
 
-- Be as specific as possible; how does your app solve the problem?
-Clients can easily find out information on classes - location, class size, start time and duration, as well as reschedule or cancel an upcoming appointment or reservation right from the mobile app.
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-- What is the mission statement?
-Provide Flexible Fitness Classes for All.
+### `yarn test`
 
-## Features
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- What features are required for your minimum viable product?
+### `yarn build`
 
-- What features may you wish to put in a future release?
-Implement payments using PayPal, Stripe or another 3rd party API.
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- What do the top 3 similar apps do for their users?
-Provide Recorded Workouts, Diet Plans, Goal Tracking
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `yarn eject`
 
-## Design - Planning
-Optional but highly recommended Please refer to this document: UX intro for engineers
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-- What design system will you use?
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-- What will your user flow be?
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-- What is the URL to your wireframes?
+## Learn More
 
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Frameworks - Libraries
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-- What 3rd party frameworks/libraries are you considering using?
-React, Axios, Material UI, Redux, Stripe or Paypal, styled components, Cypress, Yup
-Java Spring, Tomcat, Swagger, JPA, postgresql, 
+### Code Splitting
 
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
+### Analyzing the Bundle Size
 
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
+### Making a Progressive Web App
 
-## Target Audience
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-- Who is your target audience? Be specific.
-Health Nuts, and instructors.
+### Advanced Configuration
 
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-- What feedback have you gotten from potential users?
-None.
+### Deployment
 
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-- Have you validated the problem and your solution with your target audience? How?
-No.
+### `yarn build` fails to minify
 
-
-## Research
-
-- Research thoroughly before writing a single line of code. Solidify the features of your app conceptually before implementation. Spend the weekend researching so you can hit the ground running on Monday.
-
-
-## Prototype Key Feature(s)
-
-- This is the “bread and butter” of the app, this is what makes your app yours. Calculate how long it takes to implement these features and triple the time estimated. That way you’ll have plenty of time to finish. It is preferred to drop features and spend more time working on your MVP features if needed.
-
-
-- Revision History
-
-
-Copyright Lambda School 2019, All Rights Reserved
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
