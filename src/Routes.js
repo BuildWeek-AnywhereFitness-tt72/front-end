@@ -31,3 +31,4 @@ const Routes = (props) => (
 		</Switch>
 	</Router>
 );
+export default Routes;
