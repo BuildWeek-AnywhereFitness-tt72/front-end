@@ -2,12 +2,6 @@ import React from 'react'
 
 import './App.css'
 
-const App = () => {
-  return (
-    <div className="App">
-     
-    </div>
-  );
-};
+const App = (props) => props.children;
 
 export default App;
