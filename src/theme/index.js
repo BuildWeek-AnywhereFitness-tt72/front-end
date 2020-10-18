@@ -1,6 +1,6 @@
 
 export default {
-	primaryOrange: "#FF6900",
+	primaryOrange: "#FF9233",
 	secondaryOrange: "#FFAA99",
 	charcoal: "#1B1A1A",
 	darkGray: "#333333",
