@@ -1,10 +1,16 @@
 import React from 'react';
 import { Router, Link } from "react-router-dom";
+import styled from "styled-components";
+
+const LandingPage = styled.div`
+	width: 100%;
+
+`;
 
 const Dash = () => {
 
 	return (
-		<div className="landing-container">
+		<LandingPage className="landing-container">
 			<div className="header">
 				<h1>Anywhere Fitness</h1>
 			</div>
@@ -19,7 +25,7 @@ const Dash = () => {
 			<nav>
 				<Link to="/Login">Login</Link>
 			</nav>
-		</div>
+		</LandingPage>
 	);
 };
 
