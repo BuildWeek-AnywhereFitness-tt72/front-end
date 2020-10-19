@@ -86,6 +86,10 @@ const StyledLink = styled(Link)`
 	text-decoration: none;
 	padding: 2rem;
 	margin: 1rem;
+	&:hover {
+		text-decoration: underline;
+		color: ${pr => pr.theme.charcoal}
+	}
 `;
 
 const HeroTextContainer = styled.div`
