@@ -16,22 +16,22 @@ const StyledSearchHeader = styled.header`
 		}
 `;
 
-const initInput = {
-	sessionInput: "",
-	locationInput: "",
-};
+
 
 const SearchHeader = props => {
-	const [input, setInput] = useState(initInput);
+	
+	const {input, searchChange, searchSubmit} = props;
 
 	const onChange = (evt) => {
 		const {name, value} = evt.target;
-		setInput({ ...input, [name]: value });
+		searchChange(name, value);
 	};
 
 	const onSubmit = (evt) => {
-		alert(`Session: ${input.sessionInput} | Location: ${input.locationInput}`);
+		searchSubmit();
 	}
+
+
 
 	return (
 		<StyledSearchHeader className="search-header">
