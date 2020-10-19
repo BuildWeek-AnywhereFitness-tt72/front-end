@@ -47,6 +47,23 @@ export const MainHeader = styled.header`
 	}
 `;
 
+export const AboutCollapse = styled.div`
+		display: ${pr => pr.isHelpOpen ? "block" : "none"};
+	transition: all 0.4s ease-in-out;
+	height: 250px;
+	max-width: 100%;
+	h3 {
+		font-size: 8.6rem;
+		line-height: 10.1rem;
+		letter-spacing: 0.02rem;
+	}
+	p {
+		font-weight: 600;
+		font-size: 1.8rem;
+		line-height: 2.5rem;
+	}
+`;
+
 export const Banner = styled.div`
 	background: ${pr => pr.theme.primaryOrange};
 	padding: 10px;
