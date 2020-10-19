@@ -19,24 +19,43 @@ const validFilters = {
 	classLevel: ["beginner", "intermediate", "advanced"],
 }
 
+const initFilters = {
+	classType: "",
+	classDuration: "",
+	classTime: "",
+	classLevel: "",
+};
+
 const ClassSearch = props => {
 	const [input, setInput] = useState(initInput);
-	const [filters] = useState(validFilters);
+	const [filters, setFilters] = useState(initFilters);
 
 	const searchChange = (name, value) => {
-		
 		setInput({ ...input, [name]: value });
+	};
+
+	const filtersChange = (name, value) => {
+		setFilters({ ...filters, [name]: value });
 	};
 
 
 	const searchSubmit = () => {
-		alert(`Session: ${input.sessionInput} | Location: ${input.locationInput}`);
+		const newSearch = {
+			session: input.sessionsInput,
+			location: input.locationInput,
+			filters: validFilters.filter( filter => filters[filter]),
+		};
+		console.log(newSearch);
+		console.log(`Session: ${input.sessionInput} | Location: ${input.locationInput}`);
+		console.log(`Session filters: ${filters}`);
 	}
 	
 	return (
 		<div className="class-search-container">
-			<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} />
-			<SearchOptionsDropdown filters={filters} />
+			<form onSubmit={searchSubmit}>
+				<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} />
+				<SearchOptionsDropdown filters={filters} validFilters={validFilters} filtersChange={filtersChange} />
+			</form>
 		</div>
 	);
 };

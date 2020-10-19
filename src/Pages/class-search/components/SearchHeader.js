@@ -5,14 +5,14 @@ const StyledSearchHeader = styled.header`
 	display: flex;
 	flex-flow: row nowrap;
 	h1 {
-			font-size: 6rem;
-			color: ${pr => pr.theme.charcoal};
+		font-size: 6rem;
+		color: ${pr => pr.theme.charcoal};
 	}
 	p {
-			font-weight: 600;
-			font-size: 1.8rem;
-			line-height: 2.5rem;
-			color: ${pr => pr.theme.charcoal};
+		font-weight: 600;
+		font-size: 1.8rem;
+		line-height: 2.5rem;
+		color: ${pr => pr.theme.charcoal};
 		}
 `;
 
@@ -27,16 +27,15 @@ const SearchHeader = props => {
 		searchChange(name, value);
 	};
 
-	const onSubmit = (evt) => {
-		searchSubmit();
-	}
-
-
+	// const onSubmit = (evt) => {
+	// 	evt.preventDefault();
+	// 	searchSubmit();
+	// }
 
 	return (
 		<StyledSearchHeader className="search-header">
 			<h1>Anywhere Fitness</h1>
-			<form onSubmit={onSubmit}>
+			{/* <form onSubmit={onSubmit}> */}
 				<input 
 					name="session-search"
 					type="text"
@@ -51,7 +50,7 @@ const SearchHeader = props => {
 					onChange={onChange}
 					placeholder="Chicago, IL"
 				/>
-			</form>
+			{/* </form> */}
 			<p>About</p>
 			<p>Hello, User!</p>
 		</StyledSearchHeader>
