@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import SearchHeader from "./components/SearchHeader";
 import SearchOptionsDropdown from "./components/SearchOptionsDropdown";
+import SearchLanding from "./components/SearchLanding";
 // import searchFormSchema from './validation/searchFormSchema';
 
 
@@ -82,6 +83,9 @@ const ClassSearch = props => {
 				<SearchOptionsDropdown filters={filters} validFilters={validFilters} filtersChange={filtersChange} />
 			</form>
 			<Button className="submit-btn" isDisabled={isDisabled}>Search</Button>
+			<div>
+			<SearchLanding />
+			</div>
 		</div>
 	);
 };
