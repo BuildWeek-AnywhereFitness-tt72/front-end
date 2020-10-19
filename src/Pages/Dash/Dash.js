@@ -5,6 +5,7 @@ import styled from "styled-components";
 const LandingPage = styled.div`
 	max-width: 100%;
 	font-family: Raleway, sans-serif;
+	color: ${pr => pr.theme.charcoal};
 	div.header {
 		display: flex;
 		flex-flow: row nowrap;
@@ -43,27 +44,6 @@ const LandingPage = styled.div`
 			letter-spacing: 0.05em;
 		}
 	}
-	div.help-open {
-		transition: all 0.4s ease-in-out;
-		height: 250px;
-		max-width: 100%;
-		h3 {
-			font-size: 8.6rem;
-			line-height: 10.1rem;
-			letter-spacing: 0.02rem;
-			color: ${pr => pr.theme.charcoal};
-		}
-		p {
-			font-weight: 600;
-			font-size: 1.8rem;
-			line-height: 2.5rem;
-		}
-	}
-	transition: all 0.4s ease-in-out;
-	div.help-not-open {
-		display: none;
-		transition: all 0.4s ease-in-out;
-	}
 	div.background-img {
 		margin-top: 0;
 		height: 560px;
@@ -79,8 +59,8 @@ const LandingPage = styled.div`
 			background: rgba(248, 248, 248, 0.3);
 			height: 100%;
 		}
-			div.hero-text {
-				/* background: rgba(248, 248, 248, 0.5); */
+			/* div.hero-text {
+
 				position: relative;
 				width: 770px;
 				height: 290px;
@@ -103,7 +83,7 @@ const LandingPage = styled.div`
 			}
 			div.not-active {
 				display: none;
-			}
+			} */
 	}
 	div.signup-button {
 		display: flex;
@@ -125,6 +105,30 @@ const LandingPage = styled.div`
 	}
 `;
 
+const HeroTextContainer = styled.div`
+	display: ${pr => pr.isOpen ? "block" : "none"};
+	position: relative;
+	width: 770px;
+	height: 290px;
+	left: 25px;
+	top: 180px;
+	h3 {
+		font-size: 8.6rem;
+		line-height: 10.1rem;
+		letter-spacing: 0.02em;
+		color: ${pr => pr.theme.charcoal};
+	}
+	p {
+		font-weight: 600;
+		font-size: 1.8rem;
+		line-height: 2.5rem;
+		display: flex;
+		align-items: center;
+		color: ${pr => pr.theme.charcoal};
+	}
+			
+`;
+
 const HelpCollapse = styled.div`
 	display: ${pr => pr.isHelpOpen ? "block" : "none"};
 	transition: all 0.4s ease-in-out;
@@ -142,13 +146,6 @@ const HelpCollapse = styled.div`
 		font-size: 1.8rem;
 		line-height: 2.5rem;
 	}
-
-	/* div.help-open {
-	}
-	div.help-not-open {
-		display: none;
-		transition: all 0.4s ease-in-out;
-	} */
 `;
 
 const DeveloperNav = styled.div`
@@ -219,14 +216,14 @@ const Dash = () => {
 
 			<div className="background-img">
 				<div className="hero-text-container">
-					<div className={`${isBrowseOpen ? "hero-text" : "not-active"}`}>
+					<HeroTextContainer className="hero-text" isOpen={isBrowseOpen} >
 						<h3>Browse classes</h3>
 						<p>Our expert instructors conduct classes literally anywhere. Take a yoga class on a mountaintop. Do boot camp on the beach. Go to an abandoned mansion for mat pilates. The options are limitless.</p>
-					</div>
-					<div className={`${isAboutOpen ? "hero-text" : "not-active"}`}>
+					</HeroTextContainer>
+					<HeroTextContainer className="hero-text" isOpen={isAboutOpen} >
 						<h3>Become Your Own Boss</h3>
 						<p>Instead of needing a gym to attract clients, instructors can be their own boss and set up their fitness classes with a minimal start up fee.</p>
-					</div>
+					</HeroTextContainer>
 				</div>
 			</div>
 			<div className="signup-button">
