@@ -30,7 +30,7 @@ const initFilters = {
 const ClassSearch = props => {
 	const [input, setInput] = useState(initInput);
 	const [filters, setFilters] = useState(initFilters);
-	const [isDisabled, setIsDisabled] = useState(true);
+	// const [isDisabled, setIsDisabled] = useState(true);
 
 	const searchChange = (name, value) => {
 		setInput({ ...input, [name]: value });
@@ -49,7 +49,7 @@ const ClassSearch = props => {
 	const searchSubmit = (evt) => {
 		evt.preventDefault();
 		const newSearch = {
-			session: input.sessionsInput,
+			session: input.sessionInput,
 			location: input.locationInput,
 			filters: filters,
 		};
