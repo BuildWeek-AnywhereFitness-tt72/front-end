@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const LandingPage = styled.div`
-	background-color: ${pr => pr.theme.eggshell};
 	max-width: 100%;
 	font-family: Raleway, sans-serif;
 	color: ${pr => pr.theme.charcoal};
