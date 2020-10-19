@@ -189,6 +189,8 @@ const Dash = () => {
 					<StyledLink to="/Login">Login</StyledLink>
 					<StyledLink to="/Dash">Dash</StyledLink>
 					<StyledLink to="/class-search">Class Search</StyledLink>
+					<StyledLink to="/instructor">Instructor</StyledLink>
+
 				</nav>
 			</DeveloperNav>
 		</LandingPage>
