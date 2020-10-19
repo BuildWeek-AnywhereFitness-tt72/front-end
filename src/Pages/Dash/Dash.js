@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import styled from "styled-components";
 
 const LandingPage = styled.div`
@@ -189,6 +189,8 @@ const Dash = () => {
 					<StyledLink to="/Login">Login</StyledLink>
 					<StyledLink to="/Dash">Dash</StyledLink>
 					<StyledLink to="/class-search">Class Search</StyledLink>
+					<StyledLink to="/instructor">Instructor</StyledLink>
+
 				</nav>
 			</DeveloperNav>
 		</LandingPage>
