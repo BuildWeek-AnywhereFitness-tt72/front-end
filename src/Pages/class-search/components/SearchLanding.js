@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Map } from "../../../assets/Map.png";
-
 const StyledLanding = styled.div`
 	display: flex;
 	justify-content: space-between;

@@ -62,7 +62,7 @@ const SearchOptionsDropdown = props => {
 					);
 				})
 			}
-
+			
 		</div>
 	);
 };

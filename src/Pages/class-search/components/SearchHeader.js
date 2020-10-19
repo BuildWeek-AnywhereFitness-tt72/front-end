@@ -35,6 +35,25 @@ const InputContainer = styled.div`
 	width: 60rem;
 `;
 
+
+const Button = styled.a`
+	display: flex;
+	background-color: ${pr => pr.theme.charcoal};
+	color: ${pr => pr.theme.eggshell};
+	width: 20rem;
+	height: 5rem;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	font-weight: 600;
+	border-radius: 10px;
+	/* margin: 0 auto; */
+	&:hover {
+		color: ${pr => pr.theme.eggshell};
+	}
+`;
+
 const Input = styled.input.attrs(pr => ({
 	radius: pr.place === "left" ? "25px 0px 0px 25px" : "0px 25px 25px 0px",
 }))`
@@ -51,7 +70,7 @@ const Input = styled.input.attrs(pr => ({
 
 const SearchHeader = props => {
 	
-	const {input, searchChange} = props;
+	const {input, searchChange, isDisabled, searchSubmit} = props;
 
 	const onChange = (evt) => {
 		const {name, value} = evt.target;
@@ -82,6 +101,7 @@ const SearchHeader = props => {
 						place="right"
 					/>
 				</InputContainer>
+				<Button className="submit-btn" isDisabled={isDisabled} onClick={searchSubmit}>Search</Button>
 			<div>
 				<p>About</p>
 				<p>Hello, User!</p>

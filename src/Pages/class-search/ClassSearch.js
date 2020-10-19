@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import { Link } from "react-router-dom";
-import styled from "styled-components";
+// import styled from "styled-components";
 
 import SearchHeader from "./components/SearchHeader";
 import SearchOptionsDropdown from "./components/SearchOptionsDropdown";
@@ -30,28 +30,6 @@ const initFilters = {
 	classLevel: "",
 };
 
-
-
-const Button = styled.a`
-	display: flex;
-	background-color: ${pr => pr.theme.primaryOrange};
-	color: ${pr => pr.theme.charcoal};
-	width: 20rem;
-	height: 5rem;
-	flex-flow: row nowrap;
-	justify-content: center;
-	align-items: center;
-	font-size: 2rem;
-	font-weight: 600;
-	border-radius: 10px;
-	margin: 0 auto;
-	&:hover {
-		color: ${pr => pr.theme.charcoal};
-	}
-`;
-
-
-
 const ClassSearch = props => {
 	const [input, setInput] = useState(initInput);
 	const [filters, setFilters] = useState(initFilters);
@@ -79,10 +57,10 @@ const ClassSearch = props => {
 	return (
 		<div className="class-search-container">
 			<form onSubmit={searchSubmit}>
-				<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} />
+				<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} isDisabled={isDisabled} />
 				<SearchOptionsDropdown filters={filters} validFilters={validFilters} filtersChange={filtersChange} />
 			</form>
-			<Button className="submit-btn" isDisabled={isDisabled}>Search</Button>
+			
 			<div>
 			<SearchLanding />
 			</div>
