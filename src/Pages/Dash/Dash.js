@@ -3,19 +3,37 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const LandingPage = styled.div`
+	background-color: ${pr => pr.theme.eggshell};
 	max-width: 100%;
 	font-family: Raleway, sans-serif;
 	color: ${pr => pr.theme.charcoal};
+	h1 {
+			font-size: 6rem;
+		}
+	h3 {
+		font-size: 8.6rem;
+		line-height: 10.1rem;
+		letter-spacing: 0.02rem;
+	}
+	p {
+		font-weight: 600;
+		font-size: 1.8rem;
+		line-height: 2.5rem;
+	}
+	h4 {
+			margin: 0;
+			text-align: center;
+			font-weight: 800;
+			font-size: 2rem;
+			line-height: 2.3rem;
+			letter-spacing: 0.05em;
+	}
 	div.header {
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: space-between;
 		align-items: center;
 		margin-bottom: 40px;
-		h1 {
-			font-size: 6rem;
-			color: ${pr => pr.theme.charcoal};
-		}
 		nav {
 			a {
 				display: inline-block;
@@ -31,18 +49,10 @@ const LandingPage = styled.div`
 	div.welcome-banner {
 		background: ${pr => pr.theme.primaryOrange};
 		padding: 10px;
-		color: white;
+		color: ${pr => pr.theme.eggshell};
 		font-weight: 600;
 		font-size: 1.5rem;
 		margin-bottom: 0px;
-		h4 {
-			margin: 0;
-			text-align: center;
-			font-weight: 800;
-			font-size: 2rem;
-			line-height: 2.3rem;
-			letter-spacing: 0.05em;
-		}
 	}
 	div.background-img {
 		margin-top: 0;
@@ -86,20 +96,6 @@ const HeroTextContainer = styled.div`
 	height: 290px;
 	left: 25px;
 	top: 180px;
-	h3 {
-		font-size: 8.6rem;
-		line-height: 10.1rem;
-		letter-spacing: 0.02em;
-		color: ${pr => pr.theme.charcoal};
-	}
-	p {
-		font-weight: 600;
-		font-size: 1.8rem;
-		line-height: 2.5rem;
-		display: flex;
-		align-items: center;
-		color: ${pr => pr.theme.charcoal};
-	}
 `;
 
 const HelpCollapse = styled.div`
@@ -107,27 +103,17 @@ const HelpCollapse = styled.div`
 	transition: all 0.4s ease-in-out;
 	height: 250px;
 	max-width: 100%;
-	h3 {
-		font-size: 8.6rem;
-		line-height: 10.1rem;
-		letter-spacing: 0.02rem;
-		color: ${pr => pr.theme.charcoal};
-	}
-	p {
-		font-weight: 600;
-		font-size: 1.8rem;
-		line-height: 2.5rem;
-	}
 `;
 
 const DeveloperNav = styled.div`
 	background: lightgray;
-	border: 10px solid orange;
+	border: 10px solid ${pr => pr.theme.primaryOrange};
 	text-align: center;
 	width: 90%;
-	margin: 0 auto;
+	margin: 200px auto;
 	h4 {
 		font-size: 5rem;
+		padding: 2rem;
 	}
 	p {
 		font-size: 2rem;
@@ -137,15 +123,6 @@ const DeveloperNav = styled.div`
 		flex-flow: row wrap;
 		justify-content: center;
 		align-items: center;
-	}
-	a {
-		display: inline-block;
-		font-size: 3rem;
-		background-color: ${pr => pr.theme.primaryOrange};
-		color: ${pr => pr.theme.charcoal};
-		text-decoration: none;
-		padding: 2rem;
-		margin: 1rem;
 	}
 `;
 
@@ -163,10 +140,15 @@ const Dash = () => {
 		setIsHelpOpen(!isHelpOpen);
 	};
 
+	const handleTitleClick = () => {
+		setIsAboutOpen(false);
+		setIsBrowseOpen(true);
+	};
+
 	return (
 		<LandingPage className="landing-container">
 			<div className="header">
-				<h1>Anywhere Fitness</h1>
+				<h1 onClick={handleTitleClick}>Anywhere Fitness</h1>
 				<nav className="top-nav">
 					<a href="/Dash/#" onClick={handleHelpClick}>Help</a>
 					<a href="/Dash/#" onClick={handleAboutClick}>About</a>
@@ -201,9 +183,9 @@ const Dash = () => {
 				<h4>JUST FOR US</h4>
 				<p>This is simply for ease of access; not part of the page! I figured it would be easier to navigate through all our pages if we had all the links in one spot</p>
 				<nav>
-					<Link to="/Login">Login</Link>
-					<Link to="/Dash">Dash</Link>
-					<Link to="/class-search">Class Search</Link>
+					<StyledLink to="/Login">Login</StyledLink>
+					<StyledLink to="/Dash">Dash</StyledLink>
+					<StyledLink to="/class-search">Class Search</StyledLink>
 				</nav>
 			</DeveloperNav>
 		</LandingPage>
