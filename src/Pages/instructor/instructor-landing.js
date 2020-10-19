@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Switch, Route, Link } from 'react-router-dom'
 
 import { StyledLink, MainHeader, Banner } from "../../reusable-components/reusableComponents";
 
+import CreateClass from './create-class/create-class';
+import ManageClass from './manage-class/manage-class';
 
 const BackgroundImg = styled.div`
     margin-top: 0;
@@ -37,7 +40,6 @@ const InstructorLanding = () => {
 
     return (
         <div>
-            This is Instructor Landing
             <MainHeader>
                 <h1 onClick={handleTitleClick}>Anywhere Fitness</h1>
                 <nav className="top-nav">
@@ -47,15 +49,24 @@ const InstructorLanding = () => {
             </MainHeader>
             <Banner>
                 <nav>
-                    <StyledLink href='#'>Profile</StyledLink>
-                    <StyledLink href='#'>Create a Class</StyledLink>
-                    <StyledLink href='#'>Manage Classes</StyledLink>
+                    <StyledLink to='/instructor'>Profile</StyledLink>
+                    <StyledLink to='/instructor/create'>Create a Class</StyledLink>
+                    <StyledLink to='/instructor/manage'>Manage Classes</StyledLink>
                     <StyledLink href='#'>Dashboard</StyledLink>
                 </nav>
             </Banner>
             <BackgroundImg>
-
+                <Switch>
+                    <Route path='/instructor/manage'>
+                        <ManageClass />
+                    </Route>
+                    <Route path='/instructor/create'>
+                        <CreateClass />
+                    </Route>
+                </Switch>
             </BackgroundImg>
+
+            
         </div>
     )
 }
