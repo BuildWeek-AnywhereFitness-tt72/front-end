@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -13,6 +13,7 @@ const LandingPage = styled.div`
 		margin-bottom: 40px;
 		h1 {
 			font-size: 6rem;
+			color: ${pr => pr.theme.charcoal};
 		}
 		nav {
 			a {
@@ -28,6 +29,7 @@ const LandingPage = styled.div`
 	}
 	div.welcome-banner {
 		background: ${pr => pr.theme.primaryOrange};
+		padding: 10px;
 		color: white;
 		font-weight: 600;
 		font-size: 1.5rem;
@@ -42,6 +44,7 @@ const LandingPage = styled.div`
 		}
 	}
 	div.help-open {
+		transition: all 0.4s ease-in-out;
 		height: 250px;
 		max-width: 100%;
 		h3 {
@@ -56,8 +59,10 @@ const LandingPage = styled.div`
 			line-height: 2.5rem;
 		}
 	}
+	transition: all 0.4s ease-in-out;
 	div.help-not-open {
 		display: none;
+		transition: all 0.4s ease-in-out;
 	}
 	div.background-img {
 		margin-top: 0;
