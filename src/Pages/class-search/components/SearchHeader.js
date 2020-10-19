@@ -48,7 +48,6 @@ const Button = styled.a`
 	font-size: 2rem;
 	font-weight: 600;
 	border-radius: 10px;
-	/* margin: 0 auto; */
 	&:hover {
 		color: ${pr => pr.theme.eggshell};
 	}
