@@ -9,12 +9,16 @@ import Login from './Pages/Login/Login.js';
 // import Register from './Pages/Register/Register.js';
 import Dash from './Pages/Dash/Dash.js';
 import NotFound from './Pages/NotFound/NotFound.js';
-import ClassSearch from "./Pages/class-search/ClassSearch"
+import ClassSearch from "./Pages/class-search/ClassSearch";
+import InstructorLanding from './Pages/instructor/instructor-landing';
 
 const Routes = (props) => {
 	return (
 			<Router {...props}>
-				<Switch>
+			<Switch>
+				<Route path='/instructor'>
+					<InstructorLanding />	
+				</Route>
 					<Route path="/Login">
 						<Login />
 					</Route>
