@@ -110,31 +110,45 @@ const LandingPage = styled.div`
 		flex-flow: row wrap;
 		justify-content: center;
 		align-items: center;
-
 		a {
-			/* display: inline-block;
-			background-color: ${pr => pr.theme.primaryOrange};
-			width: 27.7rem;
-			height: 7.3rem;
-			border-radius: 5px;
-			font-size: 3rem;
-			line-height: 35px;
-			color: ${pr => pr.theme.charcoal};
-			text-align: center;
-			margin: 2rem; */
-
 			display: inline-block;
 			width: 28rem;
 			border-radius: 5px;
 			text-align: center;
-		font-size: 3rem;
-		background-color: ${pr => pr.theme.primaryOrange};
-		color: ${pr => pr.theme.charcoal};
-		text-decoration: none;
-		padding: 2rem;
-		margin: 1rem;
+			font-size: 3rem;
+			background-color: ${pr => pr.theme.primaryOrange};
+			color: ${pr => pr.theme.charcoal};
+			text-decoration: none;
+			padding: 2rem;
+			margin: 1rem;
 		}
 	}
+`;
+
+const HelpCollapse = styled.div`
+	display: ${pr => pr.isHelpOpen ? "block" : "none"};
+	transition: all 0.4s ease-in-out;
+	height: 250px;
+	max-width: 100%;
+	/* transition: all 0.4s ease-in-out; */
+	h3 {
+		font-size: 8.6rem;
+		line-height: 10.1rem;
+		letter-spacing: 0.02rem;
+		color: ${pr => pr.theme.charcoal};
+	}
+	p {
+		font-weight: 600;
+		font-size: 1.8rem;
+		line-height: 2.5rem;
+	}
+
+	/* div.help-open {
+	}
+	div.help-not-open {
+		display: none;
+		transition: all 0.4s ease-in-out;
+	} */
 `;
 
 const DeveloperNav = styled.div`
@@ -164,8 +178,6 @@ const DeveloperNav = styled.div`
 		padding: 2rem;
 		margin: 1rem;
 	}
-
-	
 `;
 
 const Dash = () => {
@@ -198,10 +210,10 @@ const Dash = () => {
 				<h4>Welcome.</h4>
 			</div>
 
-			<div className={isHelpOpen ? "help-open" : "help-not-open"} isHelpOpen={isHelpOpen}>
+			<HelpCollapse className="help-collapse" isHelpOpen={isHelpOpen}>
 				<h3>Register/Cancel classes</h3>
 				<p>Signing up for classes is easy. And you can cancel and reschedule classes with little to no cancellation fee.</p>
-			</div>
+			</HelpCollapse>
 
 
 
