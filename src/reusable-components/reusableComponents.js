@@ -82,6 +82,5 @@ export const HeroImage = styled.div`
 		max-width: 100%;
 		background-size: cover;
 		background-position: center;
-		background-blend-mode: darken;
 	}
 `;
