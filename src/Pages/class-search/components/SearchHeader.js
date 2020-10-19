@@ -4,18 +4,49 @@ import styled from "styled-components";
 const StyledSearchHeader = styled.header`
 	display: flex;
 	flex-flow: row nowrap;
-	h1 {
-		font-size: 6rem;
-		color: ${pr => pr.theme.charcoal};
-	}
-	p {
-		font-weight: 600;
-		font-size: 1.8rem;
-		line-height: 2.5rem;
-		color: ${pr => pr.theme.charcoal};
+	justify-content: space-between;
+
+	align-items: center;
+	div {
+		display: inline-flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		h1 {
+			display: inline-block;
+			font-size: 6rem;
+			color: ${pr => pr.theme.charcoal};
+			/* margin-right: 3rem; */
 		}
+		p {
+			display: inline-block;
+			font-weight: 800;
+			font-size: 2rem;
+			font-style: normal;
+			letter-spacing: 0.05rem;
+			padding: 10px;
+			color: ${pr => pr.theme.charcoal};
+		}
+	}
 `;
 
+const InputContainer = styled.div`
+	display: inline-block;
+	height: 5rem;
+	width: 60rem;
+`;
+
+const Input = styled.input.attrs(pr => ({
+	radius: pr.place === "left" ? "25px 0px 0px 25px" : "0px 25px 25px 0px",
+}))`
+	background: transparent;
+	display: inline-block;
+	text-align: center;
+	height: 100%;
+	width: 50%;
+	border-radius: ${pr => pr.radius};
+	border-color: #CCCCCC;
+	outline: none;
+`;
 
 
 const SearchHeader = props => {
@@ -27,33 +58,34 @@ const SearchHeader = props => {
 		console.log(name, value);
 		searchChange(name, value);
 	};
-
-	// const onSubmit = (evt) => {
-	// 	evt.preventDefault();
-	// 	searchSubmit();
-	// }
-
+	
 	return (
 		<StyledSearchHeader className="search-header">
-			<h1>Anywhere Fitness</h1>
-			{/* <form onSubmit={onSubmit}> */}
-				<input 
-					name="sessionInput"
-					type="text"
-					value={input.sessionInput}
-					onChange={onChange}
-					placeholder="Find a class or activity" 
-				/>
-				<input 
-					name="locationInput"
-					type="text"
-					value={input.locationInput}
-					onChange={onChange}
-					placeholder="Chicago, IL"
-				/>
-			{/* </form> */}
-			<p>About</p>
-			<p>Hello, User!</p>
+			<div>
+				<h1>Anywhere Fitness</h1>
+			</div>
+				<InputContainer className="input-container">
+					<Input 
+						name="sessionInput"
+						type="text"
+						value={input.sessionInput}
+						onChange={onChange}
+						placeholder="Find a class or activity" 
+						place="left"
+					/>
+					<Input 
+						name="locationInput"
+						type="text"
+						value={input.locationInput}
+						onChange={onChange}
+						placeholder="Chicago, IL"
+						place="right"
+					/>
+				</InputContainer>
+			<div>
+				<p>About</p>
+				<p>Hello, User!</p>
+			</div>
 		</StyledSearchHeader>
 	);
 };

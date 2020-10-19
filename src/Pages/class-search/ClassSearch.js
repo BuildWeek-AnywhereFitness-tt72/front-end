@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 // import { Link } from "react-router-dom";
-// import styled from "styled-components";
+import styled from "styled-components";
 
 import SearchHeader from "./components/SearchHeader";
 import SearchOptionsDropdown from "./components/SearchOptionsDropdown";
 import searchFormSchema from './validation/searchFormSchema';
+
+
 
 const initInput = {
 	sessionInput: "",
@@ -26,6 +28,7 @@ const initFilters = {
 	classTime: "",
 	classLevel: "",
 };
+
 
 const ClassSearch = props => {
 	const [input, setInput] = useState(initInput);
