@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -23,14 +23,11 @@ const LandingPage = styled.div`
 				letter-spacing: 0.05rem;
 				padding: 10px;
 				color: ${pr => pr.theme.charcoal};
-				/* height: 20px; */
-				/* width: 40px; */
-				/* margin: 1px; */
 			}
 		}
 	}
 	div.welcome-banner {
-		background: ${ pr => pr.theme.primaryOrange };
+		background: ${pr => pr.theme.primaryOrange};
 		color: white;
 		font-weight: 600;
 		font-size: 1.5rem;
@@ -44,6 +41,24 @@ const LandingPage = styled.div`
 			letter-spacing: 0.05em;
 		}
 	}
+	div.help-open {
+		height: 250px;
+		max-width: 100%;
+		h3 {
+			font-size: 8.6rem;
+			line-height: 10.1rem;
+			letter-spacing: 0.02rem;
+			color: ${pr => pr.theme.charcoal};
+		}
+		p {
+			font-weight: 600;
+			font-size: 1.8rem;
+			line-height: 2.5rem;
+		}
+	}
+	div.help-not-open {
+		display: none;
+	}
 	div.background-img {
 		margin-top: 0;
 		height: 560px;
@@ -55,19 +70,22 @@ const LandingPage = styled.div`
 		background-position: center;
 		/* opacity: 0.3; */
 		background-blend-mode: darken;
-		div.hero-text-background {
+		div.hero-text-container {
+			background: rgba(248, 248, 248, 0.3);
+			height: 100%;
+		}
 			div.hero-text {
-				background: rgba(248, 248, 248, 0.5);
-				position: absolute;
+				/* background: rgba(248, 248, 248, 0.5); */
+				position: relative;
 				width: 770px;
 				height: 290px;
 				left: 25px;
-				top: 310px;
+				top: 180px;
 				h3 {
 					font-size: 8.6rem;
 					line-height: 10.1rem;
 					letter-spacing: 0.02em;
-					color: ${ pr => pr.theme.charcoal};
+					color: ${pr => pr.theme.charcoal};
 				}
 				p {
 					font-weight: 600;
@@ -75,10 +93,12 @@ const LandingPage = styled.div`
 					line-height: 2.5rem;
 					display: flex;
 					align-items: center;
-					color: ${ pr => pr.theme.charcoal};
+					color: ${pr => pr.theme.charcoal};
 				}
 			}
-		}
+			div.not-active {
+				display: none;
+			}
 	}
 	div.signup-button {
 		a {
@@ -89,7 +109,7 @@ const LandingPage = styled.div`
 			border-radius: 5px;
 			font-size: 3rem;
 			line-height: 35px;
-			color: ${ pr => pr.theme.charcoal};
+			color: ${pr => pr.theme.charcoal};
 			text-align: center;
 			margin: 2rem;
 		}
@@ -97,14 +117,28 @@ const LandingPage = styled.div`
 `;
 
 const Dash = () => {
+	const [isBrowseOpen, setIsBrowseOpen] = useState(true);
+	const [isAboutOpen, setIsAboutOpen] = useState(false);
+	const [isHelpOpen, setIsHelpOpen] = useState(false);
+
+	const handleAboutClick = () => {
+		// if (isBrowseOpen) {
+		setIsAboutOpen(!isAboutOpen);
+		setIsBrowseOpen(!isBrowseOpen);
+		// }
+	};
+
+	const handleHelpClick = () => {
+		setIsHelpOpen(!isHelpOpen);
+	};
 
 	return (
 		<LandingPage className="landing-container">
 			<div className="header">
 				<h1>Anywhere Fitness</h1>
 				<nav className="top-nav">
-					<Link to="/Dash/help">Help</Link>
-					<Link to="/Dash/about">About</Link>
+					<a href="/Dash/#" onClick={handleHelpClick}>Help</a>
+					<a href="/Dash/#" onClick={handleAboutClick}>About</a>
 				</nav>
 			</div>
 			<div className="welcome-banner">
@@ -112,16 +146,24 @@ const Dash = () => {
 				<h4>Welcome.</h4>
 			</div>
 
-			<div className="background-img">
-				<div className="hero-text-background">
+			<div className={isHelpOpen ? "help-open" : "help-not-open"} isHelpOpen={isHelpOpen}>
+				<h3>Register/Cancel classes</h3>
+				<p>Signing up for classes is easy. And you can cancel and reschedule classes with little to no cancellation fee.</p>
+			</div>
 
-					<div className="hero-text">
+
+
+			<div className="background-img">
+				<div className="hero-text-container">
+					<div className={`${isBrowseOpen ? "hero-text" : "not-active"}`}>
 						<h3>Browse classes</h3>
 						<p>Our expert instructors conduct classes literally anywhere. Take a yoga class on a mountaintop. Do boot camp on the beach. Go to an abandoned mansion for mat pilates. The options are limitless.</p>
 					</div>
+					<div className={`${isAboutOpen ? "hero-text" : "not-active"}`}>
+						<h3>Become Your Own Boss</h3>
+						<p>Instead of needing a gym to attract clients, instructors can be their own boss and set up their fitness classes with a minimal start up fee.</p>
+					</div>
 				</div>
-
-
 			</div>
 			<div className="signup-button">
 				<Link to="/Login">Login</Link>
