@@ -9,7 +9,7 @@ import Login from './Pages/Login/Login.js';
 // import Register from './Pages/Register/Register.js';
 import Dash from './Pages/Dash/Dash.js';
 import NotFound from './Pages/NotFound/NotFound.js';
-import SearchHeader from "./Pages/class-search/ClassSearch"
+import ClassSearch from "./Pages/class-search/ClassSearch"
 
 const Routes = (props) => {
 	return (
@@ -17,13 +17,15 @@ const Routes = (props) => {
 				<Switch>
 					<Route path="/Login">
 						<Login />
-						<SearchHeader />
 					</Route>
 					{/* <Route path="/register">
 						<Register />
 					</Route> */}
 					<Route path="/Dash">
 						<Dash />
+					</Route>
+					<Route path="/class-search">
+						<ClassSearch />
 					</Route>
 					<Route exact path="/">
 						<Redirect to="/Dash" />
