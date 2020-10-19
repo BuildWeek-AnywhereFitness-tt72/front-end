@@ -5,7 +5,7 @@ const StyledSearchHeader = styled.header`
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
-
+	border: 1px solid lightgray;
 	align-items: center;
 	div {
 		display: inline-flex;
@@ -47,7 +47,6 @@ const Input = styled.input.attrs(pr => ({
 	border-color: #CCCCCC;
 	outline: none;
 `;
-
 
 const SearchHeader = props => {
 	
@@ -91,3 +90,89 @@ const SearchHeader = props => {
 };
 
 export default SearchHeader;
+
+
+// const InputGroup = styled.div`
+// 	display: flex;
+// 	height: 5rem;
+// 	width: 60rem;
+// `;
+
+// const InputContainer = styled.div.attrs(pr => ({
+// 	radius: pr.place === "left" ? "25px 0px 0px 25px" : "0px 25px 25px 0px",
+// }))`
+// 	display: flex;
+// 	/* background: transparent; */
+// 	text-align: center;
+// 	height: 100%;
+// 	width: 50%;
+// 	border-width: thin;
+// 	border-radius: ${pr => pr.radius};
+// 	border-left: ${pr => pr.place === "right" ? "0px" : ""};
+// 	border-color: #CCCCCC;
+// 	/* outline: none; */
+// 	span {
+// 		height: 100%;
+// 		display: inline-flex;
+// 		align-items: center;
+// 		justify-content: center;
+// 		overflow: hidden;
+// 	}
+
+// `;
+
+// const Input = styled.input.attrs(pr => ({
+// 	radius: pr.place === "left" ? "25px 0px 0px 25px" : "0px 25px 25px 0px",
+// }))`
+// 	/* display: inline-block; */
+	
+
+	
+// `;
+
+
+// turn (
+// 	<StyledSearchHeader className="search-header">
+// 		<div className="head-text">
+// 			<h1>Anywhere Fitness</h1>
+// 		</div>
+// 		<InputGroup className="input-container">
+// 		<InputContainer place="left">
+// 			<span>
+// 				<div>
+// 					{locationIconSVG}
+// 				</div>
+// 			</span>
+// 			<Input
+// 				name="sessionInput"
+// 				type="text"
+// 				value={input.sessionInput}
+// 				onChange={onChange}
+// 				placeholder="Find a class or activity"
+// 				// place="left"
+// 			/>
+// 		</InputContainer>
+// 		<InputContainer place="right">
+// 			<span>
+// 				<div>
+// 					{searchIconSVG}
+// 				</div>
+// 			</span>
+// 			<Input
+// 				name="locationInput"
+// 				type="text"
+// 				value={input.locationInput}
+// 				onChange={onChange}
+// 				placeholder="Chicago, IL"
+// 				// place="right"
+// 			/>
+// 		</InputContainer>
+
+// 		</InputGroup>
+// 		<div className="head-text">
+// 			<p>About</p>
+// 			<p>Hello, User!</p>
+// 		</div>
+// 	</StyledSearchHeader>
+// );
+// };

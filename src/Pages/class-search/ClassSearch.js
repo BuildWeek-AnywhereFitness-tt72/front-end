@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 // import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -15,7 +15,7 @@ const initInput = {
 
 //valid types
 const validFilters = {
-	classType: ["yoga", "weightlifting", "biking/spin", "functional-fitness", "boxing", "cardio", "stretch", "dance", "running", "bootcamp", ],
+	classType: ["yoga", "weightlifting", "biking/spin", "functional-fitness", "boxing", "cardio", "stretch", "dance", "running", "bootcamp",],
 	classDuration: ["0-15", "15-30", "30-45", "45-60", "60+",],
 	// classDate: Calendar
 	classTime: ["early-morning", "late-morning", "midday", "early-afternoon", "late-afternoon", "early-evening", "late-evening",],
@@ -30,10 +30,31 @@ const initFilters = {
 };
 
 
+
+const Button = styled.a`
+	display: flex;
+	background-color: ${pr => pr.theme.primaryOrange};
+	color: ${pr => pr.theme.charcoal};
+	width: 20rem;
+	height: 5rem;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	font-weight: 600;
+	border-radius: 10px;
+	margin: 0 auto;
+	&:hover {
+		color: ${pr => pr.theme.charcoal};
+	}
+`;
+
+
+
 const ClassSearch = props => {
 	const [input, setInput] = useState(initInput);
 	const [filters, setFilters] = useState(initFilters);
-	// const [isDisabled, setIsDisabled] = useState(true);
+	const [isDisabled, setIsDisabled] = useState(false);
 
 	const searchChange = (name, value) => {
 		setInput({ ...input, [name]: value });
@@ -42,12 +63,6 @@ const ClassSearch = props => {
 	const filtersChange = (name, value) => {
 		setFilters({ ...filters, [name]: value });
 	};
-
-	// useEffect(() => {
-	// 	searchFormSchema.isValid(input).then(valid => {
-	// 		setIsDisabled(!valid);
-	// 	});
-	// }, [input]);
 
 	const searchSubmit = (evt) => {
 		evt.preventDefault();
@@ -58,16 +73,15 @@ const ClassSearch = props => {
 		};
 		console.log(newSearch);
 		console.log(`Session: ${input.sessionInput}`, `Location: ${input.locationInput}`, filters);
-		
 	}
-	
+
 	return (
 		<div className="class-search-container">
 			<form onSubmit={searchSubmit}>
 				<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} />
 				<SearchOptionsDropdown filters={filters} validFilters={validFilters} filtersChange={filtersChange} />
-				<button className="submit-btn">Submit</button>
 			</form>
+			<Button className="submit-btn" isDisabled={isDisabled}>Search</Button>
 		</div>
 	);
 };

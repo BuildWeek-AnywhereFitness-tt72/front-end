@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// // import styled from "styled-components";
+import styled from "styled-components";
 
 
 // classType: 
@@ -10,12 +10,25 @@ import React, { useState } from 'react';
 // classLevel: ["beginner", "intermediate", "advanced"]
 
 
-
+const Dropdown = styled.select`
+	display: inline-block;
+	height: 5rem;
+	width: 20rem;
+	margin: 2rem;
+	border-radius: 50px;
+	text-align: center;
+	font-family: Raleway;
+	text-align: center;
+	font-size: 1.8rem;
+	font-weight: 700;
+`;
+const StyledOption = styled.option`
+`;
 
 
 const SearchOptionsDropdown = props => {
-	
-	const { filters, validFilters, filtersChange, } = props;
+
+	const { validFilters, filtersChange, } = props;
 
 	/**
 	 * This helper function takes a filter name and maps every available option for the given filter
@@ -25,12 +38,12 @@ const SearchOptionsDropdown = props => {
 	 */
 	const mapFilter = (filterName) => {
 		return validFilters[filterName].map(opt => {
-			return <option key={opt} value={opt}>{opt}</option>
+			return <StyledOption key={opt} value={opt}>{opt}</StyledOption>
 		});
 	};
 
 	const onChange = evt => {
-		const {name, value} = evt.target;
+		const { name, value } = evt.target;
 		filtersChange(name, value);
 	};
 
@@ -41,15 +54,15 @@ const SearchOptionsDropdown = props => {
 				Object.keys(validFilters).map(filter => {
 					//for each filterName in state, return a select element
 					return (
-						<select key={filter} name={filter} onChange={onChange}> 
-						{/* each select has a label option to begin */}
-							<option key="label" value="">{filter}</option>
-							{ mapFilter(filter) }
-						</select>
+						<Dropdown key={filter} name={filter} onChange={onChange}>
+							{/* each select has a label option to begin */}
+							<StyledOption key="label" value="">{filter}</StyledOption>
+							{ mapFilter(filter)}
+						</Dropdown>
 					);
 				})
 			}
-			
+
 		</div>
 	);
 };
