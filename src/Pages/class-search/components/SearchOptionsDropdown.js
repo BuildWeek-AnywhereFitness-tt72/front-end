@@ -21,7 +21,7 @@ const validFilters = {
 
 
 const SearchOptionsDropdown = props => {
-	const [filters, setFilters] = useState(validFilters);
+	const [filters] = useState(validFilters);
 
 	const mapFilter = (filterName) => {
 		return filters[filterName].map(opt => {
@@ -35,13 +35,12 @@ const SearchOptionsDropdown = props => {
 				Object.keys(filters).map(filter => {
 					return (
 						<select key={filter} name={filter}>
+							<option key="label" value="">{filter}</option>
 							{ mapFilter(filter) }
 						</select>
 					);
 				})
 			}
-
-
 		</div>
 	);
 };
