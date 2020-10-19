@@ -44,6 +44,7 @@ const Input = styled.input.attrs(pr => ({
 	height: 100%;
 	width: 50%;
 	border-radius: ${pr => pr.radius};
+	border-left: ${pr => pr.place === "right" ? "0px" : ""};
 	border-color: #CCCCCC;
 	outline: none;
 `;
