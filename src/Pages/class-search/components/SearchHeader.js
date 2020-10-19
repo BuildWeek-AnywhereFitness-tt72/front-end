@@ -15,7 +15,6 @@ const StyledSearchHeader = styled.header`
 			display: inline-block;
 			font-size: 6rem;
 			color: ${pr => pr.theme.charcoal};
-			/* margin-right: 3rem; */
 		}
 		p {
 			display: inline-block;
