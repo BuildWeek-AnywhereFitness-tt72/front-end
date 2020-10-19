@@ -106,8 +106,13 @@ const LandingPage = styled.div`
 			}
 	}
 	div.signup-button {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-items: center;
+
 		a {
-			display: inline-block;
+			/* display: inline-block;
 			background-color: ${pr => pr.theme.primaryOrange};
 			width: 27.7rem;
 			height: 7.3rem;
@@ -116,9 +121,51 @@ const LandingPage = styled.div`
 			line-height: 35px;
 			color: ${pr => pr.theme.charcoal};
 			text-align: center;
-			margin: 2rem;
+			margin: 2rem; */
+
+			display: inline-block;
+			width: 28rem;
+			border-radius: 5px;
+			text-align: center;
+		font-size: 3rem;
+		background-color: ${pr => pr.theme.primaryOrange};
+		color: ${pr => pr.theme.charcoal};
+		text-decoration: none;
+		padding: 2rem;
+		margin: 1rem;
 		}
 	}
+`;
+
+const DeveloperNav = styled.div`
+	background: lightgray;
+	border: 10px solid orange;
+	text-align: center;
+	width: 90%;
+	margin: 0 auto;
+	h4 {
+		font-size: 5rem;
+	}
+	p {
+		font-size: 2rem;
+	}
+	nav {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-items: center;
+	}
+	a {
+		display: inline-block;
+		font-size: 3rem;
+		background-color: ${pr => pr.theme.primaryOrange};
+		color: ${pr => pr.theme.charcoal};
+		text-decoration: none;
+		padding: 2rem;
+		margin: 1rem;
+	}
+
+	
 `;
 
 const Dash = () => {
@@ -173,6 +220,20 @@ const Dash = () => {
 			<div className="signup-button">
 				<Link to="/Login">Login</Link>
 			</div>
+
+
+			{/* PURELY FOR EASE OF ACCESS — NOT PART OF THE PAGE */}
+			<DeveloperNav className="for-developers">
+				<h4>JUST FOR US</h4>
+				<p>This is simply for ease of access; not part of the page!. I figured it would be easier to navigate through all our pages if we had all the links in one spot</p>
+				<nav>
+					<Link to="/Login">Login</Link>
+					<Link to="/Dash">Dash</Link>
+					<Link to="/class-search">Class Search</Link>
+				</nav>
+			</DeveloperNav>
+
+
 		</LandingPage>
 	);
 };
