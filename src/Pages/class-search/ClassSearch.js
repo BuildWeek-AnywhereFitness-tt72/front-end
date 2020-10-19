@@ -4,6 +4,7 @@ import React, {useState, useEffect} from 'react';
 
 import SearchHeader from "./components/SearchHeader";
 import SearchOptionsDropdown from "./components/SearchOptionsDropdown";
+import searchFormSchema from './validation/searchFormSchema';
 
 const initInput = {
 	sessionInput: "",
@@ -29,6 +30,7 @@ const initFilters = {
 const ClassSearch = props => {
 	const [input, setInput] = useState(initInput);
 	const [filters, setFilters] = useState(initFilters);
+	const [isDisabled, setIsDisabled] = useState(true);
 
 	const searchChange = (name, value) => {
 		setInput({ ...input, [name]: value });
@@ -38,16 +40,22 @@ const ClassSearch = props => {
 		setFilters({ ...filters, [name]: value });
 	};
 
+	// useEffect(() => {
+	// 	searchFormSchema.isValid(input).then(valid => {
+	// 		setIsDisabled(!valid);
+	// 	});
+	// }, [input]);
 
-	const searchSubmit = () => {
+	const searchSubmit = (evt) => {
+		evt.preventDefault();
 		const newSearch = {
 			session: input.sessionsInput,
 			location: input.locationInput,
-			filters: validFilters.filter( filter => filters[filter]),
+			filters: filters,
 		};
 		console.log(newSearch);
-		console.log(`Session: ${input.sessionInput} | Location: ${input.locationInput}`);
-		console.log(`Session filters: ${filters}`);
+		console.log(`Session: ${input.sessionInput}`, `Location: ${input.locationInput}`, filters);
+		
 	}
 	
 	return (
@@ -55,6 +63,7 @@ const ClassSearch = props => {
 			<form onSubmit={searchSubmit}>
 				<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} />
 				<SearchOptionsDropdown filters={filters} validFilters={validFilters} filtersChange={filtersChange} />
+				<button className="submit-btn">Submit</button>
 			</form>
 		</div>
 	);

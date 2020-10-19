@@ -49,7 +49,7 @@ const SearchOptionsDropdown = props => {
 					);
 				})
 			}
-			<button className="submit-btn">Submit</button>
+			
 		</div>
 	);
 };

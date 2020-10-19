@@ -20,10 +20,11 @@ const StyledSearchHeader = styled.header`
 
 const SearchHeader = props => {
 	
-	const {input, searchChange, searchSubmit} = props;
+	const {input, searchChange} = props;
 
 	const onChange = (evt) => {
 		const {name, value} = evt.target;
+		console.log(name, value);
 		searchChange(name, value);
 	};
 
@@ -37,14 +38,14 @@ const SearchHeader = props => {
 			<h1>Anywhere Fitness</h1>
 			{/* <form onSubmit={onSubmit}> */}
 				<input 
-					name="session-search"
+					name="sessionInput"
 					type="text"
 					value={input.sessionInput}
 					onChange={onChange}
 					placeholder="Find a class or activity" 
 				/>
 				<input 
-					name="location-search"
+					name="locationInput"
 					type="text"
 					value={input.locationInput}
 					onChange={onChange}
