@@ -111,9 +111,11 @@ const CreateClass = () => {
         return new Date(date).toLocaleDateString();
     }
 
-    const inputChange = (name, value) => {
 
+    const inputChange = (evt) => {
 
+        const { name, value } = evt.target;
+        console.log(name, value)
         yup
             .reach(createClassSchema, name)
             .validate(value)
