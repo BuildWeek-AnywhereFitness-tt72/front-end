@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 // import styles from "./Register.module.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { register } from "../../store/actions";
 
 function Register() {
-  const [newFriend, setNewFriend] = useState({
+  const [user, setUser] = useState({
     name: "",
     password: "",
     email: "",
+    role: "student",
   });
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    setNewFriend({ ...newFriend, [e.target.name]: e.target.value });
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const submitAccount = (e) => {
     e.preventDefault();
-    // props.submitAccount(newFriend);
-    setNewFriend({ name: "", password: "", email: "" });
+    dispatch(register(user));
   };
 
   return (
@@ -27,7 +31,7 @@ function Register() {
           <input
             type="string"
             name="name"
-            // value={newFriend.name}
+            // value={user.name}
             onChange={handleChange}
           />
         </label>
@@ -36,7 +40,7 @@ function Register() {
           <input
             type="email"
             name="email"
-            // value={newFriend.email}
+            // value={user.email}
             onChange={handleChange}
           />
         </label>
@@ -45,11 +49,11 @@ function Register() {
           <input
             type="password"
             name="password"
-            // value={newFriend.age}
+            // value={user.age}
             onChange={handleChange}
           />
         </label>
-        <button>Add friend</button>
+        <button>Sign Up</button>
       </form>
     </div>
   );
