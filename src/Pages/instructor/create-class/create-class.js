@@ -60,24 +60,28 @@ const StyledDays = styled.div`
 
 const initialFormValues = {
     name: '',
-    description: '', 
-    cost: '', 
+    // description: '', 
+    // cost: '', 
     address: '',
+    //city
+    //state
+    //zip
     type: '',
-    size: '',
-    length: '',
-    level: '',
-    arrival: '',
-    know: '',
-    timeStart: '',
-    timeEnd: '',
-    monday: false,
-    tuesday: false,
-    wednesday: false,
-    thursday: false,
-    friday: false,
-    saturday: false,
-    sunday: false,
+    size: '', //maxsize
+    length: '', // duration
+    level: '', //intensity
+    // arrival: '',
+    // know: '',
+    date/time in one field "date"
+    // timeStart: '',
+    // timeEnd: '',
+    // monday: false,
+    // tuesday: false,
+    // wednesday: false,
+    // thursday: false,
+    // friday: false,
+    // saturday: false,
+    // sunday: false,
 }
 
 const initialFormErrors = {
@@ -133,6 +137,10 @@ const CreateClass = () => {
             address: formValues.address.trim(),
             type: formValues.type,
             size: formValues.size.trim(),
+            locations: {
+                address: formValues.address.trim(),
+
+            },
             length: formValues.length.trim(),
             level: formValues.level,
             arrival: formValues.arrival.trim(),
