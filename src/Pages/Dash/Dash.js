@@ -60,10 +60,10 @@ const LandingPage = styled.div`
 		background-repeat: no-repeat;
 		max-width: 100%;
 		background-size: cover;
-		background-position: center;
+		background-position: 50% 32%;
 		background-blend-mode: darken;
 		div.hero-text-container {
-			background: rgba(248, 248, 248, 0.3);
+			background: rgba(248, 248, 248, 0.2);
 			height: 100%;
 		}
 	}
