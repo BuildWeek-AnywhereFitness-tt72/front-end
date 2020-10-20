@@ -1,17 +1,16 @@
-
-
 import React, { useState } from "react";
 // import styles from "./Register.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { register } from "../../store/actions";
+import { MainHeader } from "../../reusable-components/reusableComponents";
 
 function Register() {
   const [user, setUser] = useState({
-    name: "",
+    username: "",
     password: "",
-    email: "",
+    // email: "",
     instructor: false,
   });
   const dispatch = useDispatch();
@@ -32,27 +31,21 @@ function Register() {
   return (
     <div>
       <MainHeader>
-        <h1 onClick={handleTitleClick}>Anywhere Fitness</h1>
-        <nav className="top-nav">
-          <a href="/Dash/#" onClick={handleHelpClick}>
-            Help
-          </a>
-          <a href="/Dash/#" onClick={handleAboutClick}>
-            About
-          </a>
-        </nav>
+        <h1>Anywhere Fitness</h1>
       </MainHeader>
-      <form onSubmit={submitAccount}>
-        <label>
-          Username:
-          <input
-            type="string"
-            name="name"
-            // value={user.name}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
+      <div>
+        <h1>Sign Up</h1>
+        <form onSubmit={submitAccount}>
+          <label>
+            Username:
+            <input
+              type="string"
+              name="username"
+              value={user.username}
+              onChange={handleChange}
+            />
+          </label>
+          {/* <label>
           Email:
           <input
             type="email"
@@ -60,30 +53,30 @@ function Register() {
             // value={user.email}
             onChange={handleChange}
           />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            // value={user.age}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Are you an instructor?
-          <input
-            name="instructor"
-            type="checkbox"
-            checked={user.instructor}
-            onChange={handleChange}
-          />
-        </label>
-        <button>Sign Up</button>
-      </form>
+        </label> */}
+          <label>
+            Password:
+            <input
+              type="password"
+              name="password"
+              value={user.password}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Are you an instructor?
+            <input
+              name="instructor"
+              type="checkbox"
+              checked={user.instructor}
+              onChange={handleChange}
+            />
+          </label>
+          <button>Sign Up</button>
+        </form>
+      </div>
     </div>
   );
 }
-
 
 export default Register;

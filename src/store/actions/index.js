@@ -9,7 +9,12 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const REGISTER_REQUEST = "REGISTER_REQUEST";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
-// action creator that is going to do some async stuff
+
+const role = {
+  1: "client",
+  2: "instructor",
+};
+
 export const login = (username, password) => (dispatch) => {
   //   dispatch({ type: LOGIN_REQUEST });
   axios
@@ -26,12 +31,21 @@ export const login = (username, password) => (dispatch) => {
 
 export const register = (user) => (dispatch) => {
   //   dispatch({ type: REGISTER_REQUEST });
-  console.log(user);
+  let data = {
+    username: user.username,
+    password: user.password,
+    role: user.instructor ? role[2] : role[1],
+  };
+  console.log(data);
   axios
-    .get("") // TODO: Add register url
+    .post("http://tt72-anyfit.herokuapp.com/createnewuser", {
+      data: JSON.stringify(data),
+    })
     .then((res) => {
-      history.push("/login");
-      dispatch({ type: REGISTER_SUCCESS });
+      //   history.push("/login");
+      console.log(res);
+      //   window.localStorage.set("token", res["access_token"]);
+      //   dispatch({ type: REGISTER_SUCCESS });
     })
     .catch((err) => {
       console.log(err);
