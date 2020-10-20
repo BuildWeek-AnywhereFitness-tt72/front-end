@@ -102,8 +102,10 @@ const initSessionHistory = [
 
 const ClassManage = props => {
 	// const [user, setUser] = useState();
-	const [activeSessions, setActiveSessions] = useState(initActiveSessions);
-	const [sessionHistory, setSessionHistory] = useState(initSessionHistory);
+	// const [activeSessions, setActiveSessions] = useState(initActiveSessions);
+	// const [sessionHistory, setSessionHistory] = useState(initSessionHistory);
+	const [activeSessions, ] = useState(initActiveSessions);
+	const [sessionHistory, ] = useState(initSessionHistory);
 
 	return (
 		<StyledClassManage>

@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+// import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
-import { HeroImgJr, StyledLink } from "../../../reusable-components/reusableComponents";
+import { HeroImgJr } from "../../../reusable-components/reusableComponents";
 
 const StyledClassImg = styled(HeroImgJr)`
 	border-radius: 25px 25px 0px 0px;
@@ -19,7 +20,7 @@ const RescheduleLink = styled(Link)`
 	border-radius: 5px;
 	font-weight: 300;
 	width: 22.4rem;
-	height: 2.5rem;
+	height: 3rem;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
@@ -62,8 +63,9 @@ const StyledClassCard = styled.div`
 
 
 const ClassCard = (props) => {
-	const {sessionName, url, date, time, active} = props.session;
-	const [isActive, setIsActive] = useState(active);
+	// const {sessionName, url, date, time, active} = props.session;
+	const {sessionName, url, date, time, } = props.session;
+	// const [isActive, setIsActive] = useState(active);
 
 	return (
 		<StyledClassCard>
@@ -75,7 +77,7 @@ const ClassCard = (props) => {
 			<div className="session-details">
 				<h6>{date}</h6>
 				<h2>{time}</h2>
-				<RescheduleLink>Reschedule</RescheduleLink>
+				<RescheduleLink to="/manage-class/#">Reschedule</RescheduleLink>
 			</div>
 		</StyledClassCard>
 	);
