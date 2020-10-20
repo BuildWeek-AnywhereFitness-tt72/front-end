@@ -5,7 +5,7 @@ import {
 	Switch,
 	Redirect,
 } from 'react-router-dom';
-import Login from './Pages/Login/Login.js';
+import  App from './Pages/Login/Login.js';
 // import Register from './Pages/Register/Register.js';
 import Dash from './Pages/Dash/Dash.js';
 import NotFound from './Pages/NotFound/NotFound.js';
@@ -20,7 +20,7 @@ const Routes = (props) => {
 					<InstructorLanding />	
 				</Route>
 					<Route path="/Login">
-						<Login />
+						<App />
 					</Route>
 					{/* <Route path="/register">
 						<Register />
