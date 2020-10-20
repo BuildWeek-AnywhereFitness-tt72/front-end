@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-// import Register from './Register';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
-import { motion } from 'framer-motion';
 
 // styling
 const StyledDiv = styled.div`
@@ -13,111 +11,114 @@ const StyledDiv = styled.div`
 	height: 80vh;
 	width: 80vw;
 	margin: 0 auto;
+	h2 {
+		display: inline-block;
+		font-size: 2rem;
+		padding: 2%;
+		margin: 10% auto;
+	}
+	div.login-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 0 auto;
+		justify-content: center;
+		background-color: white;
+		border: 4px solid #41a95e;
+		height: 50vh;
+		width: 25vw;
+		border-radius: 10px;
+		input {
+			padding: 2%;
+			width: 80%;
+		}
+	}
 `;
-
-const LoginDiv = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 0 auto;
-	justify-content: center;
-	background-color: white;
-	border: 4px solid #41a95e;
-	height: 50vh;
-	width: 25vw;
-	border-radius: 10%;
-`;
-
-const StyledH2 = styled.h2`
-	font-size: 2rem;
-	padding: 2%;
-	margin: 10% auto;
-	width: 80%;
-`;
-
-const StyledInput = styled.input`
-	padding: 2%;
-	width: 80%;
-`;
-
 const StyledSubmit = styled.button`
 	padding: 1%;
 	margin: 5% auto;
-	width: 60%;
+	/* width: 60%; */
 `;
-
-const ButtonDiv = styled.div`
+const ButtonContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 50%;
+	/* width: 50%; */
 	text-align: center;
 `;
 // end of styling
-cons
-const Login = ({ inputChange, submit, values, disabled, errors }) => {
+const initialValues = {
+	username: '',
+	password: '',
+	OAuth: '',
+	email: '',
+};
+const initialErrors = {
+	username: '',
+	password: '',
+	OAuth: '',
+	email: '',
+};
+// { inputChange, submit, values, disabled, errors }
+const Login = (props) => {
+	const [values, setValues] = useState(initialValues);
+	const [errors, setErrors] = useState(initialErrors);
+	const [disabled, setDisabled] = useState(false);
 	const history = useHistory();
-
 	const onInputChange = (evt) => {
 		const { name, value } = evt.target;
-		inputChange(name, value);
-	};
 
+		setValues({ ...values, [name]: value });
+	};
+	const submitForm = () => {
+		console.log(values);
+		console.log(errors);
+	};
 	const onSubmit = (evt) => {
 		evt.preventDefault();
-		submit();
-		history.push('/dashboard');
-	};
+		submitForm();
 
+		history.push('/Dash');
+	};
 	return (
 		<StyledDiv>
 			<form className="form container" onSubmit={onSubmit}>
-				<LoginDiv>
+				<div className="login-container">
 					<div className="errors">
 						<div>{errors.username}</div>
 						<div>{errors.email}</div>
 						<div>{errors.phone}</div>
 						<div>{errors.plants}</div>
 					</div>
-
-					<StyledH2>Username</StyledH2>
-					<StyledInput
+					<h2>Username</h2>
+					<input
 						name="username"
 						type="text"
 						placeholder="Username"
 						value={values.name}
 						onChange={onInputChange}
 					/>
-					<StyledH2>Password</StyledH2>
-					<StyledInput
+					<h2>Password</h2>
+					<input
 						name="password"
 						type="password"
 						placeholder="Password"
 						value={values.password}
 						onChange={onInputChange}
 					/>
+					<ButtonContainer>
 
-					<ButtonDiv>
-						<motion.div
-							whileTap={{
-								scale: 0.8,
-								rotate: -90,
-								borderRadius: '100%',
-							}}>
-							<StyledSubmit disabled={disabled}>
-								Login
-							</StyledSubmit>
-						</motion.div>
-					</ButtonDiv>
+						<StyledSubmit disabled={disabled}>Login</StyledSubmit>
+						{/* </motion.div> */}
+					</ButtonContainer>
 					<Link
 						to="/"
 						style={{ textDecoration: 'none', color: '#41a95e' }}>
 						New? Register here
 					</Link>
-				</LoginDiv>
+				</div>
 			</form>
 		</StyledDiv>
 	);
 };
-
 export default Login;

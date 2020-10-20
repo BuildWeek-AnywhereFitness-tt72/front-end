@@ -6,7 +6,6 @@ import {
 	Redirect,
 } from 'react-router-dom';
 import  App from './Pages/Login/Login.js';
-// import Register from './Pages/Register/Register.js';
 import Dash from './Pages/Dash/Dash.js';
 import NotFound from './Pages/NotFound/NotFound.js';
 import ClassSearch from "./Pages/class-search/ClassSearch";
