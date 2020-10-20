@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import * as yup from 'yup';
 
-import { StyledLink, MainHeader, Banner } from "../../../reusable-components/reusableComponents";
+import { StyledLink } from "../../../reusable-components/reusableComponents";
 import createClassSchema from './validation/createClassSchema';
 
 const StyledContainer = styled.div`
@@ -107,11 +107,13 @@ const CreateClass = () => {
     const [formErrors, setFormErrors] = useState(initialFormErrors);
     const [disabled, setDisabled] = useState(initialDisabled);
 
-    const changeDate = () => {
-        //Date function here
+    const formatDate = (date) => {
+        return new Date(date).toLocaleDateString();
     }
 
     const inputChange = (name, value) => {
+
+
         yup
             .reach(createClassSchema, name)
             .validate(value)
@@ -153,6 +155,8 @@ const CreateClass = () => {
     }
 
     useEffect(() => {
+        
+
         createClassSchema.isValid(formValues).then((valid) => {
             setDisabled(!valid)
         });
