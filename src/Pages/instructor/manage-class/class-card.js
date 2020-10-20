@@ -35,7 +35,7 @@ const Button = styled(Link)`
 	color: ${pr => pr.theme.charcoal};
 	font-size: 2rem;
 	border-radius: 5px;
-    font-weight: 300;
+    font-weight: 500;
     width: 100%;
     margin: 5px;
     padding: 5px 20px;
@@ -87,7 +87,7 @@ const ClassCard = (props) => {
             </StyledClassImg>
 
             <div className="details">
-                <h6>{name}</h6>
+                <h4>{name}</h4>
                 <div className='btns'>
                     <Button to="#">Edit</Button>
                     <Button to="#">Delete</Button>

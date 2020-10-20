@@ -48,9 +48,31 @@ const initialSessions = [
     },
 ]
 
+const initialEnrollment = [
+    {
+        time: '10/20/20 15:00',
+        duration: '50 min',
+        name: 'Boxing in an Abandoned Ring with Chris', 
+        maxsize: 20,
+    },
+    {
+        time: '10/20/20 15:00',
+        duration: '50 min',
+        name: 'Boxing in an Abandoned Ring with Chris',
+        maxsize: 20,
+    },
+    {
+        time: '10/20/20 15:00',
+        duration: '50 min',
+        name: 'Boxing in an Abandoned Ring with Chris',
+        maxsize: 20,
+    },
+]
+
 const ManageClass = () => {
 
-    const [ activeSessions, setActiveSessions] = useState(initialSessions)
+    const [activeSessions, setActiveSessions] = useState(initialSessions);
+    const [currentEnrollment, setCurrentEnrollment] = useState(initialEnrollment);
 
     return (
         <StyledContainer>
@@ -77,9 +99,16 @@ const ManageClass = () => {
                 <h2>Current Class Enrollment</h2>
                 <div className='table'>
                     <div className='tableHeader'>
-                        This will be the table header
+                            This will be the table header
                     </div>
-                    <ClassRow />
+                        {
+                            activeSessions.map(session => {
+                                return <ClassRow
+                                    session={session}
+                                />
+                            })
+                        }
+                    
                 </div>
                 </div>
             </div>
