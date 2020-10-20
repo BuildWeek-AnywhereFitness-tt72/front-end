@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
 	Route,
 	BrowserRouter as Router,
@@ -6,7 +6,7 @@ import {
 	Redirect,
 } from 'react-router-dom';
 import Login from './Pages/Login/Login.js';
-// import Register from './Pages/Register/Register.js';
+import Register from './Pages/Register/Register.js';
 import Dash from './Pages/Dash/Dash.js';
 import NotFound from './Pages/NotFound/NotFound.js';
 import ClassSearch from "./Pages/class-search/ClassSearch";
@@ -23,9 +23,9 @@ const Routes = (props) => {
 					<Route path="/Login">
 						<Login />
 					</Route>
-					{/* <Route path="/register">
+					<Route path="/register">
 						<Register />
-					</Route> */}
+					</Route>
 					<Route path="/Dash">
 						<Dash />
 					</Route>
