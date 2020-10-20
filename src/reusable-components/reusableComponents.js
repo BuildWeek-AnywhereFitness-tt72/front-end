@@ -3,8 +3,10 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 
+
 // use the following syntax to import any given component: 
 // import { StyledLink, MainHeader, Banner } from "./filePath"
+
 
 export const StyledLink = styled(Link)`
 	display: inline-block;
