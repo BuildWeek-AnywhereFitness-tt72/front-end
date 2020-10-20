@@ -1,12 +1,7 @@
 import React from "react";
-import {
-	Route,
-	BrowserRouter as Router,
-	Switch,
-	Redirect,
-} from 'react-router-dom';
-import Login from './Pages/Login/Login.js';
-import Register from './Pages/Register/Register.js';
+import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import Register from "./Pages/Register/Register";
+import Login from "./Pages/Login/Login";
 import Dash from './Pages/Dash/Dash.js';
 import NotFound from './Pages/NotFound/NotFound.js';
 import ClassSearch from "./Pages/class-search/ClassSearch";
