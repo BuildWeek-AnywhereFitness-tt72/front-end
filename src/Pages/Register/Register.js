@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react";
 // import styles from "./Register.module.css";
 import { Link } from "react-router-dom";
@@ -58,5 +60,6 @@ function Register() {
     </div>
   );
 }
+
 
 export default Register;
