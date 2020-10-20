@@ -15,7 +15,7 @@ const StyledClassManage = styled.div`
 	color: ${pr => pr.theme.charcoal};
 	div.main-gal {
 		display: block;
-		height: 65rem;
+		height: 80rem;
 		width: 90%;
 		background-color: white;
 		h3 {
@@ -28,6 +28,7 @@ const StyledClassManage = styled.div`
 			flex-flow: column nowrap;
 			justify-content: space-evenly;
 			align-items: center;
+			height: 90%;
 			h5 {
 				display: block;
 				text-align: center;
@@ -41,11 +42,12 @@ const StyledClassManage = styled.div`
 			div.class-container {
 				display: flex;
 				flex-flow: row nowrap;
-				overflow-x: scroll;
-				overflow-y: hidden;
+				/* overflow-x: scroll; */
+				/* overflow-y: hidden; */
 				width: 90%;
 				height: 50%;
 			}
+
 		}
 	}
 `;
@@ -107,7 +109,7 @@ const ClassManage = props => {
 		<StyledClassManage>
 
 			<ClassSearchHead />
-			<StyledHeroImg className="hero-image-container" position={"50% 30%"} height={"72rem"}>
+			<StyledHeroImg className="hero-image-container" position={"50% 30%"} height={"100rem"}>
 			<div className="main-gal">
 				<h3>Manage My Classes</h3>
 				<div className="manage-gallery">

@@ -1,9 +1,28 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import { HeroImgJr } from "../../../reusable-components/reusableComponents";
+import {Link} from "react-router-dom";
+import { HeroImgJr, StyledLink } from "../../../reusable-components/reusableComponents";
 
 const StyledClassImg = styled(HeroImgJr)`
 	border-radius: 25px 25px 0px 0px;
+	height: 50%;
+`;
+
+const RescheduleLink = styled(Link)`
+	display: block;
+	background-color: ${pr => pr.theme.primaryOrange};
+	color: ${pr => pr.theme.charcoal};
+	&:hover {
+		color: ${pr => pr.theme.charcoal};
+	}
+	font-size: 2rem;
+	border-radius: 5px;
+	font-weight: 300;
+	width: 22.4rem;
+	height: 2.5rem;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
 `;
 
 const StyledClassCard = styled.div`
@@ -15,10 +34,32 @@ const StyledClassCard = styled.div`
 		display: flex;
 		height: 100%;
 		width: 100%;
-		background: rgba(248, 248, 248, 0.2);
-		
+		background: rgba(248, 248, 248, 0.2);	
+	}
+	div.session-details {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: space-evenly;
+		align-items: center;
+		width: 100%;
+		height: 50%;
+		background: transparent;
+		border-radius: 0px 0px 25px 25px;
+		border: 1px solid #CCCCCC;
+		outline: none;
+		h6 {
+			font-size: 1.4rem;
+			line-height: 1.644rem;
+			font-weight: 500;
+		}
+		h2 {
+			font-size: 1.8rem;
+			line-height: 2.113rem;
+			font-weight: 700;
+		}
 	}
 `;
+
 
 const ClassCard = (props) => {
 	const {sessionName, url, date, time, active} = props.session;
@@ -31,8 +72,10 @@ const ClassCard = (props) => {
 					<h1>{sessionName}</h1>
 				</div>
 			</StyledClassImg>
-			<div className="session-details half-card bottom">
-
+			<div className="session-details">
+				<h6>{date}</h6>
+				<h2>{time}</h2>
+				<RescheduleLink>Reschedule</RescheduleLink>
 			</div>
 		</StyledClassCard>
 	);
