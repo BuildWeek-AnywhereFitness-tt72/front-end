@@ -1,6 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import * as Yup from "yup";
+
 import SearchHeader from "./components/SearchHeader";
 import SearchOptionsDropdown from "./components/SearchOptionsDropdown";
+// import searchFormSchema from "./validation/searchFormSchema";
+
+const searchFormSchema = Yup.object().shape({
+	sessionInput: Yup.string().required(),
+	locationInput: Yup.string().required(),
+});
 
 const initInput = {
 	sessionInput: "",
@@ -25,10 +33,19 @@ const initFilters = {
 
 const ClassSearchHead = props => {
 	const [input, setInput] = useState(initInput);
+	const [errors, setErrors] = useState(initInput);
 	const [filters, setFilters] = useState(initFilters);
-	const [isDisabled] = useState(false);
+	const [isDisabled, setIsDisabled] = useState(true);
 
 	const searchChange = (name, value) => {
+		Yup.reach(searchFormSchema, name)
+			.validate(value)
+			.then(() => {
+				setErrors({ ...errors, [name]: "" });
+			})
+			.catch( err => {
+				setErrors({ ...errors, [name]: err.errors[0] });
+			});
 		setInput({ ...input, [name]: value });
 	};
 
@@ -47,11 +64,20 @@ const ClassSearchHead = props => {
 		console.log(`Session: ${input.sessionInput}`, `Location: ${input.locationInput}`, filters);
 	}
 
+	useEffect(() => {
+		
+		searchFormSchema.isValid(input).then(valid => {
+			setIsDisabled(!valid);
+		})
+	}, [input]);
+
+
+
 	return (
-			<form onSubmit={searchSubmit}>
-				<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} isDisabled={isDisabled} />
-				<SearchOptionsDropdown filters={filters} validFilters={validFilters} filtersChange={filtersChange} />
-			</form>
+		<form onSubmit={searchSubmit}>
+			<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} isDisabled={isDisabled} />
+			<SearchOptionsDropdown filters={filters} validFilters={validFilters} filtersChange={filtersChange} />
+		</form>
 	);
 };
 
