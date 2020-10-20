@@ -3,8 +3,10 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 
+
 // use the following syntax to import any given component: 
 // import { StyledLink, MainHeader, Banner } from "./filePath"
+
 
 export const StyledLink = styled(Link)`
 	display: inline-block;
@@ -84,6 +86,20 @@ export const HeroImage = styled.div`
 		background-size: cover;
 		background-position: center;
 	}
+`;
+
+export const HeroImgJr = styled.div.attrs(pr => ({
+	height: pr.height || "60rem",
+	position: pr.position || "50% 34%",
+	url: pr.url || "https://s3-alpha-sig.figma.com/img/9adf/3259/6e5496fba2de53fa2ad308e1607bae4b?Expires=1603670400&Signature=aXc3ptln6GHEwJfJhkE3VvPI0lk772EyadQgWoe0sqIqNtc5HrkUBNVVNWbNduvI5EN1pM~23vtZIXQDGtJqrXVTR1eZsljoCGCCUqHtETHPvyp5Nq5czwym3CLL-I0GXx1m5aYGbh-oY-nTeTrGaQIiaFbOBhLdQjr9BBiWQRIIujOi87yW6C81ZPfxJ1AvkwrAzWcs50aaY3wojabWg6JiMwfRl24~ryCblh5vGkDrAsrAYQp5RJTZClH~V2LyMyScK6o8bkHZxLrIpNnWfH8cETjag96V1qV2itgWsgo-FW940~Fjn~avYGJODdv5Yihipv-tg1f7-CdtACY7Cg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+}))`
+	height: ${pr => pr.height};
+	max-width: ${ pr => pr.width ? pr.width : "100%"};
+	width: ${pr => pr.width ? pr.width : ""};
+	background-image: url(${pr => pr.url});
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: ${pr => pr.position};
 `;
 
 export const searchIconSVG = (

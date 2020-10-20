@@ -29,13 +29,6 @@ const StyledSearchHeader = styled.header`
 	}
 `;
 
-const InputContainer = styled.div`
-	display: inline-block;
-	height: 5rem;
-	width: 60rem;
-`;
-
-
 const Button = styled.a`
 	display: flex;
 	background-color: ${pr => pr.theme.charcoal};
@@ -52,6 +45,12 @@ const Button = styled.a`
 	&:hover {
 		color: ${pr => pr.theme.eggshell};
 	}
+`;
+
+const InputContainer = styled.div`
+	display: inline-block;
+	height: 5rem;
+	width: 60rem;
 `;
 
 const Input = styled.input.attrs(pr => ({
