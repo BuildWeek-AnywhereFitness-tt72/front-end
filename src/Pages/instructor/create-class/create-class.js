@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import * as yup from 'yup';
 
-import { StyledLink, MainHeader, Banner } from "../../../reusable-components/reusableComponents";
+import { StyledLink } from "../../../reusable-components/reusableComponents";
 import createClassSchema from './validation/createClassSchema';
 
 const StyledContainer = styled.div`
@@ -53,46 +53,50 @@ const StyledForm = styled.form`
     }
 `
 
-const StyledDays = styled.div`
-    display: flex;
+const StyledAddress = styled.div`
+    .addressLine {
+        display: flex;
+        justify-content:  flex-start;
+
+        label {
+            width: 15%;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        .zip {
+            width: 10.75%;
+        }
+    }
 `
 
 
 const initialFormValues = {
     name: '',
-    description: '', 
-    cost: '', 
-    address: '',
     type: '',
-    size: '',
-    length: '',
-    level: '',
-    arrival: '',
-    know: '',
-    timeStart: '',
-    timeEnd: '',
-    monday: false,
-    tuesday: false,
-    wednesday: false,
-    thursday: false,
-    friday: false,
-    saturday: false,
-    sunday: false,
+    time: '',
+    duration: '',
+    intensity: '',
+    maxsize: '',
+    address: '',
+    city: '',
+    state: '', 
+    zip: '',
 }
 
 const initialFormErrors = {
     name: '',
-    description: '',
-    cost: '',
-    address: '',
     type: '',
-    size: '',
-    length: '',
-    level: '',
-    arrival: '',
-    know: '',
-    timeStart: '',
-    timeEnd: '',
+    time: '',
+    duration: '',
+    intensity: '',
+    maxsize: '',
+    address: '',
+    city: '',
+    state: '',
+    zip: '',
 }
 
 const initialDisabled = true;
@@ -101,9 +105,17 @@ const initialDisabled = true;
 const CreateClass = () => {
     const [formValues, setFormValues] = useState(initialFormValues);
     const [formErrors, setFormErrors] = useState(initialFormErrors);
-    const [disabled, setDisabled] = useState(initialDisabled)
+    const [disabled, setDisabled] = useState(initialDisabled);
 
-    const inputChange = (name, value) => {
+    const formatDate = (date) => {
+        return new Date(date).toLocaleDateString();
+    }
+
+
+    const inputChange = (evt) => {
+
+        const { name, value } = evt.target;
+        console.log(name, value)
         yup
             .reach(createClassSchema, name)
             .validate(value)
@@ -128,24 +140,25 @@ const CreateClass = () => {
     const formSubmit = () => {
         const newClass = {
             name: formValues.name.trim(),
-            description: formValues.description.trim(),
-            cost: formValues.cost.trim(),
-            address: formValues.address.trim(),
             type: formValues.type,
-            size: formValues.size.trim(),
-            length: formValues.length.trim(),
-            level: formValues.level,
-            arrival: formValues.arrival.trim(),
-            know: formValues.know.trim(),
-            timeStart: formValues.timeStart,
-            timeEnd: formValues.timeEnd,
-            days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].filter((day) => formValues[day]),
+            time: formValues.time,
+            duration: formValues.duration,
+            intensity: formValues.intensity,
+            maxsize: formValues.maxsize,
+            location: {
+                address: formValues.address.trim(),
+                city: formValues.city.trim(),
+                state: formValues.state.trim(),
+                zip: formValues.zip.trim(),
+            }
         };
 
         //Post Function Call
     }
 
     useEffect(() => {
+        
+
         createClassSchema.isValid(formValues).then((valid) => {
             setDisabled(!valid)
         });
@@ -168,48 +181,52 @@ const CreateClass = () => {
                     />
                 </label>
 
-                <label>
-                    Class Description
-                                  
-                    <textarea
-                        value={formValues.description}
-                        onChange={inputChange}
-                        name='description'
-                    />
-                </label>
-
-                <label>
-                    Class Cost (in US dollars)
-
-                    <input
-                        value={formValues.cost}
-                        onChange={inputChange}
-                        name='cost'
-                        type='number'
-                    />
-                </label>
-
-                <label>
-                    Class Equipment Requirements
+                <StyledAddress>
+                    <div>
+                        <label>
+                            Address
+                            <input
+                                value={formValues.address}
+                                onChange={inputChange}
+                                name='address'
+                                placeholder='Type Address Here...'
+                                type='text'
+                            />
+                        </label>
+                    </div>
                     
-                    <textarea
-                        value={formValues.equipment}
-                        onChange={inputChange}
-                        name='equipment'
-                    />
-                </label>
-
-                <label>
-                    Class Address
-
-                    <input
-                        value={formValues.address}
-                        onChange={inputChange}
-                        name='address'
-                        placeholder='Type Address Here...'
-                        type='text'
-                    />
-                </label>
+                    <div className='addressLine'>
+                        <label>
+                            City
+                            <input
+                                value={formValues.city}
+                                onChange={inputChange}
+                                name='city'
+                                type='text'
+                            />
+                        </label>
+                        <label>
+                            State
+                             <input
+                                value={formValues.state}
+                                onChange={inputChange}
+                                name='state'
+                                type='text'
+                            />
+                        </label>
+                        <label className='zip'>
+                            Zip
+                            <input
+                                value={formValues.zip}
+                                onChange={inputChange}
+                                name='zip'
+                                type='text'
+                            />
+                        </label>
+                    </div>
+                </StyledAddress>
+                
+                
 
                 <label>
                     Class Type
@@ -231,9 +248,9 @@ const CreateClass = () => {
                     Class Size
 
                     <input
-                        value={formValues.size}
+                        value={formValues.maxsize}
                         onChange={inputChange}
-                        name='size'
+                        name='maxsize'
                         type='number'
                     />
                 </label>
@@ -242,9 +259,9 @@ const CreateClass = () => {
                     Class Length (in minutes)
 
                     <input
-                        value={formValues.length}
+                        value={formValues.duration}
                         onChange={inputChange}
-                        name='length'
+                        name='duration'
                         type='number'
                         placeholder='Type number here...'
                     />
@@ -255,8 +272,8 @@ const CreateClass = () => {
                     
                     <select
                         onChange={inputChange}
-                        value={formValues.level}
-                        name='level'
+                        value={formValues.intensity}
+                        name='intensity'
                     >
                         <option value=''>--Select a Level--</option>
                         <option value='beginner'>Beginner</option>
@@ -266,115 +283,21 @@ const CreateClass = () => {
                     </select>
                 </label>
 
-                <label>
-                    When to Arrive
-                    
-                    <span>Provide detailed information on ideal arrival time...</span>
-
-                    <textarea
-                        value={formValues.arrival}
-                        onChange={inputChange}
-                        name='arrival'
-                    />
-                </label>
-
-                <label>
-                    What You Need To Know
-                    <span>Provide detailed information on what attendees need to know. (i.e. potential dangers, alternative entrances, specific skills, etc.)...</span>
-
-                    <textarea
-                        value={formValues.know}
-                        onChange={inputChange}
-                        name='know'
-                    />
-                </label>
-
                 <label >
                     Class Time
                     <div className='time'>
+    
                         <input
-                            value={formValues.timeStart}
+                            value={formValues.time}
                             onChange={inputChange}
-                            name='timeStart'
-                            type='time'
-                        />
-                        To
-                        <input
-                            value={formValues.timeEnd}
-                            onChange={inputChange}
-                            name='timeEnd'
-                            type='time'
+                            name='time'
+                            type='datetime-local'
                         />
                     </div>
                     
                 </label>
 
-                <StyledDays>
-                    Class Day(s)
-                    <label>
-                        Monday
-                        <input
-                            type='checkbox'
-                            name='monday'
-                            checked={formValues.monday}
-                            onChange={inputChange}
-                        />
-                    </label>
-                    <label>
-                        Tuesday
-                        <input
-                            type='checkbox'
-                            name='tuesday'
-                            checked={formValues.tuesday}
-                            onChange={inputChange}
-                        />
-                    </label>
-                    <label>
-                        Wednesday
-                        <input
-                            type='checkbox'
-                            name='wednesday'
-                            checked={formValues.wednesday}
-                            onChange={inputChange}
-                        />
-                    </label>
-                    <label>
-                        Thursday
-                        <input
-                            type='checkbox'
-                            name='thursday'
-                            checked={formValues.thursday}
-                            onChange={inputChange}
-                        />
-                    </label>
-                    <label>
-                        Friday
-                        <input
-                            type='checkbox'
-                            name='friday'
-                            checked={formValues.friday}
-                            onChange={inputChange}
-                        />
-                    </label>
-                    <label>
-                        Saturday
-                        <input
-                            type='checkbox'
-                            name='saturday'
-                            checked={formValues.saturday}
-                            onChange={inputChange}
-                        />
-                    </label>
-                    <label>
-                        Sunday
-                        <input
-                            type='checkbox'
-                            name='sunday'
-                            checked={formValues.sunday}
-                            onChange={inputChange}
-                        />
-                    </label>
-                </StyledDays>
+                
 
                 <StyledLink disabled={disabled}>Create Class</StyledLink>
             </StyledForm>
