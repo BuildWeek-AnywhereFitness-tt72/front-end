@@ -10,12 +10,16 @@ function Register() {
     name: "",
     password: "",
     email: "",
-    role: "student",
+    instructor: false,
   });
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    if (e.target.type === "checkbox") {
+      setUser({ ...user, [e.target.name]: e.target.checked });
+    } else {
+      setUser({ ...user, [e.target.name]: e.target.value });
+    }
   };
 
   const submitAccount = (e) => {
@@ -25,6 +29,17 @@ function Register() {
 
   return (
     <div>
+      <MainHeader>
+        <h1 onClick={handleTitleClick}>Anywhere Fitness</h1>
+        <nav className="top-nav">
+          <a href="/Dash/#" onClick={handleHelpClick}>
+            Help
+          </a>
+          <a href="/Dash/#" onClick={handleAboutClick}>
+            About
+          </a>
+        </nav>
+      </MainHeader>
       <form onSubmit={submitAccount}>
         <label>
           Username:
@@ -50,6 +65,15 @@ function Register() {
             type="password"
             name="password"
             // value={user.age}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Are you an instructor?
+          <input
+            name="instructor"
+            type="checkbox"
+            checked={user.instructor}
             onChange={handleChange}
           />
         </label>
