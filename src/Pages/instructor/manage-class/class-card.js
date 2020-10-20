@@ -1,24 +1,3 @@
-// import React, { useState } from 'react';
-// import styled from 'styled-components';
-
-// import { StyledLink, MainHeader, Banner } from "../../../reusable-components/reusableComponents";
-
-
-
-
-
-// const ClassCard = (props) => {
-
-//     const { name, type } = props;
-
-//     return (
-//         <div>
-//             This is a class card
-//         </div>
-//     )
-// }
-
-// export default ClassCard;
 
 import React from "react";
 import styled from "styled-components";
@@ -42,7 +21,7 @@ const Button = styled(Link)`
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
-`;
+`
 
 const StyledClassCard = styled.div`
 	width: 35rem;

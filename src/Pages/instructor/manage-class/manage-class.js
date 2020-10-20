@@ -31,6 +31,27 @@ const StyledMyClasses = styled.div`
     
 `
 
+const StyledEnrollment = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+`
+
+const StyledTable = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+`
+
+const StyledTableHeader = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+`
 
 
 const initialSessions = [
@@ -92,25 +113,31 @@ const ManageClass = () => {
                         })
                     }
                     
-                </div>
+                    </div>
+                    
             </StyledMyClasses>
 
-            <div className='enrollment'>
+                <StyledEnrollment className='enrollment'>
                 <h2>Current Class Enrollment</h2>
-                <div className='table'>
-                    <div className='tableHeader'>
-                            This will be the table header
-                    </div>
+                    <StyledTable className='table'>
+                        <StyledTableHeader className='tableHeader'>
+                            <h4>Time</h4>
+                            <h4>Duration</h4>
+                            <h4>Name</h4>
+                            <h4>Size</h4>
+                            <h4></h4>
+
+                        </StyledTableHeader>
                         {
-                            activeSessions.map(session => {
+                            currentEnrollment.map(session => {
                                 return <ClassRow
                                     session={session}
                                 />
                             })
                         }
                     
-                </div>
-                </div>
+                    </StyledTable>
+                </StyledEnrollment>
             </div>
         </StyledContainer>
     )
