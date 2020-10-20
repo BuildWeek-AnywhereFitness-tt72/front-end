@@ -80,7 +80,7 @@ const SearchHeader = props => {
 
 	const onChange = (evt) => {
 		const {name, value} = evt.target;
-		console.log(name, value);
+		// console.log(name, value);
 		searchChange(name, value);
 	};
 	

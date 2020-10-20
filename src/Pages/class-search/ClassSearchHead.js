@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import * as Yup from "yup";
+
 import SearchHeader from "./components/SearchHeader";
 import SearchOptionsDropdown from "./components/SearchOptionsDropdown";
-import searchFormSchema from "./validation/searchFormSchema";
+// import searchFormSchema from "./validation/searchFormSchema";
+
+const searchFormSchema = Yup.object().shape({
+	sessionInput: Yup.string().required(),
+	locationInput: Yup.string().required(),
+});
 
 const initInput = {
 	sessionInput: "",
@@ -61,8 +67,6 @@ const ClassSearchHead = props => {
 	useEffect(() => {
 		
 		searchFormSchema.isValid(input).then(valid => {
-			console.log(isDisabled);
-			console.log(valid)
 			setIsDisabled(!valid);
 		})
 	}, [input]);
