@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Switch, Route, Link } from 'react-router-dom'
+import { Switch, Route, /*Link */} from 'react-router-dom'
 
 import { StyledLink, MainHeader, Banner } from "../../reusable-components/reusableComponents";
 
