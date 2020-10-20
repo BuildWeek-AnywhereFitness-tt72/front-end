@@ -1,16 +1,4 @@
-import React from "react";
-import {
-	Route,
-	BrowserRouter as Router,
-	Switch,
-	Redirect,
-} from 'react-router-dom';
-<<<<<<< HEAD
-import  App from './Pages/Login/Login.js';
-=======
-import Login from './Pages/Login/Login.js';
-import Register from './Pages/Register/Register.js';
->>>>>>> 1c3c82ce4addc68875da515df23e362c67fb04a1
+
 import Dash from './Pages/Dash/Dash.js';
 import NotFound from './Pages/NotFound/NotFound.js';
 import ClassSearch from "./Pages/class-search/ClassSearch";
