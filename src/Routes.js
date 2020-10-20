@@ -11,6 +11,7 @@ import Dash from './Pages/Dash/Dash.js';
 import NotFound from './Pages/NotFound/NotFound.js';
 import ClassSearch from "./Pages/class-search/ClassSearch";
 import InstructorLanding from './Pages/instructor/instructor-landing';
+import ClassManage from "./Pages/class-manage-user/ClassManage";
 
 const Routes = (props) => {
 	return (
@@ -30,6 +31,9 @@ const Routes = (props) => {
 					</Route>
 					<Route path="/class-search">
 						<ClassSearch />
+					</Route>
+					<Route path="/manage-class">
+						<ClassManage />
 					</Route>
 					<Route exact path="/">
 						<Redirect to="/Dash" />
