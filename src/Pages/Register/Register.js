@@ -1,11 +1,11 @@
-
-
 import React, { useState } from "react";
-// import styles from "./Register.module.css";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
 import { register } from "../../store/actions";
+
+
+
+
+
 
 function Register() {
   const [user, setUser] = useState({
@@ -32,8 +32,8 @@ function Register() {
           Username:
           <input
             type="string"
-            name="name"
-            // value={user.name}
+            // name="name"
+            value={user.name}
             onChange={handleChange}
           />
         </label>
