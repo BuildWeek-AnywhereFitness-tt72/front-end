@@ -4,14 +4,14 @@ import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 import Dash from './Pages/Dash/Dash';
 import NotFound from './Pages/NotFound/NotFound.js';
-import ClassSearch from "./Pages/class-search/ClassSearch";
+import ClassSearch from './Pages/class-search/ClassSearch';
 import InstructorLanding from './Pages/instructor/instructor-landing';
 import ClassManage from "./Pages/class-manage-user/ClassManage";
 import PrivateRoute from "./Pages/privateRoute/PrivateRoute";
 
 const Routes = (props) => {
 	return (
-			<Router {...props}>
+		<Router {...props}>
 			<Switch>
 				<Route path='/instructor'>
 					<InstructorLanding />	
