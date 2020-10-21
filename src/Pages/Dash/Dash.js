@@ -75,7 +75,10 @@ const LandingPage = styled.div`
 	}
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(Link).attrs(pr => ({
+	backgroundColor: pr.backgroundColor || pr.theme.primaryOrange,
+	color: pr.color || pr.theme.charcoal,
+}))`
   display: inline-block;
   width: 28rem;
   border-radius: 5px;
@@ -111,7 +114,10 @@ const HelpCollapse = styled.div`
 const DeveloperNav = styled.div`
   background: lightgray;
   border: 10px solid ${(pr) => pr.theme.primaryOrange};
-  text-align: center;
+  display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
   width: 90%;
   margin: 200px auto;
   h4 {
@@ -123,6 +129,7 @@ const DeveloperNav = styled.div`
   }
   nav {
     display: flex;
+		width: 70%;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
@@ -201,11 +208,12 @@ const Dash = () => {
 				<h4>JUST FOR US</h4>
 				<p>This is simply for ease of access; not part of the page! I figured it would be easier to navigate through all our pages if we had all the links in one spot</p>
 				<nav>
+					<StyledLink to="/dash">Dash</StyledLink>
 					<StyledLink to="/register">Sign Up</StyledLink>
 					<StyledLink to="/Login">Login</StyledLink>
-					<StyledLink to="/Dash">Dash</StyledLink>
-					<StyledLink to="/class-search">Class Search</StyledLink>
 					<StyledLink to="/instructor">Instructor</StyledLink>
+					<StyledLink to="/classes/search">Search</StyledLink>
+					<StyledLink to="/classes/manage">Manage</StyledLink>
 
 				</nav>
 			</DeveloperNav>
