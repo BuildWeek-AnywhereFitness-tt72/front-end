@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 
 import ResultCard from "./ResultCard";
 
 
 const StyledResults = styled.div`
-	display: flex;
+	display: ${pr => pr.displayParam};
 	flex-flow: column nowrap;
 	justify-content: flex-start;
 	align-items: center;
@@ -18,17 +18,17 @@ const StyledResults = styled.div`
 `;
 
 const SearchResults = props => {
-	const { input, results } = props;
-	if (results.length === 0) {
+	const { input, results, displayParam } = props;
+	if (!results) {
 		return (
 			<div>There are no search results for {input ? input : "UNKNOWN"}</div>
 		);
 	}
 	return (
-		<StyledResults>
+		<StyledResults displayParam={displayParam}>
 			{
 				results.map(result => {
-					return (<ResultCard result={result} />);
+					return (<ResultCard key={result["sessionid"]} result={result} />);
 				})
 			}
 		</StyledResults>

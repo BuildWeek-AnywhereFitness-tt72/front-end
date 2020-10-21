@@ -83,21 +83,21 @@ const ResultImg = styled(HeroImgJr)`
 const ResultCard = props => {
 	const { result } = props;
 	const { locations, name, type, } = result;
-	console.log(result);
-	console.log(locations, name, type);
+	// console.log(result);
+	// console.log(locations, name, type);
 	return (
 		<StyledResultCard>
-			<div class="card-container image">
+			<div className="card-container image">
 				<ResultImg className="class-card image" url={classTypeImages["yoga"]} height="18.6rem" width="164px" position="center"></ResultImg>
 			</div>
-			<div class="card-container class-text left">
+			<div className="card-container class-text left">
 				<div className="class-card details">
 					<h3>{type}</h3>
 					<h6>{name}</h6>
 					<p>{`${locations.address}, ${locations.city} ${locations.state} ${locations.zip}`}</p>
 				</div>
 			</div>
-			<div class="card-container right">
+			<div className="card-container right">
 				<div className="class-card description">
 					<p>Lorem Ipsum there's no description to use from the endpoint. Lorem ipsum the session is without description.</p>
 				</div>

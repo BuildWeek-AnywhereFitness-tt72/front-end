@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledLanding = styled.div`
-	/* display: flex;
-	justify-content: space-between; */
+	display: ${pr => pr.displayParam};
 	width: 60%;
 	#hero-img {
 		display: inline-block;
@@ -33,9 +32,10 @@ const StyledLanding = styled.div`
 
 
 const SearchLanding = props => {
-
+	const {displayParam} = props;
 	return (
-		<StyledLanding>
+	<StyledLanding displayParam={displayParam}>
+		return (
 			<div className="hero-image" id="hero-img">
 				<div className="hero-text-container">
 					<h4>The world is your gym. Welcome.</h4>
