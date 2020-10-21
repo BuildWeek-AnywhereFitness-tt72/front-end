@@ -1,16 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
-import { HeroImgJr } from "../../../reusable-components/reusableComponents";
+
+import ResultCard from "./ResultCard";
+
+
 
 const SearchResults = props => {
-	const { searchTerm, results } = props;
-	if (!results) {
+	const { input, results } = props;
+	if (results.length === 0) {
 		return (
-			<div>There are no search results for {searchTerm ? searchTerm : "UNKNOWN"}</div>
+			<div>There are no search results for {input ? input : "UNKNOWN"}</div>
 		);
 	}
-	
+	return (
+		<div>
+			{
+				results.map(result => {
+					return (<ResultCard result={result} />);
+				})
+			}
+		</div>
+	);
+
 };
 
 export default SearchResults;
