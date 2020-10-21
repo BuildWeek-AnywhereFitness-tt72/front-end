@@ -18,11 +18,30 @@ const classTypeImages = {
 }
 
 const StyledResultCard = styled.div`
-	border: 1px;
+	width: 87.6rem;
+	height: 18.6rem;
+	border: 1px solid black;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-evenly;
+	align-items: center;
+	div.class-card {
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		&.left {
+			width: 60%;
+		}
+		&.right {
+			width: 20%;
+		}
+	}
 `;
 
 const ResultImg = styled(HeroImgJr)`
-	
+	border-radius: 10px;
+	height: 150px;
+	width: 164px;
 `;
 
 const ResultCard = props => {
@@ -32,13 +51,13 @@ const ResultCard = props => {
 	console.log(locations, name, type);
 	return (
 		<StyledResultCard>
-			<div>
-				<ResultImg url={classTypeImages["yoga"]} height="20rem" width="16.4rem" />
+			<ResultImg className="class-card image" url={classTypeImages["yoga"]} height="18.6rem" width="164px" position="center"></ResultImg>
+			<div className="class-card class-text left">
 				<h3>{type}</h3>
 				<h6>{name}</h6>
 				<p>{`${locations.address}, ${locations.city} ${locations.state} ${locations.zip}`}</p>
 			</div>
-			<div>
+			<div className="class-card class-text right">
 				<p>Lorem Ipsum there's no description to use from the endpoint. Lorem ipsum the session is without description.</p>
 			</div>
 		</StyledResultCard>

@@ -5,6 +5,17 @@ import {Link} from "react-router-dom";
 import ResultCard from "./ResultCard";
 
 
+const StyledResults = styled.div`
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 900px;
+	width: 60%;
+	/* border: 20px solid green; */
+`;
 
 const SearchResults = props => {
 	const { input, results } = props;
@@ -14,13 +25,13 @@ const SearchResults = props => {
 		);
 	}
 	return (
-		<div>
+		<StyledResults>
 			{
 				results.map(result => {
 					return (<ResultCard result={result} />);
 				})
 			}
-		</div>
+		</StyledResults>
 	);
 
 };
