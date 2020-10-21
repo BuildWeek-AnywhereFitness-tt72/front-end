@@ -65,7 +65,6 @@ const ClassSearchHead = props => {
 	}
 
 	useEffect(() => {
-		
 		searchFormSchema.isValid(input).then(valid => {
 			setIsDisabled(!valid);
 		})
