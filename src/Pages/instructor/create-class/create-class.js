@@ -58,9 +58,7 @@ const StyledAddress = styled.div`
         display: flex;
         justify-content:  flex-start;
 
-<<<<<<< HEAD
         
-=======
         label {
             width: 15%;
         }
@@ -70,9 +68,8 @@ const StyledAddress = styled.div`
         }
 
         .zip {
-            width: 10.75%;
+            width: 11%;
         }
->>>>>>> b0eaec6313b9d5bb2a61ed4e2220864913148bbb
     }
 `
 
