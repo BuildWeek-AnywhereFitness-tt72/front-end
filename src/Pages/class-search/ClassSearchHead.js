@@ -8,18 +8,19 @@ import SearchOptionsDropdown from "./components/SearchOptionsDropdown";
 const searchFormSchema = Yup.object().shape({
 	sessionInput: Yup.string().required(),
 	locationInput: Yup.string().required(),
+	dateInput: Yup.string(),
 });
 
 const initInput = {
 	sessionInput: "",
 	locationInput: "",
+	dateInput: "",
 };
 
 //valid types
 const validFilters = {
 	classType: ["yoga", "weightlifting", "biking/spin", "functional-fitness", "boxing", "cardio", "stretch", "dance", "running", "bootcamp",],
 	classDuration: ["0-15", "15-30", "30-45", "45-60", "60+",],
-	// classDate: Calendar
 	classTime: ["early-morning", "late-morning", "midday", "early-afternoon", "late-afternoon", "early-evening", "late-evening",],
 	classLevel: ["beginner", "intermediate", "advanced"],
 }
@@ -58,14 +59,18 @@ const ClassSearchHead = props => {
 		const newSearch = {
 			session: input.sessionInput,
 			location: input.locationInput,
+			date: input.date,
 			filters: filters,
 		};
 		console.log(newSearch);
-		console.log(`Session: ${input.sessionInput}`, `Location: ${input.locationInput}`, filters);
+		console.log(`Session: ${input.sessionInput}`, 
+			`Location: ${input.locationInput}`, 
+			`Date: ${input.dateInput}`,
+			filters
+			);
 	}
 
 	useEffect(() => {
-		
 		searchFormSchema.isValid(input).then(valid => {
 			setIsDisabled(!valid);
 		})
@@ -75,8 +80,8 @@ const ClassSearchHead = props => {
 
 	return (
 		<form onSubmit={searchSubmit}>
-			<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} isDisabled={isDisabled} />
-			<SearchOptionsDropdown filters={filters} validFilters={validFilters} filtersChange={filtersChange} />
+			<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} isDisabled={isDisabled}  />
+			<SearchOptionsDropdown filters={filters} validFilters={validFilters} filtersChange={filtersChange} searchChange={searchChange} />
 		</form>
 	);
 };
