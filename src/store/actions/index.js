@@ -42,9 +42,8 @@ export const register = (user) => (dispatch) => {
       data: JSON.stringify(data),
     })
     .then((res) => {
-      //   history.push("/login");
       console.log(res);
-      //   window.localStorage.set("token", res["access_token"]);
+      //   history.push("/login");
       //   dispatch({ type: REGISTER_SUCCESS });
     })
     .catch((err) => {
