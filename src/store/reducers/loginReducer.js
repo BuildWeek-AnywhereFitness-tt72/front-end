@@ -1,8 +1,8 @@
 import {
 	REGISTER_SUCCESS,
-	REGISTER_FAIL,
+	REGISTER_FAILURE,
 	LOGIN_SUCCESS,
-	LOGIN_FAIL,
+	LOGIN_FAILURE,
 	LOGOUT,
 } from '../actions/index.js';
 
@@ -21,7 +21,7 @@ export default function (state = initialState, action) {
 				...state,
 				isLoggedIn: false,
 			};
-		case REGISTER_FAIL:
+		case REGISTER_FAILURE:
 			return {
 				...state,
 				isLoggedIn: false,
@@ -32,7 +32,7 @@ export default function (state = initialState, action) {
 				isLoggedIn: true,
 				user: payload.user,
 			};
-		case LOGIN_FAIL:
+		case LOGIN_FAILURE:
 			return {
 				...state,
 				isLoggedIn: false,

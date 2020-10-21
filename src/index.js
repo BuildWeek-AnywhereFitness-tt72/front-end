@@ -9,10 +9,10 @@ import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import  Login  from "./Pages/Login/Login.js"
+import Login from './Pages/Login/Login.js';
 import { registration } from './store/reducers/registerReducer';
-
-const store = createStore(registration, applyMiddleware(thunk));
+import loginReducer from './store/reducers/loginReducer.js';
+const store = createStore( loginReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
 	<ThemeProvider theme={theme}>

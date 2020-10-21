@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
-// import { StyledLink } from '../../reusable-components/reusableComponents';
+import { connect } from 'react-redux';
 // styling
 import { login } from '../../store/actions/index.js';
 const StyledDiv = styled.div`
@@ -34,17 +34,9 @@ const StyledDiv = styled.div`
 			padding: 2%;
 			width: 80%;
 		}
-	}
-`;
+	};
 
-const ButtonContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	/* width: 50%; */
-	text-align: center;
-`;
-
+`
 const Button = styled.button`
 	display: ${(pr) => (pr.isDisabled ? 'none' : 'flex')};
 	background-color: ${(pr) => pr.theme.charcoal};
@@ -80,30 +72,30 @@ const initialErrors = {
 const Login = (props) => {
 	const [values, setValues] = useState(initialValues);
 	const [errors, setErrors] = useState(initialErrors);
-	const [disabled, setDisabled] = useState(true);
+	// const [disabled, setDisabled] = useState(true);
 	const history = useHistory();
+
 	const onInputChange = (evt) => {
 		const { name, value } = evt.target;
 
 		setValues({ ...values, [name]: value });
 	};
-	const submitForm = () => {
-		console.log(values);
-		console.log(errors);
-	};
-	const onSubmit = (evt) => {
-		evt.preventDefault();
-		submitForm();
+	// const submitForm = () => {
+	// 	console.log(values);
+	// 	console.log(errors);
+	// };
 
-		history.push('/Dash');
-	};
-	const handleOnClick = () => {
-		login(values.username, values.password);
+	// history.push('/Dash');
+
+	const handleOnClick = (evt) => {
+		evt.preventDefault();
+		console.log('log something');
+		props.login(values.username, values.password);
 	};
 
 	return (
 		<StyledDiv>
-			<form className="form container" onSubmit={onSubmit}>
+			<form className="form container" >
 				<div className="login-container">
 					<div className="errors">
 						<div>{errors.username}</div>
@@ -127,16 +119,16 @@ const Login = (props) => {
 						value={values.password}
 						onChange={onInputChange}
 					/>
-					<ButtonContainer>
-						<Button onClick={handleOnClick} disabled={false}>
-							Login
-						</Button>
 
-						{/* <Link to="/Register.js">New? Register here</Link> */}
-					</ButtonContainer>
+					<Button onClick={handleOnClick}>Login</Button>
+
+					{/* <Link to="/Register.js">New? Register here</Link> */}
 				</div>
 			</form>
 		</StyledDiv>
 	);
 };
-export default Login;
+const mapStateToProps = () => {
+	return {};
+};
+export default connect(mapStateToProps, { login })(Login);
