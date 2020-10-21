@@ -30,7 +30,7 @@ const StyledSearchHeader = styled.header`
 `;
 
 const Button = styled.a`
-	display: flex;
+	display: ${ pr => pr.isDisabled ? "none" : "flex"};
 	background-color: ${pr => pr.theme.charcoal};
 	color: ${pr => pr.theme.eggshell};
 	width: 20rem;
@@ -41,10 +41,17 @@ const Button = styled.a`
 	font-size: 2rem;
 	font-weight: 600;
 	border-radius: 10px;
+	
 	/* margin: 0 auto; */
-	&:hover {
+	/* &:hover {
+		cursor: pointer;
 		color: ${pr => pr.theme.eggshell};
 	}
+	&:disabled {
+		color: crimson;
+		background-color: gray;
+		cursor: not-allowed;
+	} */
 `;
 
 const InputContainer = styled.div`
@@ -73,7 +80,7 @@ const SearchHeader = props => {
 
 	const onChange = (evt) => {
 		const {name, value} = evt.target;
-		console.log(name, value);
+		// console.log(name, value);
 		searchChange(name, value);
 	};
 	
@@ -100,7 +107,7 @@ const SearchHeader = props => {
 						place="right"
 					/>
 				</InputContainer>
-				<Button className="submit-btn" isDisabled={isDisabled} onClick={searchSubmit}>Search</Button>
+				<Button className="submit-btn" isDisabled={isDisabled} onClick={searchSubmit }>Search</Button>
 			<div>
 				<p>About</p>
 				<p>Hello, User!</p>
