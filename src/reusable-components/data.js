@@ -14,6 +14,7 @@ export const classTypeImages = {
 }
 
 
+
 export const allSessions = [
 	{
 		"sessionid": 9,

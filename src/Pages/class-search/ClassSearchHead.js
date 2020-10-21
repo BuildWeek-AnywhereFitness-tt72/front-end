@@ -33,7 +33,7 @@ const initFilters = {
 };
 
 const ClassSearchHead = props => {
-	const { executeSearch } = props;
+	const { executeSearch, user } = props;
 	const [input, setInput] = useState(initInput);
 	const [errors, setErrors] = useState(initInput);
 	const [filters, setFilters] = useState(initFilters);
@@ -82,7 +82,7 @@ const ClassSearchHead = props => {
 
 	return (
 		<form onSubmit={searchSubmit}>
-			<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} isDisabled={isDisabled} />
+			<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} isDisabled={isDisabled} user={user} />
 			<SearchOptionsDropdown filters={filters} validFilters={validFilters} filtersChange={filtersChange} searchChange={searchChange} />
 		</form>
 	);
