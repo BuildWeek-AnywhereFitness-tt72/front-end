@@ -40,6 +40,7 @@ export const register = (user) => (dispatch) => {
     data: JSON.stringify(user),
   })
     .then((res) => {
+      alert("You are now signed up.");
       dispatch({ type: REGISTER_SUCCESS });
     })
     .catch((err) => {
