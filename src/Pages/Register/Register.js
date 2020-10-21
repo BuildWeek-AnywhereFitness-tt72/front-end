@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 
 import { StyledLink } from "../../reusable-components/reusableComponents";
-
 import { register } from "../../store/actions";
 import { MainHeader } from "../../reusable-components/reusableComponents";
 

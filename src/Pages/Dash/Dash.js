@@ -74,8 +74,8 @@ const LandingPage = styled.div`
 	}
 `;
 const StyledLink = styled(Link).attrs(pr => ({
-  backgroundColor: pr.backgroundColor || pr.theme.primaryOrange,
-  color: pr.color || pr.theme.charcoal,
+	backgroundColor: pr.backgroundcolor || pr.theme.primaryOrange,
+	color: pr.color || pr.theme.charcoal,
 }))`
   display: inline-block;
   width: 28rem;

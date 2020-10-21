@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
-
+import { connect } from 'react-redux';
 // styling
+import { login } from '../../store/actions/index.js';
 const StyledDiv = styled.div`
 	display: flex;
 	justify-content: center;
@@ -18,6 +19,7 @@ const StyledDiv = styled.div`
 		margin: 10% auto;
 	}
 	div.login-container {
+		padding-bottom: 1rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -32,20 +34,27 @@ const StyledDiv = styled.div`
 			padding: 2%;
 			width: 80%;
 		}
+	};
+
+`
+const Button = styled.button`
+	display: ${(pr) => (pr.isDisabled ? 'none' : 'flex')};
+	background-color: ${(pr) => pr.theme.charcoal};
+	color: ${(pr) => pr.theme.eggshell};
+	width: 10rem;
+	height: 2.5rem;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	font-weight: 600;
+	border-radius: 10px;
+	&:hover {
+		cursor: pointer;
+		color: ${(pr) => pr.theme.eggshell};
 	}
 `;
-const StyledSubmit = styled.button`
-	padding: 1%;
-	margin: 5% auto;
-	/* width: 60%; */
-`;
-const ButtonContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	/* width: 50%; */
-	text-align: center;
-`;
+
 // end of styling
 const initialValues = {
 	username: '',
@@ -59,30 +68,34 @@ const initialErrors = {
 	OAuth: '',
 	email: '',
 };
-// { inputChange, submit, values, disabled, errors }
+
 const Login = (props) => {
 	const [values, setValues] = useState(initialValues);
 	const [errors, setErrors] = useState(initialErrors);
-	const [disabled, setDisabled] = useState(false);
+	// const [disabled, setDisabled] = useState(true);
 	const history = useHistory();
+
 	const onInputChange = (evt) => {
 		const { name, value } = evt.target;
 
 		setValues({ ...values, [name]: value });
 	};
-	const submitForm = () => {
-		console.log(values);
-		console.log(errors);
-	};
-	const onSubmit = (evt) => {
-		evt.preventDefault();
-		submitForm();
+	// const submitForm = () => {
+	// 	console.log(values);
+	// 	console.log(errors);
+	// };
 
-		history.push('/Dash');
+	// history.push('/Dash');
+
+	const handleOnClick = (evt) => {
+		evt.preventDefault();
+		console.log('log something');
+		props.login(values.username, values.password);
 	};
+
 	return (
 		<StyledDiv>
-			<form className="form container" onSubmit={onSubmit}>
+			<form className="form container" >
 				<div className="login-container">
 					<div className="errors">
 						<div>{errors.username}</div>
@@ -106,19 +119,16 @@ const Login = (props) => {
 						value={values.password}
 						onChange={onInputChange}
 					/>
-					<ButtonContainer>
 
-						<StyledSubmit disabled={disabled}>Login</StyledSubmit>
-						{/* </motion.div> */}
-					</ButtonContainer>
-					<Link
-						to="/"
-						style={{ textDecoration: 'none', color: '#41a95e' }}>
-						New? Register here
-					</Link>
+					<Button onClick={handleOnClick}>Login</Button>
+
+					{/* <Link to="/Register.js">New? Register here</Link> */}
 				</div>
 			</form>
 		</StyledDiv>
 	);
 };
-export default Login;
+const mapStateToProps = () => {
+	return {};
+};
+export default connect(mapStateToProps, { login })(Login);
