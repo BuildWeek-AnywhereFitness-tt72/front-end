@@ -201,12 +201,12 @@ const Dash = () => {
 				<h4>JUST FOR US</h4>
 				<p>This is simply for ease of access; not part of the page! I figured it would be easier to navigate through all our pages if we had all the links in one spot</p>
 				<nav>
+					<StyledLink to="/dash">Dash</StyledLink>
 					<StyledLink to="/register">Sign Up</StyledLink>
-					<StyledLink to="/Login">Login</StyledLink>
-					<StyledLink to="/Dash">Dash</StyledLink>
-					<StyledLink to="/class-search">Class Search</StyledLink>
+					<StyledLink to="/login">Login</StyledLink>
+					<StyledLink to="/classes/search">Class Search</StyledLink>
+					<StyledLink to="/classes/manage">Manage Classes</StyledLink>
 					<StyledLink to="/instructor">Instructor</StyledLink>
-
 				</nav>
 			</DeveloperNav>
 		</LandingPage>
