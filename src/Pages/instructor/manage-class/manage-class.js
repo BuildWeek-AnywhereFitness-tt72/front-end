@@ -51,6 +51,11 @@ const StyledTableHeader = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+
+    h4 {
+        width: 20%;
+        text-align: center;
+    }
 `
 
 

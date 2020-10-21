@@ -10,14 +10,20 @@ const StyledRow = styled.div`
     width: 100%;
     justify-content: space-evenly;
 
+    h6 {
+        width: 20%;
+        text-align: center;
+    }
+
     .btns {
         display: flex;
+        width: 20%;
     }
 `
 const Button = styled(Link)`
 	background-color: ${pr => pr.theme.primaryOrange};
 	color: ${pr => pr.theme.charcoal};
-	font-size: 2rem;
+	font-size: 1.6rem;
 	border-radius: 5px;
     font-weight: 500;
     width: 100%;
