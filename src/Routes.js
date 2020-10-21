@@ -5,16 +5,13 @@ import {
 	Switch,
 	Redirect,
 } from 'react-router-dom';
-import Register from "./Pages/Register/Register.js"
+import Register from './Pages/Register/Register';
 import Dash from './Pages/Dash/Dash.js';
 import NotFound from './Pages/NotFound/NotFound.js';
 import ClassSearch from './Pages/class-search/ClassSearch';
 import InstructorLanding from './Pages/instructor/instructor-landing';
 import ClassManage from './Pages/class-manage-user/ClassManage';
-import Login from "./Pages/Login/Login.js"
-
-
-
+import Login from './Pages/Login/Login.js';
 
 const Routes = (props) => {
 	return (
