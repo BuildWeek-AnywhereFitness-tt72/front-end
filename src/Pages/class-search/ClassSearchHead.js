@@ -59,10 +59,15 @@ const ClassSearchHead = props => {
 		const newSearch = {
 			session: input.sessionInput,
 			location: input.locationInput,
+			date: input.date,
 			filters: filters,
 		};
 		console.log(newSearch);
-		console.log(`Session: ${input.sessionInput}`, `Location: ${input.locationInput}`, filters);
+		console.log(`Session: ${input.sessionInput}`, 
+			`Location: ${input.locationInput}`, 
+			`Date: ${input.dateInput}`,
+			filters
+			);
 	}
 
 	useEffect(() => {

@@ -2,17 +2,6 @@ import React, { useState } from 'react';
 import styled from "styled-components";
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
-// import { CalendarDropdown } from "./CalendarDropdown";
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
-
-// classType: 
-// classType: ["yoga", "weightlifting", "biking/spin", "functional-fitness", "boxing", "cardio", "stretch", "dance", "running", "bootcamp"]
-// classDuration: ["0-15", "15-30", "30-45", "45-60", "60+",]
-// classDate: Calendar
-// classTime: ["early-morning", "late-morning", "midday", "early-afternoon", "late-afternoon", "early-evening", "late-evening",],
-// classLevel: ["beginner", "intermediate", "advanced"]
-
 
 const Dropdown = styled.select`
 	display: inline-block;
@@ -26,37 +15,35 @@ const Dropdown = styled.select`
 	font-size: 1.8rem;
 	font-weight: 700;
 `;
-// const StyledOption = styled.option`
+
+// const CustomInput = styled.input`
+// 	display: inline-block;
+// 	height: 5rem;
+// 	width: 20rem;
+// 	margin: 2rem;
+// 	border-radius: 50px;
+// 	text-align: center;
+// 	font-family: Raleway;
+// 	text-align: center;
+// 	font-size: 1.8rem;
+// 	font-weight: 700;
 // `;
 
-const CustomInput = styled.input`
-	display: inline-block;
-	height: 5rem;
-	width: 20rem;
-	margin: 2rem;
-	border-radius: 50px;
-	text-align: center;
-	font-family: Raleway;
-	text-align: center;
-	font-size: 1.8rem;
-	font-weight: 700;
-`;
-
-const InputDiv = styled.div`
-	display: inline-block;
-	height: 5rem;
-	width: 20rem;
-	margin: 2rem;
-	border-radius: 50px;
-	text-align: center;
-	font-family: Raleway;
-	text-align: center;
-	font-size: 1.8rem;
-	font-weight: 700;
-`;
+// const InputDiv = styled.div`
+// 	display: inline-block;
+// 	height: 5rem;
+// 	width: 20rem;
+// 	margin: 2rem;
+// 	border-radius: 50px;
+// 	text-align: center;
+// 	font-family: Raleway;
+// 	text-align: center;
+// 	font-size: 1.8rem;
+// 	font-weight: 700;
+// `;
 
 const StyledDayPicker = styled(DayPickerInput)`
-	input {
+	input#day-input {
 		display: inline-block;
 		height: 5rem;
 		width: 20rem;
@@ -74,8 +61,7 @@ const StyledDayPicker = styled(DayPickerInput)`
 
 
 const SearchOptionsDropdown = props => {
-	// const [startDate, setStartDate] = useState(new Date());
-	const { validFilters, filtersChange, } = props;
+	const { validFilters, filtersChange, searchChange } = props;
 
 	/**
 	 * This helper function takes a filter name and maps every available option for the given filter
@@ -94,14 +80,6 @@ const SearchOptionsDropdown = props => {
 		filtersChange(name, value);
 	};
 
-	const handleDayChange = (day) => {
-		filtersChange("dateInput", day);
-	};
-
-	// const renderDayContents = (day, date) => {
-	// 	return (<StyledDay></StyledDay>);
-	// };
-
 	return (
 		<div className="options-container">
 			{
@@ -117,8 +95,7 @@ const SearchOptionsDropdown = props => {
 					);
 				})
 			}
-		
-				<StyledDayPicker onDayChange={day => console.log(day)} />
+			<StyledDayPicker onDayChange={day => searchChange("dateInput", day)} value="" inputProps={{id: "day-input"}}/>
 		</div>
 	);
 };
