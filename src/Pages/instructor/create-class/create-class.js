@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import * as yup from 'yup';
 
-import { StyledLink, MainHeader, Banner } from "../../../reusable-components/reusableComponents";
+import { StyledLink } from "../../../reusable-components/reusableComponents";
 import createClassSchema from './validation/createClassSchema';
 
 const StyledContainer = styled.div`
@@ -58,7 +58,21 @@ const StyledAddress = styled.div`
         display: flex;
         justify-content:  flex-start;
 
+<<<<<<< HEAD
         
+=======
+        label {
+            width: 15%;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        .zip {
+            width: 10.75%;
+        }
+>>>>>>> b0eaec6313b9d5bb2a61ed4e2220864913148bbb
     }
 `
 
@@ -97,11 +111,15 @@ const CreateClass = () => {
     const [formErrors, setFormErrors] = useState(initialFormErrors);
     const [disabled, setDisabled] = useState(initialDisabled);
 
-    const changeDate = () => {
-        //Date function here
+    const formatDate = (date) => {
+        return new Date(date).toLocaleDateString();
     }
 
-    const inputChange = (name, value) => {
+
+    const inputChange = (evt) => {
+
+        const { name, value } = evt.target;
+        console.log(name, value)
         yup
             .reach(createClassSchema, name)
             .validate(value)
@@ -143,6 +161,8 @@ const CreateClass = () => {
     }
 
     useEffect(() => {
+        
+
         createClassSchema.isValid(formValues).then((valid) => {
             setDisabled(!valid)
         });
@@ -198,7 +218,11 @@ const CreateClass = () => {
                                 type='text'
                             />
                         </label>
+<<<<<<< HEAD
                         <label>
+=======
+                        <label className='zip'>
+>>>>>>> b0eaec6313b9d5bb2a61ed4e2220864913148bbb
                             Zip
                             <input
                                 value={formValues.zip}
@@ -270,18 +294,12 @@ const CreateClass = () => {
                 <label >
                     Class Time
                     <div className='time'>
+    
                         <input
-                            value={formValues.timeStart}
+                            value={formValues.time}
                             onChange={inputChange}
-                            name='timeStart'
-                            type='time'
-                        />
-                        To
-                        <input
-                            value={formValues.timeEnd}
-                            onChange={inputChange}
-                            name='timeEnd'
-                            type='time'
+                            name='time'
+                            type='datetime-local'
                         />
                     </div>
                     
