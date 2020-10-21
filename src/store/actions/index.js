@@ -30,16 +30,23 @@ export const login = (username, password) => (dispatch) => {
 };
 
 export const register = (user) => (dispatch) => {
-	dispatch({ type: REGISTER_REQUEST });
-	console.log(user);
-	axios
-		.get('http://tt72-anyfit.herokuapp.com/createnewuser') // TODO: Add register url
-		.then((res) => {
-			history.push('/login');
-			dispatch({ type: REGISTER_SUCCESS });
-		})
-		.catch((err) => {
-			console.log(err);
-			dispatch({ type: REGISTER_FAILURE });
-		});
+  //   dispatch({ type: REGISTER_REQUEST });
+
+  axios({
+    method: "post",
+    url: "https://tt72-anyfit.herokuapp.com/createnewuser",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: JSON.stringify(user),
+  })
+    .then((res) => {
+      console.log(res);
+      history.push("/login");
+      dispatch({ type: REGISTER_SUCCESS });
+    })
+    .catch((err) => {
+      console.log(err);
+      dispatch({ type: REGISTER_FAILURE });
+    });
 };
