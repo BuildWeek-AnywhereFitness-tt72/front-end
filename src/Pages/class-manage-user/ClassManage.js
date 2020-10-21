@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import ClassSearchHead from "../class-search/ClassSearchHead";
 import ClassCard from "./components/ClassCard.js";
+
 import { HeroImgJr } from "../../reusable-components/reusableComponents";
 import { user26, user26DOUBLE, user26MANY } from "./data/data";
 
@@ -112,6 +113,11 @@ const ClassManage = props => {
 	// const [activeSessions,] = useState(initActiveSessions);
 	// const [sessionHistory,] = useState(initSessionHistory);
 	// console.log(activeSessions);
+
+	const handleDelete = (session) => {
+		alert(`${user} deleted ${session.name}`);
+	};
+
 	return (
 		<StyledClassManage>
 
@@ -124,7 +130,7 @@ const ClassManage = props => {
 						<div className="my-classes class-container">
 							{
 								activeSessions.map(session => {
-									return <ClassCard id={`${session.sessions.sessionid} true`} session={session.sessions} isActive={true} />
+									return <ClassCard id={`${session.sessions.sessionid} true`} session={session.sessions} isActive={true} handleDelete={handleDelete} />
 								})
 							}
 						</div>

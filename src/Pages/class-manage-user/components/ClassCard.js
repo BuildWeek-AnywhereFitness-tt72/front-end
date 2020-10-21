@@ -2,6 +2,11 @@ import React, {useState} from "react";
 // import React from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import {confirmAlert} from "react-confirm-alert";
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+
+import ManageModal from "./ManageModal";
+
 import { HeroImgJr } from "../../../reusable-components/reusableComponents";
 import {classTypeImages} from "../../../reusable-components/data";
 
@@ -100,7 +105,7 @@ const StyledClassCard = styled.div`
 
 const ClassCard = (props) => {
 	const [modalActive, setModalActive] = useState(false);
-	const { session, isActive } = props;
+	const { session, isActive, handleDelete } = props;
 	const name = session["name"];
 	const type = session["type"];
 	const date = session["time"].split(" ")[0];
@@ -111,8 +116,24 @@ const ClassCard = (props) => {
 		return classTypeImages[classType] ? classTypeImages[classType] : classTypeImages["other"];
 	}
 
+
+
 	const handleClick = () => {
 		setModalActive(!modalActive);
+		confirmAlert({
+			title: "Confirm to delete class",
+			message: `Delete ${name}?`,
+			buttons: [
+				{
+					label: "Delete",
+					onClick: () => handleDelete(session)
+				},
+				{
+					label: "Cancel",
+					onClick: () => setModalActive(!modalActive)
+				}
+			]
+		})
 	};
 
 	
@@ -120,27 +141,31 @@ const ClassCard = (props) => {
 	// const [isActive, setIsActive] = useState(active);
 	
 	return (
-		<StyledClassCard>
-			<StyledClassImg className="session-img" url={getUrl()} height={"50%"} position={"center"} >
-				<div className="session-title-text">
-				<div className="span-wrap" showing={isActive.toString()} isshowing={isActive}>
-					<span 
-					className="delete" 
-					title="delete" 
-					onClick={handleClick}
-					showing={isActive.toString()} 
-					isshowing={isActive}>&times;</span>
+		<div>
+			<StyledClassCard>
+				<StyledClassImg className="session-img" url={getUrl()} height={"50%"} position={"center"} >
+					<div className="session-title-text">
+					<div className="span-wrap" showing={isActive.toString()} isshowing={isActive}>
+						<span 
+						className="delete" 
+						title="delete" 
+						onClick={handleClick}
+						showing={isActive.toString()} 
+						isshowing={isActive}>&times;</span>
+					</div>
+						<h1>{name}</h1>
+					</div>
+				</StyledClassImg>
+				<div className="session-details">
+					<h6>{type}</h6>
+					<h6>{date}</h6>
+					<h2>{time}</h2>
+					<RescheduleLink to="/classes/search" isshowing={isActive}>Reschedule</RescheduleLink>
 				</div>
-					<h1>{name}</h1>
-				</div>
-			</StyledClassImg>
-			<div className="session-details">
-				<h6>{type}</h6>
-				<h6>{date}</h6>
-				<h2>{time}</h2>
-				<RescheduleLink to="/classes/search" isshowing={isActive}>Reschedule</RescheduleLink>
-			</div>
-		</StyledClassCard>
+				
+			</StyledClassCard>
+			{/* <ManageModal show={modalActive} onClose={handleClick} session={session} /> */}
+		</div>
 	);
 };
 
