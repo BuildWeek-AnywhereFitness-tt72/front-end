@@ -218,11 +218,7 @@ const CreateClass = () => {
                                 type='text'
                             />
                         </label>
-<<<<<<< HEAD
-                        <label>
-=======
                         <label className='zip'>
->>>>>>> b0eaec6313b9d5bb2a61ed4e2220864913148bbb
                             Zip
                             <input
                                 value={formValues.zip}
