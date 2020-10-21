@@ -7,6 +7,7 @@ import NotFound from './Pages/NotFound/NotFound.js';
 import ClassSearch from "./Pages/class-search/ClassSearch";
 import InstructorLanding from './Pages/instructor/instructor-landing';
 import ClassManage from "./Pages/class-manage-user/ClassManage";
+import PrivateRoute from "./Pages/privateRoute/PrivateRoute";
 
 const Routes = (props) => {
 	return (
@@ -24,12 +25,8 @@ const Routes = (props) => {
 					<Route path="/dash">
 						<Dash />
 					</Route>
-					<Route path="/classes/search">
-						<ClassSearch />
-					</Route>
-					<Route path="/classes/manage">
-						<ClassManage />
-					</Route>
+          <PrivateRoute path="/classes/search" component={ClassSearch} />
+          <PrivateRoute path="/classes/manage" component={ClassManage} />
 					<Route exact path="/classes/">
 						<Redirect to="/classes/search" />
 					</Route>

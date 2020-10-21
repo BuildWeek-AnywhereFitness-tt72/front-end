@@ -36,6 +36,7 @@ export const register = (user) => (dispatch) => {
     data: JSON.stringify(user),
   })
     .then((res) => {
+      console.log(res);
       history.push("/login");
       dispatch({ type: REGISTER_SUCCESS });
     })
