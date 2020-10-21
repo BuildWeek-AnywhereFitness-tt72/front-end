@@ -580,9 +580,11 @@ const StyledMap = styled.div`
 const StyledClassSearch = styled.div`
 	display: flex;
 	justify-content: space-between;
+	align-items: flex-end;
 	/* justify-content: flex-end; */
 	height: 900px;
 	border: 1px solid pink;
+	background-color: ${pr => pr.theme.eggshell}
 	/* overflow-y: scroll; */
 `;
 

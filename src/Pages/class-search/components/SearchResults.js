@@ -8,11 +8,11 @@ import ResultCard from "./ResultCard";
 const StyledResults = styled.div`
 	display: flex;
 	flex-flow: column nowrap;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	height: 900px;
+	height: 95%;
 	width: 60%;
 	/* border: 20px solid green; */
 `;
