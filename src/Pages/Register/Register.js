@@ -62,7 +62,7 @@ const StyledForm = styled.form`
   }
 `;
 
-function Register() {
+const Register = () => {
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -125,12 +125,12 @@ function Register() {
                 <option value="instructor">Instructor</option>
               </select>
             </label>
-            <StyledLink>Sign Up</StyledLink>
+            <button>Sign Up</button>
           </StyledForm>
         </StyledContainer>
       </StyledSignUp>
     </div>
   );
-}
+};
 
 export default Register;
