@@ -15,7 +15,7 @@ const Routes = (props) => {
 				<Route path='/instructor'>
 					<InstructorLanding />	
 				</Route>
-					<Route path="/Login">
+					<Route path="/login">
 						<Login />
 					</Route>
 					<Route path="/register">
@@ -29,6 +29,9 @@ const Routes = (props) => {
 					</Route>
 					<Route path="/classes/manage">
 						<ClassManage />
+					</Route>
+					<Route exact path="/classes/">
+						<Redirect to="/classes/search" />
 					</Route>
 					<Route exact path="/">
 						<Redirect to="/dash" />

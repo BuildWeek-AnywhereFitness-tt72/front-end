@@ -41,6 +41,7 @@ const Button = styled.a`
 	font-size: 2rem;
 	font-weight: 600;
 	border-radius: 10px;
+`;
 	
 	/* margin: 0 auto; */
 	/* &:hover {
@@ -52,7 +53,6 @@ const Button = styled.a`
 		background-color: gray;
 		cursor: not-allowed;
 	} */
-`;
 
 const InputContainer = styled.div`
 	display: inline-block;
