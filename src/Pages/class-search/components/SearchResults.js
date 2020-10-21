@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-// import {Link} from "react-router-dom";
 
 import ResultCard from "./ResultCard";
 const StyledResults = styled.div`
@@ -8,7 +7,6 @@ const StyledResults = styled.div`
 	flex-flow: column nowrap;
 	justify-content: flex-start;
 	align-items: center;
-	/* overflow-x: hidden; */
 	max-height: 95%;
 	width: 60%;
 	background-color: white;
@@ -31,19 +29,19 @@ const StyledResults = styled.div`
 			/* Shadow TOP */
 			radial-gradient(
 				farthest-side at 50% 0,
-				rgba(0, 0, 0, 0.2),
+				rgba(0, 0, 0, 0.3),
 				rgba(0, 0, 0, 0)
 			) center top,
 			
 			/* Shadow BOTTOM */
 			radial-gradient(
 				farthest-side at 50% 100%,
-				rgba(0, 0, 0, 0.2),
+				rgba(0, 0, 0, 0.3),
 				rgba(0, 0, 0, 0)
 			) center bottom;
 
 		background-repeat: no-repeat;
-		background-size: 100% 80px, 100% 80px, 100% 20px, 100% 20px;
+		background-size: 100% 100px, 100% 100px, 100% 20px, 100% 20px;
 		background-attachment: local, local, scroll, scroll;
 	}
 
@@ -79,8 +77,6 @@ const SearchResults = props => {
 						return (<ResultCard key={result["sessionid"]} result={result} />);
 				})}
 			</div>
-
-			{/* </div> */}
 		</StyledResults>
 	);
 

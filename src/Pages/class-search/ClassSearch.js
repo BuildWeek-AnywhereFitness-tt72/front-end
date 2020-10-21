@@ -1,4 +1,3 @@
-// import React, { useState } from 'react';
 import React, { useState } from 'react';
 // import { Route, Switch } from "react-router-dom";
 // import axios from 'axios';
@@ -17,28 +16,23 @@ const StyledMap = styled.div`
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	/* height: 90vh; */
 	height: 100%;
 	overflow: hidden;
 `;
 
 const StyledClassSearch = styled.div`
 	margin-top: 10px;
-	/* padding-top: 10px; */
-
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		height: 90vh;
+		height: 81.1vh;
 		background-color: ${pr => pr.theme.eggshell};
-	
-	/* border: 1px solid pink; */
 `;
 
 const ClassSearch = props => {
 	const [searchResults, setSearchResults] = useState(allSessions);
 	const [searchTerm, setSearchTerm] = useState("search");
-	const [resultsOpen, setResultsOpen] = useState(true);
+	const [resultsOpen, setResultsOpen] = useState(false);
 
 	const executeSearch = (searchInput) => {
 		// setSearchTerm(searchInput);

@@ -3,10 +3,6 @@ import styled from "styled-components";
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
-const StyledOptions = styled.div`
-	margin-bottom: 1px;
-`;
-
 const Dropdown = styled.select`
 	display: inline-block;
 	height: 5rem;
@@ -20,46 +16,20 @@ const Dropdown = styled.select`
 	font-weight: 700;
 `;
 
-// const CustomInput = styled.input`
-// 	display: inline-block;
-// 	height: 5rem;
-// 	width: 20rem;
-// 	margin: 2rem;
-// 	border-radius: 50px;
-// 	text-align: center;
-// 	font-family: Raleway;
-// 	text-align: center;
-// 	font-size: 1.8rem;
-// 	font-weight: 700;
+// const StyledDayPicker = styled(DayPickerInput)`
+// 	input#day-input {
+// 		display: inline-block;
+// 		height: 5rem;
+// 		width: 20rem;
+// 		margin: 2rem;
+// 		border-radius: 50px;
+// 		text-align: center;
+// 		font-family: Raleway;
+// 		text-align: center;
+// 		font-size: 1.8rem;
+// 		font-weight: 700;
+// 	}
 // `;
-
-// const InputDiv = styled.div`
-// 	display: inline-block;
-// 	height: 5rem;
-// 	width: 20rem;
-// 	margin: 2rem;
-// 	border-radius: 50px;
-// 	text-align: center;
-// 	font-family: Raleway;
-// 	text-align: center;
-// 	font-size: 1.8rem;
-// 	font-weight: 700;
-// `;
-
-const StyledDayPicker = styled(DayPickerInput)`
-	input#day-input {
-		display: inline-block;
-		height: 5rem;
-		width: 20rem;
-		margin: 2rem;
-		border-radius: 50px;
-		text-align: center;
-		font-family: Raleway;
-		text-align: center;
-		font-size: 1.8rem;
-		font-weight: 700;
-	}
-`;
 
 
 
@@ -99,7 +69,8 @@ const SearchOptionsDropdown = props => {
 					);
 				})
 			}
-			<StyledDayPicker onDayChange={day => searchChange("dateInput", day)} value="" inputProps={{id: "day-input"}}/>
+			{/* <StyledDayPicker onDayChange={day => searchChange("dateInput", day)} value="" inputProps={{id: "day-input"}}/> */}
+			<DayPickerInput onDayChange={day => searchChange("dateInput", day)} value="" inputProps={{id: "day-input"}}/>
 		</div>
 	);
 };
