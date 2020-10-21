@@ -17,23 +17,28 @@ const StyledMap = styled.div`
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	height: 900px;
+	/* height: 90vh; */
+	height: 100%;
 	overflow: hidden;
 `;
 
 const StyledClassSearch = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-end;
-	height: 900px;
-	border: 1px solid pink;
-	background-color: ${pr => pr.theme.eggshell};
+	margin-top: 10px;
+	/* padding-top: 10px; */
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 90vh;
+		background-color: ${pr => pr.theme.eggshell};
+	
+	/* border: 1px solid pink; */
 `;
 
 const ClassSearch = props => {
 	const [searchResults, setSearchResults] = useState(allSessions);
 	const [searchTerm, setSearchTerm] = useState("search");
-	const [resultsOpen, setResultsOpen] = useState(false);
+	const [resultsOpen, setResultsOpen] = useState(true);
 
 	const executeSearch = (searchInput) => {
 		// setSearchTerm(searchInput);
@@ -45,9 +50,11 @@ const ClassSearch = props => {
 		<div className="class-search-container" >
 			<ClassSearchHead executeSearch={executeSearch} />
 			<StyledClassSearch>
+				
 				<SearchLanding displayParam={resultsOpen ? "none" : "block"} />
 				<SearchResults results={searchResults} input={searchTerm} displayParam={resultsOpen ? "flex" : "none"  } />
 				<StyledMap />
+				
 			</StyledClassSearch>
 		</div>
 	);

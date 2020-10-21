@@ -22,7 +22,7 @@ const StyledResultCard = styled.div`
 	/* width: 87.6rem; */
 	width: 100%;
 	height: 18.6rem;
-	background-color: white;
+	/* background-color: white; */
 	/* border: 1px solid black; */
 	border-bottom: 1px solid lightgray;
 	display: flex;

@@ -4,6 +4,7 @@ import styled from "styled-components";
 const StyledLanding = styled.div`
 	display: ${pr => pr.displayParam};
 	width: 60%;
+	height: 100%;
 	#hero-img {
 		display: inline-block;
 		width: 100%;
@@ -12,7 +13,7 @@ const StyledLanding = styled.div`
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: 50% 25%;
-		height: 900px;
+		height: 100%;
 		div.hero-text-container {
 			background: rgba(0, 0, 0, 0.1);
 			height: 100%;
@@ -35,7 +36,6 @@ const SearchLanding = props => {
 	const {displayParam} = props;
 	return (
 	<StyledLanding displayParam={displayParam}>
-		return (
 			<div className="hero-image" id="hero-img">
 				<div className="hero-text-container">
 					<h4>The world is your gym. Welcome.</h4>

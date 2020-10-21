@@ -3,6 +3,10 @@ import styled from "styled-components";
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
+const StyledOptions = styled.div`
+	margin-bottom: 1px;
+`;
+
 const Dropdown = styled.select`
 	display: inline-block;
 	height: 5rem;
