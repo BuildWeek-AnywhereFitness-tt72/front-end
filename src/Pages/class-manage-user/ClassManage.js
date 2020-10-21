@@ -65,7 +65,7 @@ const StyledClassManage = styled.div`
 	color: ${pr => pr.theme.charcoal};
 	div.main-gal {
 		display: block;
-		height: 80rem;
+		height: 95%;
 		width: 90%;
 		background-color: white;
 		h3 {
@@ -122,7 +122,7 @@ const ClassManage = props => {
 		<StyledClassManage>
 
 			<ClassSearchHead user={user} />
-			<StyledHeroImg className="hero-image-container" position={"50% 30%"} height={"100rem"}>
+			<StyledHeroImg className="hero-image-container" position={"50% 30%"} height={"82.12vh"}>
 				<div className="main-gal">
 					<h3>Manage My Classes</h3>
 					<div className="manage-gallery">
