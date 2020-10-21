@@ -1,14 +1,9 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-import { useDispatch } from "react-redux";
-=======
 // import styles from "./Register.module.css";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 
 import { StyledLink } from "../../reusable-components/reusableComponents";
-
->>>>>>> 6599f0ec3b0a22bc05089b7a33a1614c4c7a2de9
 import { register } from "../../store/actions";
 import { MainHeader } from "../../reusable-components/reusableComponents";
 
@@ -60,14 +55,6 @@ const StyledForm = styled.form`
     margin: 6px 0 0;
   }
 
-<<<<<<< HEAD
-
-
-
-
-
-function Register() {
-=======
   select {
     width: 80%;
     height: 3rem;
@@ -75,7 +62,6 @@ function Register() {
 `;
 
 const Register = () => {
->>>>>>> 6599f0ec3b0a22bc05089b7a33a1614c4c7a2de9
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -95,19 +81,6 @@ const Register = () => {
 
   return (
     <div>
-<<<<<<< HEAD
-      <form onSubmit={submitAccount}>
-        <label>
-          Username:
-          <input
-            type="string"
-            // name="name"
-            value={user.name}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-=======
       <MainHeader>
         <h1>Anywhere Fitness</h1>
       </MainHeader>
@@ -126,7 +99,6 @@ const Register = () => {
               />
             </label>
             {/* <label>
->>>>>>> 6599f0ec3b0a22bc05089b7a33a1614c4c7a2de9
           Email:
           <input
             type="email"
