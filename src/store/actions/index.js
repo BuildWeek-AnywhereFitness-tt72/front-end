@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { createBrowserHistory } from 'history';
 import { axiosWithSecret } from '../../Pages/Login/axiosWithAuth.js';
-export const history = createBrowserHistory();
+
 export const LOGOUT = 'LOGOUT';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -41,8 +40,6 @@ export const register = (user) => (dispatch) => {
     data: JSON.stringify(user),
   })
     .then((res) => {
-      console.log(res);
-      history.push("/login");
       dispatch({ type: REGISTER_SUCCESS });
     })
     .catch((err) => {
