@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import * as yup from 'yup';
+import { useHistory } from "react-router";
 
-import { StyledLink } from "../../../reusable-components/reusableComponents";
 import createClassSchema from './validation/createClassSchema';
+
+import {axiosWithAuth} from "../../../utils/axioswauth";
 
 const StyledContainer = styled.div`
     display: flex;
@@ -103,20 +105,15 @@ const initialFormErrors = {
 const initialDisabled = true;
 
 
-const CreateClass = () => {
+const CreateClass = (props) => {
     const [formValues, setFormValues] = useState(initialFormValues);
     const [formErrors, setFormErrors] = useState(initialFormErrors);
     const [disabled, setDisabled] = useState(initialDisabled);
-
-    const formatDate = (date) => {
-        return new Date(date).toLocaleDateString();
-    }
-
+    const history = useHistory();
 
     const inputChange = (evt) => {
 
         const { name, value } = evt.target;
-        console.log(name, value)
         yup
             .reach(createClassSchema, name)
             .validate(value)
@@ -138,7 +135,8 @@ const CreateClass = () => {
         })
     }
 
-    const formSubmit = () => {
+    const formSubmit = (e) => {
+        e.preventDefault();
         const newClass = {
             name: formValues.name.trim(),
             type: formValues.type,
@@ -154,7 +152,11 @@ const CreateClass = () => {
             }
         };
 
-        //Post Function Call
+        axiosWithAuth()
+        .post("/sessions/session", JSON.stringify(newClass))
+        .then(res => {
+            history.push('/instructor/manage');
+        }).catch(err => console.log(err));
     }
 
     useEffect(() => {
@@ -298,7 +300,7 @@ const CreateClass = () => {
 
                 
 
-                <StyledLink disabled={disabled}>Create Class</StyledLink>
+                <button disabled={disabled}>Create Class</button>
             </StyledForm>
         </StyledContainer>
     )

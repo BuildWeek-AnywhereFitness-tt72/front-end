@@ -50,10 +50,9 @@ const InstructorLanding = () => {
 			</MainHeader>
 			<Banner>
 				<nav>
-					<StyledLink to='/instructor'>Profile</StyledLink>
 					<StyledLink to='/instructor/create'>Create a Class</StyledLink>
 					<StyledLink to='/instructor/manage'>Manage Classes</StyledLink>
-					<StyledLink to='#'>Dashboard</StyledLink>
+					<StyledLink to='/instructor/punch'>Punch Card</StyledLink>
 				</nav>
 			</Banner>
 			<BackgroundImg>

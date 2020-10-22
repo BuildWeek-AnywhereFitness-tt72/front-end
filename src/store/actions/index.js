@@ -11,8 +11,8 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 // action creator that is going to do some async stuff
 
 export const login = (username, password) => (dispatch) => {
-	dispatch({ type: LOGIN_REQUEST });
-	console.log('log me something');
+  dispatch({ type: LOGIN_REQUEST });
+
 	axiosWithSecret()
 		.post(
 			'https://tt72-anyfit.herokuapp.com/login',
@@ -22,7 +22,8 @@ export const login = (username, password) => (dispatch) => {
 			console.log(res.data);
       const accessToken = res.data["access_token"];
       localStorage.setItem('token', accessToken) 
-			dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+      localStorage.setItem('user', JSON.stringify({username, password})); 
+			dispatch({ type: LOGIN_SUCCESS, payload: {username, password} });
 		})
 		.catch((err) => {
 			console.log(err);
