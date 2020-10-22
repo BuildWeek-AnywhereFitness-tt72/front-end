@@ -48,23 +48,10 @@ const StyledResults = styled.div`
 
 `;
 
-// const useScrollTop = () => {
-// 	const [scrollTop, setScrollTop] = useState(0);
-// 	const onScroll = event => setScrollTop(event.target.scrollTop);
-// 	return [scrollTop, { onScroll }]; 
-// }
-
-// const useCurrentScroll = () => {
-// 	const [currentScroll, setCurrentScroll] = useState(0);
-// 	const onScroll = evt => setCurrentScroll(evt.target.scrollTop / evt.target.scrollHeight);
-// 	return [currentScroll, {onScroll}];
-// };
 
 const SearchResults = props => {
 	const { input, results, displayParam } = props;
-	// const [scrollTop, scrollTopProps ] = useScrollTop();
-	// const [currentScroll, scrollProps] = useCurrentScroll();
-
+	
 	if (!results) {
 		return (
 			<div>There are no search results for {input ? input : "UNKNOWN"}</div>

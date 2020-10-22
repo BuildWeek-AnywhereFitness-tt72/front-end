@@ -40,91 +40,93 @@ const sessionsTest = [
 		"intensity": "Beginning",
 		"maxsize": 47,
 		"locations": {
-				"locationid": 10,
-				"address": "Williamson Lakes 8599",
-				"city": "West Yahairaburgh",
-				"state": "Nebraska",
-				"zip": "22963"
+			"locationid": 10,
+			"address": "Williamson Lakes 8599",
+			"city": "West Yahairaburgh",
+			"state": "Nebraska",
+			"zip": "22963"
 		},
 		"users": [
-				{
-						"user": {
-								"userid": 11,
-								"username": "burt.mckenzie",
-								"roles": [
-										{
-												"role": {
-														"roleid": 2,
-														"name": "USER"
-												}
-										}
-								]
-						},
-						"instructor": true
+			{
+				"user": {
+					"userid": 11,
+					"username": "burt.mckenzie",
+					"roles": [
+						{
+							"role": {
+								"roleid": 2,
+								"name": "USER"
+							}
+						}
+					]
 				},
-				{
-						"user": {
-								"userid": 47,
-								"username": "shanika.torphy",
-								"roles": [
-										{
-												"role": {
-														"roleid": 2,
-														"name": "USER"
-												}
-										}
-								]
-						},
-						"instructor": false
-				}
-		]},
-		{
-			"sessionid": 10,
-			"name": "Running in the rain",
-			"type": "Running",
-			"time": "2020-10-22 16:00:00",
-			"duration": "64 minutes",
-			"intensity": "Beginning",
-			"maxsize": 47,
-			"locations": {
-					"locationid": 10,
-					"address": "Williamson Lakes 8599",
-					"city": "West Yahairaburgh",
-					"state": "Nebraska",
-					"zip": "22963"
+				"instructor": true
 			},
-			"users": [
-					{
-							"user": {
-									"userid": 11,
-									"username": "burt.mckenzie",
-									"roles": [
-											{
-													"role": {
-															"roleid": 2,
-															"name": "USER"
-													}
-											}
-									]
-							},
-							"instructor": true
-					},
-					{
-							"user": {
-									"userid": 47,
-									"username": "shanika.torphy",
-									"roles": [
-											{
-													"role": {
-															"roleid": 2,
-															"name": "USER"
-													}
-											}
-									]
-							},
-							"instructor": false
-					}
-			]},
+			{
+				"user": {
+					"userid": 47,
+					"username": "shanika.torphy",
+					"roles": [
+						{
+							"role": {
+								"roleid": 2,
+								"name": "USER"
+							}
+						}
+					]
+				},
+				"instructor": false
+			}
+		]
+	},
+	{
+		"sessionid": 10,
+		"name": "Running in the rain",
+		"type": "Running",
+		"time": "2020-10-22 16:00:00",
+		"duration": "64 minutes",
+		"intensity": "Beginning",
+		"maxsize": 47,
+		"locations": {
+			"locationid": 10,
+			"address": "Williamson Lakes 8599",
+			"city": "West Yahairaburgh",
+			"state": "Nebraska",
+			"zip": "22963"
+		},
+		"users": [
+			{
+				"user": {
+					"userid": 11,
+					"username": "burt.mckenzie",
+					"roles": [
+						{
+							"role": {
+								"roleid": 2,
+								"name": "USER"
+							}
+						}
+					]
+				},
+				"instructor": true
+			},
+			{
+				"user": {
+					"userid": 47,
+					"username": "shanika.torphy",
+					"roles": [
+						{
+							"role": {
+								"roleid": 2,
+								"name": "USER"
+							}
+						}
+					]
+				},
+				"instructor": false
+			}
+		]
+	},
 ];
 
 const exampleFilters = {
@@ -135,62 +137,57 @@ const exampleFilters = {
 
 const ClassSearch = props => {
 	const [searchResults, setSearchResults] = useState(allSessions);
-	const [searchTerm, setSearchTerm] = useState("search");
-	const [filteredResults, setFilteredResults] = useState([])
-	const [resultsOpen, setResultsOpen] = useState(false);
+	const [filteredResults, setFilteredResults] = useState(allSessions);
+	// const [searchTerm, setSearchTerm] = useState("search");
+	const [resultsOpen, setResultsOpen] = useState(true);
 
 	const executeSearch = (searchInput) => {
 		// setSearchTerm(searchInput);
 		// setSearchResults(searchInput);
 		setResultsOpen(true);
 	}
-	// const filterSessions = (sessions, filter) => {
-	// 	let results = [];
-	// 	for (let prop in filter) {
-	// 		if (filter.hasOwnProperty(prop)) {
-	// 			for (let i=0; i< filter.length; i++) {
-	// 				if (sessions[i][prop] === filter[prop]) {
-	// 					results.push(sessions[i])
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// 	return results;
-	// };
-	const filterSessions = (filter) => {
-		let sessions = searchResults;
-		const filt = searchResults.filter(ss => {
-			for (let key in filter) {
-				// console.log(key)
-				if (key === "name" || key === "sessionInput") {
-					// console.log('name!!');
-					console.log(ss[key], filter[key]);
-					const toReturn = ss[key].toLowerCase().includes(filter[key].toLowerCase());
-					console.log(toReturn);
-					return toReturn;
-				} else if (Object.isObject(filter[key])) {
-					console.log("OBJECT!", filter[key], key);
+
+	const filterSessionsGeneral= input => {
+		console.log(`input.name — ${input.name}`);
+		
+		
+		const filtered = searchResults.filter(session => {
+			console.log(session);
+			const arrToCompare = [
+				session.duration,
+				session.intensity,
+				session.locations.address,
+				session.locations.city,
+				session.locations.state,
+				session.name,
+				session.time,
+				session.type,
+			];
+			const matched = arrToCompare.filter(x => {
+				if (typeof x === "string") {
+					console.log("x", x);
+					return x.toLowerCase().includes(input.name.toLowerCase());
+				} else if (typeof x === "number") {
+					console.log("x", x);
+					return x.toString().toLowerCase().includes(input.name.toLowerCase());
+				} else {
+					console.log("x", x);
 				}
-				else if (ss[key] === undefined || ss[key] !== filter[key]) {
-					return false;
-				}
-				return true;
-			}
+			})
+			console.log("matched", matched);
+			return matched.length !== 0 ;
 		});
-		console.log(filt);
-		setFilteredResults([...filteredResults, filt]);
+		console.log(filtered);
+		setFilteredResults(filtered);
 	};
-	// console.log("Ex", filterSessions(sessionsTest, exampleFilters));
 
 	return (
 		<div className="class-search-container" >
-			<ClassSearchHead executeSearch={executeSearch} filterSessions={filterSessions}/>
+			<ClassSearchHead executeSearch={executeSearch} filterSessions={filterSessionsGeneral} />
 			<StyledClassSearch>
-				
 				<SearchLanding displayParam={resultsOpen ? "none" : "block"} />
-				<SearchResults results={searchResults} input={searchTerm} displayParam={resultsOpen ? "flex" : "none"  } />
+				<SearchResults results={filteredResults} input={input.name} displayParam={resultsOpen ? "flex" : "none"} />
 				<StyledMap />
-				
 			</StyledClassSearch>
 		</div>
 	);

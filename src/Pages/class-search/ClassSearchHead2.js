@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import * as Yup from "yup";
 
+import SearchOptionsDropdown from "./components/SearchOptions2";
 import SearchHeader from "./components/SearchHeader";
-import SearchOptionsDropdown from "./components/SearchOptionsDropdown";
+// import SearchOptionsDropdown from "./components/SearchOptionsDropdown";
 // import {axiosWithSecret} from "../Login/axiosWithAuth";
 // import searchFormSchema from "./validation/searchFormSchema";
 
 const searchFormSchema = Yup.object().shape({
-	sessionInput: Yup.string().required(),
-	locationInput: Yup.string().required(),
+	name: Yup.string().required(),
+	location: Yup.string().required(),
 	date: Yup.string(),
 });
 
@@ -35,6 +36,7 @@ const searchFormSchema = Yup.object().shape({
 
 const initSInput = {
 	name: "",
+	// type: [],
 	type: {
 		yoga: false,
 		bootcamp: false,
@@ -47,15 +49,17 @@ const initSInput = {
 		dance: false,
 		running: false,
 	},
-	time: {
-		date: "", 
-		time: "", 
-	},
-	intensity: {
-		beginner: false,
-		intermediate: false,
-		advanced: false,
-	},
+	time: "",
+	// time: {
+	// 	date: "", 
+	// 	time: "", 
+	// },
+	// intensity: {
+	// 	beginner: false,
+	// 	intermediate: false,
+	// 	advanced: false,
+	// },
+	intensity: [],
 	duration: "",
 	locations: {
 		address: "",
@@ -95,7 +99,7 @@ const ClassSearchHead = props => {
 		// setInput({ ...input, [name]: {[value]: true} });
 		setInput({
 			...input, 
-			[name]: {...[name], [value]: true}
+			[name]: [value]
 		})
 		// setFilters({ ...filters, [name]: value });
 	};
@@ -103,7 +107,7 @@ const ClassSearchHead = props => {
 	const searchSubmit = (evt) => {
 		evt.preventDefault();
 		// const newSearch = input;
-		console.log(input);
+		// console.log(input);
 			// console.log(`Session: ${input.sessionInput}`,
 			// 	`Location: ${input.locationInput}`,
 			// 	`Date: ${input.dateInput}`,
@@ -128,7 +132,7 @@ const ClassSearchHead = props => {
 		<form onSubmit={searchSubmit}>
 			<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} isDisabled={isDisabled} user={user} />
 			{/* <SearchOptionsDropdown filters={filters} validFilters={validFilters} filtersChange={filtersChange} searchChange={searchChange} /> */}
-			<SearchOptionsDropdown filtersChange={filtersChange} searchChange={searchChange} />
+			<SearchOptionsDropdown filtersChange={filtersChange} searchChange={searchChange} input={input} />
 		</form>
 	);
 };

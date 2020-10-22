@@ -91,7 +91,7 @@ const SearchHeader = props => {
 						place="left"
 					/>
 					<Input 
-						name="locationInput"
+						name="location"
 						type="text"
 						value={input.locationInput}
 						onChange={onChange}
