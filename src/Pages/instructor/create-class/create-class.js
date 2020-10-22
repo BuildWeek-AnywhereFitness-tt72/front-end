@@ -158,8 +158,6 @@ const CreateClass = () => {
     }
 
     useEffect(() => {
-        
-
         createClassSchema.isValid(formValues).then((valid) => {
             setDisabled(!valid)
         });
