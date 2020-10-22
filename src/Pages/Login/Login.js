@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
@@ -84,12 +84,14 @@ const Login = (props) => {
 	// 	console.log(values);
 	// 	console.log(errors);
 	// };
-
-	// history.push('/Dash');
+  // if we are loggedin successfully, we should go to the dash
+  useEffect(() => {
+    if (props.isLoggedIn === true) {
+      history.push('/Dash');
+    }}, [props.isLoggedIn])
 
 	const handleOnClick = (evt) => {
 		evt.preventDefault();
-		console.log('log something');
 		props.login(values.username, values.password);
 	};
 
@@ -128,7 +130,9 @@ const Login = (props) => {
 		</StyledDiv>
 	);
 };
-const mapStateToProps = () => {
-	return {};
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.loginReducer.isLoggedIn,
+  };
 };
 export default connect(mapStateToProps, { login })(Login);
