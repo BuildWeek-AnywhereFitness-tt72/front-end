@@ -16,7 +16,7 @@ const PunchBox = props => {
     const { num } = props;
 
     return (
-        <StyledBox>
+        <StyledBox >
             <h4>{num}</h4>
         </StyledBox>
     );
