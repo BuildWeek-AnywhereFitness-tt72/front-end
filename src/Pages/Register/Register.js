@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-// import styles from "./Register.module.css";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 
 import { StyledLink } from "../../reusable-components/reusableComponents";
-
 import { register } from "../../store/actions";
 import { MainHeader } from "../../reusable-components/reusableComponents";
 
@@ -70,6 +69,7 @@ const Register = () => {
     role: "",
   });
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -78,6 +78,7 @@ const Register = () => {
   const submitAccount = (e) => {
     e.preventDefault();
     dispatch(register(user));
+    history.push('/login');
   };
 
   return (
@@ -99,15 +100,6 @@ const Register = () => {
                 onChange={handleChange}
               />
             </label>
-            {/* <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            // value={user.email}
-            onChange={handleChange}
-          />
-        </label> */}
             <label>
               Password:
               <input

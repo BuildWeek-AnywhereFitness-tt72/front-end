@@ -33,6 +33,7 @@ const initFilters = {
 };
 
 const ClassSearchHead = props => {
+	const { executeSearch, user } = props;
 	const [input, setInput] = useState(initInput);
 	const [errors, setErrors] = useState(initInput);
 	const [filters, setFilters] = useState(initFilters);
@@ -44,7 +45,7 @@ const ClassSearchHead = props => {
 			.then(() => {
 				setErrors({ ...errors, [name]: "" });
 			})
-			.catch( err => {
+			.catch(err => {
 				setErrors({ ...errors, [name]: err.errors[0] });
 			});
 		setInput({ ...input, [name]: value });
@@ -63,11 +64,12 @@ const ClassSearchHead = props => {
 			filters: filters,
 		};
 		console.log(newSearch);
-		console.log(`Session: ${input.sessionInput}`, 
-			`Location: ${input.locationInput}`, 
+		console.log(`Session: ${input.sessionInput}`,
+			`Location: ${input.locationInput}`,
 			`Date: ${input.dateInput}`,
 			filters
-			);
+		);
+		executeSearch();
 	}
 
 	useEffect(() => {
@@ -80,7 +82,7 @@ const ClassSearchHead = props => {
 
 	return (
 		<form onSubmit={searchSubmit}>
-			<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} isDisabled={isDisabled}  />
+			<SearchHeader input={input} searchChange={searchChange} searchSubmit={searchSubmit} isDisabled={isDisabled} user={user} />
 			<SearchOptionsDropdown filters={filters} validFilters={validFilters} filtersChange={filtersChange} searchChange={searchChange} />
 		</form>
 	);

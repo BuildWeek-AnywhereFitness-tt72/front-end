@@ -41,18 +41,10 @@ const Button = styled.a`
 	font-size: 2rem;
 	font-weight: 600;
 	border-radius: 10px;
-`;
-	
-	/* margin: 0 auto; */
-	/* &:hover {
-		cursor: pointer;
+	&:hover {
 		color: ${pr => pr.theme.eggshell};
 	}
-	&:disabled {
-		color: crimson;
-		background-color: gray;
-		cursor: not-allowed;
-	} */
+`;
 
 const InputContainer = styled.div`
 	display: inline-block;
@@ -76,7 +68,7 @@ const Input = styled.input.attrs(pr => ({
 
 const SearchHeader = props => {
 	
-	const {input, searchChange, isDisabled, searchSubmit} = props;
+	const {input, searchChange, isDisabled, searchSubmit, user} = props;
 
 	const onChange = (evt) => {
 		const {name, value} = evt.target;
@@ -110,96 +102,10 @@ const SearchHeader = props => {
 				<Button className="submit-btn" isDisabled={isDisabled} onClick={searchSubmit }>Search</Button>
 			<div>
 				<p>About</p>
-				<p>Hello, User!</p>
+				<p>Hello, {user ? user.username : "User"}!</p>
 			</div>
 		</StyledSearchHeader>
 	);
 };
 
 export default SearchHeader;
-
-
-// const InputGroup = styled.div`
-// 	display: flex;
-// 	height: 5rem;
-// 	width: 60rem;
-// `;
-
-// const InputContainer = styled.div.attrs(pr => ({
-// 	radius: pr.place === "left" ? "25px 0px 0px 25px" : "0px 25px 25px 0px",
-// }))`
-// 	display: flex;
-// 	/* background: transparent; */
-// 	text-align: center;
-// 	height: 100%;
-// 	width: 50%;
-// 	border-width: thin;
-// 	border-radius: ${pr => pr.radius};
-// 	border-left: ${pr => pr.place === "right" ? "0px" : ""};
-// 	border-color: #CCCCCC;
-// 	/* outline: none; */
-// 	span {
-// 		height: 100%;
-// 		display: inline-flex;
-// 		align-items: center;
-// 		justify-content: center;
-// 		overflow: hidden;
-// 	}
-
-// `;
-
-// const Input = styled.input.attrs(pr => ({
-// 	radius: pr.place === "left" ? "25px 0px 0px 25px" : "0px 25px 25px 0px",
-// }))`
-// 	/* display: inline-block; */
-	
-
-	
-// `;
-
-
-// turn (
-// 	<StyledSearchHeader className="search-header">
-// 		<div className="head-text">
-// 			<h1>Anywhere Fitness</h1>
-// 		</div>
-// 		<InputGroup className="input-container">
-// 		<InputContainer place="left">
-// 			<span>
-// 				<div>
-// 					{locationIconSVG}
-// 				</div>
-// 			</span>
-// 			<Input
-// 				name="sessionInput"
-// 				type="text"
-// 				value={input.sessionInput}
-// 				onChange={onChange}
-// 				placeholder="Find a class or activity"
-// 				// place="left"
-// 			/>
-// 		</InputContainer>
-// 		<InputContainer place="right">
-// 			<span>
-// 				<div>
-// 					{searchIconSVG}
-// 				</div>
-// 			</span>
-// 			<Input
-// 				name="locationInput"
-// 				type="text"
-// 				value={input.locationInput}
-// 				onChange={onChange}
-// 				placeholder="Chicago, IL"
-// 				// place="right"
-// 			/>
-// 		</InputContainer>
-
-// 		</InputGroup>
-// 		<div className="head-text">
-// 			<p>About</p>
-// 			<p>Hello, User!</p>
-// 		</div>
-// 	</StyledSearchHeader>
-// );
-// };
