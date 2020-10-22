@@ -31,11 +31,17 @@ const Dropdown = styled.select`
 // 	}
 // `;
 
+const validFilters = {
+	type: ["yoga", "weightlifting", "biking/spin", "functional-fitness", "boxing", "cardio", "stretch", "dance", "running", "bootcamp",],
+	duration: ["0-15", "15-30", "30-45", "45-60", "60+",],
+	time: ["early-morning", "late-morning", "midday", "early-afternoon", "late-afternoon", "early-evening", "late-evening",],
+	intensity: ["beginner", "intermediate", "advanced"],
+}
 
 
 
 const SearchOptionsDropdown = props => {
-	const { validFilters, filtersChange, searchChange } = props;
+	const { filtersChange, searchChange } = props;
 
 	/**
 	 * This helper function takes a filter name and maps every available option for the given filter
@@ -70,7 +76,7 @@ const SearchOptionsDropdown = props => {
 				})
 			}
 			{/* <StyledDayPicker onDayChange={day => searchChange("dateInput", day)} value="" inputProps={{id: "day-input"}}/> */}
-			<DayPickerInput onDayChange={day => searchChange("dateInput", day)} value="" inputProps={{id: "day-input"}}/>
+			<DayPickerInput onDayChange={day => searchChange("date", day)} value="" inputProps={{id: "day-input"}}/>
 		</div>
 	);
 };

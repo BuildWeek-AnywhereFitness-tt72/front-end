@@ -83,7 +83,7 @@ const SearchHeader = props => {
 			</div>
 				<InputContainer className="input-container">
 					<Input 
-						name="sessionInput"
+						name="name"
 						type="text"
 						value={input.sessionInput}
 						onChange={onChange}

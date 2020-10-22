@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import styled from "styled-components";
 import { allSessions } from "../../reusable-components/data";
 
-import ClassSearchHead from "./ClassSearchHead";
+import ClassSearchHead from "./ClassSearchHead2";
 import SearchLanding from "./components/SearchLanding";
 import SearchResults from "./components/SearchResults";
 
@@ -29,9 +29,114 @@ const StyledClassSearch = styled.div`
 		background-color: ${pr => pr.theme.eggshell};
 `;
 
+
+const sessionsTest = [
+	{
+		"sessionid": 9,
+		"name": "Boxing in an abandoned ring with Chris",
+		"type": "Boxing",
+		"time": "2019-12-21 16:00:00",
+		"duration": "64 minutes",
+		"intensity": "Beginning",
+		"maxsize": 47,
+		"locations": {
+				"locationid": 10,
+				"address": "Williamson Lakes 8599",
+				"city": "West Yahairaburgh",
+				"state": "Nebraska",
+				"zip": "22963"
+		},
+		"users": [
+				{
+						"user": {
+								"userid": 11,
+								"username": "burt.mckenzie",
+								"roles": [
+										{
+												"role": {
+														"roleid": 2,
+														"name": "USER"
+												}
+										}
+								]
+						},
+						"instructor": true
+				},
+				{
+						"user": {
+								"userid": 47,
+								"username": "shanika.torphy",
+								"roles": [
+										{
+												"role": {
+														"roleid": 2,
+														"name": "USER"
+												}
+										}
+								]
+						},
+						"instructor": false
+				}
+		]},
+		{
+			"sessionid": 10,
+			"name": "Running in the rain",
+			"type": "Running",
+			"time": "2020-10-22 16:00:00",
+			"duration": "64 minutes",
+			"intensity": "Beginning",
+			"maxsize": 47,
+			"locations": {
+					"locationid": 10,
+					"address": "Williamson Lakes 8599",
+					"city": "West Yahairaburgh",
+					"state": "Nebraska",
+					"zip": "22963"
+			},
+			"users": [
+					{
+							"user": {
+									"userid": 11,
+									"username": "burt.mckenzie",
+									"roles": [
+											{
+													"role": {
+															"roleid": 2,
+															"name": "USER"
+													}
+											}
+									]
+							},
+							"instructor": true
+					},
+					{
+							"user": {
+									"userid": 47,
+									"username": "shanika.torphy",
+									"roles": [
+											{
+													"role": {
+															"roleid": 2,
+															"name": "USER"
+													}
+											}
+									]
+							},
+							"instructor": false
+					}
+			]},
+];
+
+const exampleFilters = {
+	"name": "Running",
+	"type": "Running",
+}
+
+
 const ClassSearch = props => {
 	const [searchResults, setSearchResults] = useState(allSessions);
 	const [searchTerm, setSearchTerm] = useState("search");
+	const [filteredResults, setFilteredResults] = useState([])
 	const [resultsOpen, setResultsOpen] = useState(false);
 
 	const executeSearch = (searchInput) => {
@@ -39,10 +144,47 @@ const ClassSearch = props => {
 		// setSearchResults(searchInput);
 		setResultsOpen(true);
 	}
+	// const filterSessions = (sessions, filter) => {
+	// 	let results = [];
+	// 	for (let prop in filter) {
+	// 		if (filter.hasOwnProperty(prop)) {
+	// 			for (let i=0; i< filter.length; i++) {
+	// 				if (sessions[i][prop] === filter[prop]) {
+	// 					results.push(sessions[i])
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// 	return results;
+	// };
+	const filterSessions = (filter) => {
+		let sessions = searchResults;
+		const filt = searchResults.filter(ss => {
+			for (let key in filter) {
+				// console.log(key)
+				if (key === "name" || key === "sessionInput") {
+					// console.log('name!!');
+					console.log(ss[key], filter[key]);
+					const toReturn = ss[key].toLowerCase().includes(filter[key].toLowerCase());
+					console.log(toReturn);
+					return toReturn;
+				} else if (Object.isObject(filter[key])) {
+					console.log("OBJECT!", filter[key], key);
+				}
+				else if (ss[key] === undefined || ss[key] !== filter[key]) {
+					return false;
+				}
+				return true;
+			}
+		});
+		console.log(filt);
+		setFilteredResults([...filteredResults, filt]);
+	};
+	// console.log("Ex", filterSessions(sessionsTest, exampleFilters));
 
 	return (
 		<div className="class-search-container" >
-			<ClassSearchHead executeSearch={executeSearch} />
+			<ClassSearchHead executeSearch={executeSearch} filterSessions={filterSessions}/>
 			<StyledClassSearch>
 				
 				<SearchLanding displayParam={resultsOpen ? "none" : "block"} />
