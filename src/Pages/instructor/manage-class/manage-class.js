@@ -107,7 +107,6 @@ const ManageClass = () => {
             axiosWithAuth()
             .get("/sessions/sessions")
             .then(res => {
-                console.log(res);
                 setActiveSessions(res.data);
             }).catch(err => console.log(err));
         }
