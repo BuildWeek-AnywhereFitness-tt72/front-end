@@ -13,9 +13,10 @@ const Routes = (props) => {
 	return (
 		<Router {...props}>
 			<Switch>
-				<Route path='/instructor'>
+				<PrivateRoute path="/instructor" component={InstructorLanding} />
+				{/* <Route path='/instructor'>
 					<InstructorLanding />
-				</Route>
+				</Route> */}
 				<Route path="/login">
 					<Login />
 				</Route>
@@ -25,14 +26,14 @@ const Routes = (props) => {
 				<Route path="/dash">
 					<Dash />
 				</Route>
-				{/* <PrivateRoute path="/classes/search" component={ClassSearch} />
-          <PrivateRoute path="/classes/manage" component={ClassManage} /> */}
-				<Route path="/classes/search">
+				<PrivateRoute path="/classes/search" component={ClassSearch} />
+          		<PrivateRoute path="/classes/manage" component={ClassManage} />
+				{/* <Route path="/classes/search">
 					<ClassSearch />
 				</Route>
 				<Route path="/classes/manage">
 					<ClassManage />
-				</Route>
+				</Route> */}
 				<Route exact path="/classes/">
 					<Redirect to="/classes/search" />
 				</Route>
