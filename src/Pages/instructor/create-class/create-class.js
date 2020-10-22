@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import * as yup from 'yup';
+import { connect } from 'react-redux';
 
 import { StyledLink } from "../../../reusable-components/reusableComponents";
 import createClassSchema from './validation/createClassSchema';
@@ -105,7 +106,7 @@ const initialFormErrors = {
 const initialDisabled = true;
 
 
-const CreateClass = () => {
+const CreateClass = (props) => {
     const [formValues, setFormValues] = useState(initialFormValues);
     const [formErrors, setFormErrors] = useState(initialFormErrors);
     const [disabled, setDisabled] = useState(initialDisabled);
@@ -157,6 +158,7 @@ const CreateClass = () => {
         };
 
         console.log(newClass);
+        console.log(props.user);
 
         //Post Function Call
         axiosWithSecret()
@@ -313,4 +315,10 @@ const CreateClass = () => {
     )
 }
 
-export default CreateClass;
+const mapStateToProps = (state) => {
+    return {
+        user: state.loginReducer
+    };
+};
+
+export default connect(mapStateToProps, { })(CreateClass);;
