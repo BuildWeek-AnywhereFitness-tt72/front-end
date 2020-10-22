@@ -138,7 +138,7 @@ const exampleFilters = {
 const ClassSearch = props => {
 	const [searchResults, setSearchResults] = useState(allSessions);
 	const [filteredResults, setFilteredResults] = useState(allSessions);
-	// const [searchTerm, setSearchTerm] = useState("search");
+	const [searchTerm, setSearchTerm] = useState("search");
 	const [resultsOpen, setResultsOpen] = useState(true);
 
 	const executeSearch = (searchInput) => {
@@ -186,7 +186,7 @@ const ClassSearch = props => {
 			<ClassSearchHead executeSearch={executeSearch} filterSessions={filterSessionsGeneral} />
 			<StyledClassSearch>
 				<SearchLanding displayParam={resultsOpen ? "none" : "block"} />
-				<SearchResults results={filteredResults} input={input.name} displayParam={resultsOpen ? "flex" : "none"} />
+				<SearchResults results={filteredResults} input={searchTerm} displayParam={resultsOpen ? "flex" : "none"} />
 				<StyledMap />
 			</StyledClassSearch>
 		</div>
