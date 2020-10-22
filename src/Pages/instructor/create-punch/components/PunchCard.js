@@ -72,8 +72,7 @@ const StyledPunchCard = styled.div`
 	}
 `;
 
-///SET TO FALSE BEFORE MERGING
-const initialModal = true;
+const initialModal = false;
 
 const PunchCard = props => {
 	const { session } = props;
