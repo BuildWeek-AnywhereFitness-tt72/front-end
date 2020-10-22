@@ -3,21 +3,21 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 import styled from "styled-components";
 
-const Dropdown = styled.div`
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	height: 5rem;
-	width: 20rem;
-	margin: 2rem;
-	border-radius: 50px;
-	border-color: 1px solid black;
-	text-align: center;
-	font-family: Raleway;
-	text-align: center;
-	font-size: 1.8rem;
-	font-weight: 700;
-`;
+// const Dropdown = styled.div`
+// 	display: inline-flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	height: 5rem;
+// 	width: 20rem;
+// 	margin: 2rem;
+// 	border-radius: 50px;
+// 	border-color: 1px solid black;
+// 	text-align: center;
+// 	font-family: Raleway;
+// 	text-align: center;
+// 	font-size: 1.8rem;
+// 	font-weight: 700;
+// `;
 
 // const StyledDayPicker = styled(DayPickerInput)`
 // 	input#day-input {
@@ -118,18 +118,18 @@ const SearchOptionsDropdown = props => {
 					// console.log(filter);
 					//for each filterName in state, return a select element
 					return (
-						<div>
-						<Dropdown key={filter} name={filter} onClick={() => toggleDrop(filter)}>
+						<>
+						<div key={filter} name={filter} onClick={() => toggleDrop(filter)}>
 							<h2>{filter}</h2>
-						</Dropdown>
-						<BoxesContainer shown={isOpen[filter]}>
+						</div>
+						<div shown={isOpen[filter]}>
 							{/* <BoxesContainer className="hide" shown={isOpen}> */}
 								{/* each select has a label option to begin */}
 								{/* <option key="label" value="">{filter}</option> */}
 								{ mapFilter(filter)}
 							{/* </BoxesContainer> */}
-						</BoxesContainer>
 						</div>
+						</>
 					);
 				})
 			}

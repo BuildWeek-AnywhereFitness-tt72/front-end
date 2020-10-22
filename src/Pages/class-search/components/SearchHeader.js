@@ -68,7 +68,8 @@ const Input = styled.input.attrs(pr => ({
 
 const SearchHeader = props => {
 	
-	const {input, searchChange, isDisabled, searchSubmit, user} = props;
+	// const {input, searchChange, isDisabled, searchSubmit, user} = props;
+	const {input, searchChange, user} = props;
 
 	const onChange = (evt) => {
 		const {name, value} = evt.target;
@@ -83,9 +84,9 @@ const SearchHeader = props => {
 			</div>
 				<InputContainer className="input-container">
 					<Input 
-						name="name"
+						name="search"
 						type="text"
-						value={input.sessionInput}
+						value={input.search}
 						onChange={onChange}
 						placeholder="Find a class or activity" 
 						place="left"
@@ -93,13 +94,13 @@ const SearchHeader = props => {
 					<Input 
 						name="location"
 						type="text"
-						value={input.locationInput}
+						value={input.location}
 						onChange={onChange}
 						placeholder="Chicago, IL"
 						place="right"
 					/>
 				</InputContainer>
-				<Button className="submit-btn" isDisabled={isDisabled} onClick={searchSubmit }>Search</Button>
+				{/* <Button className="submit-btn" isDisabled={isDisabled} onClick={searchSubmit }>Search</Button> */}
 			<div>
 				<p>About</p>
 				<p>Hello, {user ? user.username : "User"}!</p>

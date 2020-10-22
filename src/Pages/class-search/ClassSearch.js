@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-// import { Route, Switch } from "react-router-dom";
-// import axios from 'axios';
 import styled from "styled-components";
 import { allSessions } from "../../reusable-components/data";
 
+// import { Route, Switch } from "react-router-dom";
+// import axios from 'axios';
 import ClassSearchHead from "./ClassSearchHead2";
 import SearchLanding from "./components/SearchLanding";
 import SearchResults from "./components/SearchResults";
@@ -136,19 +136,19 @@ const exampleFilters = {
 
 
 const ClassSearch = props => {
-	const [searchResults, setSearchResults] = useState(allSessions);
+	const [searchResults] = useState(allSessions);
 	const [filteredResults, setFilteredResults] = useState(allSessions);
 	const [searchTerm, setSearchTerm] = useState("search");
 	const [resultsOpen, setResultsOpen] = useState(true);
 
-	const executeSearch = (searchInput) => {
-		// setSearchTerm(searchInput);
-		// setSearchResults(searchInput);
-		setResultsOpen(true);
-	}
+	// const executeSearch = (searchInput) => {
+	// 	// setSearchTerm(searchInput);
+	// 	// setSearchResults(searchInput);
+	// 	setResultsOpen(true);
+	// }
 
-	const filterSessionsGeneral= input => {
-		console.log(`input.name — ${input.name}`);
+	const filterSessionsGeneral= search => {
+		console.log(`searchbar.search — ${search}`);
 		
 		
 		const filtered = searchResults.filter(session => {
@@ -166,10 +166,10 @@ const ClassSearch = props => {
 			const matched = arrToCompare.filter(x => {
 				if (typeof x === "string") {
 					console.log("x", x);
-					return x.toLowerCase().includes(input.name.toLowerCase());
+					return x.toLowerCase().includes(search.toLowerCase());
 				} else if (typeof x === "number") {
 					console.log("x", x);
-					return x.toString().toLowerCase().includes(input.name.toLowerCase());
+					return x.toString().toLowerCase().includes(search.toLowerCase());
 				} else {
 					console.log("x", x);
 				}
@@ -183,7 +183,8 @@ const ClassSearch = props => {
 
 	return (
 		<div className="class-search-container" >
-			<ClassSearchHead executeSearch={executeSearch} filterSessions={filterSessionsGeneral} />
+			{/* <ClassSearchHead executeSearch={executeSearch} filterSessions={filterSessionsGeneral} /> */}
+			<ClassSearchHead filterSessions={filterSessionsGeneral} />
 			<StyledClassSearch>
 				<SearchLanding displayParam={resultsOpen ? "none" : "block"} />
 				<SearchResults results={filteredResults} input={searchTerm} displayParam={resultsOpen ? "flex" : "none"} />

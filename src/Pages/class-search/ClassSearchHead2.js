@@ -8,16 +8,16 @@ import SearchHeader from "./components/SearchHeader";
 // import searchFormSchema from "./validation/searchFormSchema";
 
 const searchFormSchema = Yup.object().shape({
-	name: Yup.string().required(),
+	search: Yup.string().required(),
 	location: Yup.string().required(),
 	date: Yup.string(),
 });
 
-// const initInput = {
-// 	sessionInput: "",
-// 	locationInput: "",
-// 	dateInput: "",
-// };
+const initInput = {
+	search: "",
+	location: "",
+	// dateInput: "",
+};
 
 //valid types
 // const validFilters = {
@@ -72,10 +72,9 @@ const initSInput = {
 
 const ClassSearchHead = props => {
 	const { executeSearch, user, filterSessions } = props;
-	// const [inputs, setInputs] = useState(initSInput);
 	const [input, setInput] = useState(initSInput);
+	const [searchbar, setSearchbar] = useState(initInput)
 	const [errors, setErrors] = useState(initSInput);
-	// const [filters, setFilters] = useState(initFilters);
 	const [isDisabled, setIsDisabled] = useState(true);
 	const [results, setResults] = useState([]);
 
@@ -92,7 +91,7 @@ const ClassSearchHead = props => {
 			.catch(err => {
 				setErrors({ ...errors, [name]: err.errors[0] });
 			});
-		setInput({ ...input, [name]: value });
+		setSearchbar({ ...input, [name]: value });
 	};
 
 	const filtersChange = (name, value) => {
@@ -104,27 +103,27 @@ const ClassSearchHead = props => {
 		// setFilters({ ...filters, [name]: value });
 	};
 
-	const searchSubmit = (evt) => {
-		evt.preventDefault();
-		// const newSearch = input;
-		// console.log(input);
-			// console.log(`Session: ${input.sessionInput}`,
-			// 	`Location: ${input.locationInput}`,
-			// 	`Date: ${input.dateInput}`,
-			// 	filters
-			// );
-		executeSearch();
-	}
+	// const searchSubmit = (evt) => {
+	// 	evt.preventDefault();
+	// 	// const newSearch = input;
+	// 	// console.log(input);
+	// 		// console.log(`Session: ${input.sessionInput}`,
+	// 		// 	`Location: ${input.locationInput}`,
+	// 		// 	`Date: ${input.dateInput}`,
+	// 		// 	filters
+	// 		// );
+	// 	executeSearch();
+	// }
 
 	useEffect( () => {
-		filterSessions(input);
-	}, [input]);
+		filterSessions(searchbar.search);
+	}, [searchbar]);
 
-	useEffect(() => {
-		searchFormSchema.isValid(input).then(valid => {
-			setIsDisabled(!valid);
-		})
-	}, [input]);
+	// useEffect(() => {
+	// 	searchFormSchema.isValid(input).then(valid => {
+	// 		setIsDisabled(!valid);
+	// 	})
+	// }, [input]);
 
 
 
