@@ -9,7 +9,7 @@ export function axiosWithSecret() {
 	return axios.create({
 		headers: {
 			Authorization: 'Basic ' + auth,
-			'Content-Type': 'application/json',
+			'Content-Type': 'application/x-www-form-urlencoded',
 		},
 		baseURL: "https://tt72-anyfit.herokuapp.com"
 	});
