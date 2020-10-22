@@ -12,6 +12,6 @@ export function axiosWithSecret() {
 			Authorization: 'Basic ' + auth,
 			'Content-Type': 'application/x-www-form-urlencoded',
 		},
-		baseURL: "http://tt72-anyfit.herokuapp.com"
+		baseURL: "https://tt72-anyfit.herokuapp.com"
 	});
 }
