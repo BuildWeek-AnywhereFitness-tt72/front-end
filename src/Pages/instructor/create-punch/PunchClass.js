@@ -67,9 +67,12 @@ const NoContainer = styled.div`
 `;
 
 
+
+
 const PunchClass = props => {
 	const [currentUser, setCurrentUser] = useState(getRandomUser());
 	const [sessionsObj, setSessionsObj] = useState(currentUser["sessions"]);
+
 	// const [sessions, setSessions] = useState([]);
 	console.log(sessionsObj);
 	if (sessionsObj.length === 0) {
@@ -83,20 +86,27 @@ const PunchClass = props => {
 		);
 	} 
 
-	return (
-		<PunchContainer>
-			<h1>My Classes</h1>
-			<div className="class-gal">
-			{
-					sessionsObj.map(s => {
-						// console.log(s["sessions"]);
-						console.log(s["sessions"]);
-						return <PunchCard key={s["sessions"]["sessionid"]} session={s["sessions"]} />
-					})
-			}
-			</div>
-		</PunchContainer>
-	);
+	
+		return (
+			<PunchContainer>
+				<h1>My Classes</h1>
+				<div className="class-gal">
+					{
+						sessionsObj.map(s => {
+							// console.log(s["sessions"]);
+							console.log(s["sessions"]);
+							return <PunchCard
+								key={s["sessions"]["sessionid"]}
+								session={s["sessions"]}
+							/>
+						})
+					}
+				</div>
+
+			
+			</PunchContainer>
+		);
+	
 };
 
 export default PunchClass;
