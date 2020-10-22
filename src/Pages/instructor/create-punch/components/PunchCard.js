@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import { HeroImgJr } from "../../../../reusable-components/reusableComponents";
 import { classTypeImages } from "../../../../reusable-components/data";
+import PunchModal from '../components/punch-modal';
 
 const StyledClassImg = styled(HeroImgJr)`
 	border-radius: 25px 25px 0px 0px;
@@ -15,7 +16,7 @@ const EditLink = styled.a`
 	flex-flow: row nowrap;
 	justify-content: center;
 	background-color: ${pr => pr.theme.primaryOrange};
-	color: white;
+	color: black;
 	&:hover {
 		color: white;
 	}
@@ -71,6 +72,9 @@ const StyledPunchCard = styled.div`
 	}
 `;
 
+///SET TO FALSE BEFORE MERGING
+const initialModal = true;
+
 const PunchCard = props => {
 	const { session } = props;
 	const name = session["name"];
@@ -78,12 +82,25 @@ const PunchCard = props => {
 	const date = session["time"].split(" ")[0];
 	const time = session["time"].split(" ")[1];
 	// const url = classTypeImages["functional-fitness"];
+	const [showModal, setShowModal] = useState(initialModal)
+
+
 	const getUrl = (classType) => {
 		return classTypeImages[classType] ? classTypeImages[classType] : classTypeImages["other"];
 	}
 
-	const handlePunch = () => {};
+	const handlePunch = () => {
+		setShowModal(true)
+	};
 
+	if (showModal) {
+		return (
+			<PunchModal
+				modal={setShowModal}
+				className={name}
+			/>
+		)
+	} else {
 	return (
 		<StyledPunchCard>
 			<StyledClassImg className="session-img" url={getUrl()} height={"60%"} position={"center"} >
@@ -95,10 +112,11 @@ const PunchCard = props => {
 				<h6>{type}</h6>
 				<h6>{date}</h6>
 				<h2>{time}</h2>
-				<EditLink onClick={handlePunch}>Create a Punch Card</EditLink>
+				<EditLink onClick={handlePunch}>Create Pass</EditLink>
 			</div>
 
-		</StyledPunchCard>);
+			</StyledPunchCard>);
+	}
 };
 
 export default PunchCard;

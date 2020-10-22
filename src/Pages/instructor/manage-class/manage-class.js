@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { StyledLink, MainHeader, Banner } from "../../../reusable-components/reusableComponents";
 
 import ClassRow from './class-row';
 import ClassCard from './class-card';
@@ -130,12 +129,13 @@ const ManageClass = () => {
                             <h4>Duration</h4>
                             <h4>Name</h4>
                             <h4>Size</h4>
-                            <h4></h4>
+                            <h4>Action</h4>
 
                         </StyledTableHeader>
                         {
                             currentEnrollment.map(session => {
                                 return <ClassRow
+                                    key={session}
                                     session={session}
                                 />
                             })
