@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import * as yup from 'yup';
-import { connect } from 'react-redux';
+import { useHistory } from "react-router";
 
-import { StyledLink } from "../../../reusable-components/reusableComponents";
 import createClassSchema from './validation/createClassSchema';
 
-import {axiosWithSecret} from "../../Login/axiosWithAuth";
+import {axiosWithAuth} from "../../../utils/axioswauth";
 
 const StyledContainer = styled.div`
     display: flex;
@@ -110,11 +109,7 @@ const CreateClass = (props) => {
     const [formValues, setFormValues] = useState(initialFormValues);
     const [formErrors, setFormErrors] = useState(initialFormErrors);
     const [disabled, setDisabled] = useState(initialDisabled);
-
-    const formatDate = (date) => {
-        return new Date(date).toLocaleDateString();
-    }
-
+    const history = useHistory();
 
     const inputChange = (evt) => {
 
@@ -157,14 +152,10 @@ const CreateClass = (props) => {
             }
         };
 
-        console.log(newClass);
-        console.log(props.user);
-
-        //Post Function Call
-        axiosWithSecret()
-        .post("/sessions.session", JSON.stringify(newClass))
+        axiosWithAuth()
+        .post("/sessions/session", JSON.stringify(newClass))
         .then(res => {
-            console.log(res);
+            history.push('/instructor/manage');
         }).catch(err => console.log(err));
     }
 
@@ -315,10 +306,4 @@ const CreateClass = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        user: state.loginReducer
-    };
-};
-
-export default connect(mapStateToProps, { })(CreateClass);;
+export default CreateClass;
