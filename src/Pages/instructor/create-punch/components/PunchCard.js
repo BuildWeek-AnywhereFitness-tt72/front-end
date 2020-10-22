@@ -9,7 +9,7 @@ const StyledClassImg = styled(HeroImgJr)`
 	height: 60%;
 `;
 
-const EditLink = styled(Link)`
+const EditLink = styled.a`
 	/* display: ${pr => pr.isshowing ? "flex" : "none"}; */
 	display: flex;
 	flex-flow: row nowrap;
@@ -82,6 +82,8 @@ const PunchCard = props => {
 		return classTypeImages[classType] ? classTypeImages[classType] : classTypeImages["other"];
 	}
 
+	const handlePunch = () => {};
+
 	return (
 		<StyledPunchCard>
 			<StyledClassImg className="session-img" url={getUrl()} height={"60%"} position={"center"} >
@@ -93,7 +95,7 @@ const PunchCard = props => {
 				<h6>{type}</h6>
 				<h6>{date}</h6>
 				<h2>{time}</h2>
-				<EditLink to="/classes/search">Create a Punch Card</EditLink>
+				<EditLink onClick={handlePunch}>Create a Punch Card</EditLink>
 			</div>
 
 		</StyledPunchCard>);

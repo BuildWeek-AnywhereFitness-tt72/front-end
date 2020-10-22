@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 
-import { allUsers, classTypeImages } from "../../../reusable-components/data";
+import { allUsers } from "../../../reusable-components/data";
 import PunchCard from "./components/PunchCard";
 // import ClassCard  from "../../class-manage-user/components/ClassCard";
 // import { MainHeader } from "../../../reusable-components/reusableComponents";
@@ -12,7 +12,6 @@ const getRandomUser = () => {
 };
 
 const EditLink = styled(Link)`
-	/* display: ${pr => pr.isshowing ? "flex" : "none"}; */
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
@@ -71,7 +70,7 @@ const NoContainer = styled.div`
 const PunchClass = props => {
 	const [currentUser, setCurrentUser] = useState(getRandomUser());
 	const [sessionsObj, setSessionsObj] = useState(currentUser["sessions"]);
-	const [sessions, setSessions] = useState([]);
+	// const [sessions, setSessions] = useState([]);
 	console.log(sessionsObj);
 	if (sessionsObj.length === 0) {
 		return (
