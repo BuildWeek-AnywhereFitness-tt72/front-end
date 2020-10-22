@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import styled from "styled-components";
-import { allSessions } from "../../reusable-components/data";
 import * as Yup from "yup";
+import styled from "styled-components";
+
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+
+import 'react-day-picker/lib/style.css';
+import { allSessions } from "../../reusable-components/data";
+
 import SearchResults from "./SearchResults";
 
 const searchFormSchema = Yup.object().shape({
@@ -71,6 +76,43 @@ const Input = styled.input.attrs(pr => ({
 	outline: none;
 `;
 
+const initType = {
+	yoga: false,
+	weightlifting: false,
+	biking: false,
+	functionalFitness: false,
+	boxing: false,
+	cardio: false,
+	stretch: false,
+	dance: false,
+	running: false,
+	bootcamp: false,
+};
+
+const initDuration = {
+	f0015: false,
+	f1530: false,
+	f3045: false,
+	f4560: false,
+	f60Plus: false,
+}
+
+const initTime = {
+	earlyAM: false,
+	lateAM: false,
+	mid: false,
+	earlyPM: false,
+	latePM: false,
+	earlyEv: false,
+	lateEv: false,
+}
+
+const initIntensity = {
+	beginner: false,
+	intermediate: false, 
+	advanced: false,
+}
+
 const ClassSearch = props => {
 	// this will use an axios call if back-end gets connected
 	const [searchResults] = useState(allSessions);
@@ -78,6 +120,17 @@ const ClassSearch = props => {
 	const [searchbar, setSearchbar] = useState(initSearch);
 	const [errors, setErrors] = useState(initSearch);
 	const [resultsOpen, setResultsOpen] = useState(true);
+	
+	const [filtersActive, setFiltersActive] = useState(false);
+	const [typeActive, setTypeActive] = useState(false);
+	const [durationActive, setDurationActive] = useState(false);
+	const [timeActive, setTimeActive] = useState(false);
+	const [intensityActive, setIntensityActive] = useState(false);
+
+	const [type, setType] = useState(initType);
+	const [duration, setDuration] = useState(initDuration);
+	const [time, setTime] = useState(initTime);
+	const [intensity, setIntensity] = useState(initIntensity);
 
 	const filterGeneral = search => {
 		const filtered = searchResults.filter(session => {
@@ -109,6 +162,27 @@ const ClassSearch = props => {
 		setFilteredResults(filtered);
 	};
 
+	const getActiveOptions = () => {
+		const activeOptions = [];
+		if (typeActive) {
+			activeOptions.push(type);
+		}
+		if (durationActive) {
+			activeOptions.push(duration);
+		}
+		if (timeActive) {
+			activeOptions.push(time);
+		}
+		if (intensityActive) {
+			activeOptions.push(intensity);
+		}
+
+	};
+
+	const filterCustom = (options, search) => {
+
+	};
+
 	const onSearchChange = (evt) => {
 		const {name, value} = evt.target;
 		Yup.reach(searchFormSchema, name)
@@ -137,6 +211,7 @@ const ClassSearch = props => {
 				</InputContainer>
 				<div><p>About</p><p>Hello User</p></div>
 			</StyledSearchHeader>
+
 			</form>
 			<StyledClassSearch>
 				<SearchResults results={filteredResults} input={searchbar.search} displayParam={"flex"} />
