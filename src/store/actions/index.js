@@ -20,6 +20,8 @@ export const login = (username, password) => (dispatch) => {
 		) // TODO: Add login url
 		.then((res) => {
 			console.log(res.data);
+      const accessToken = res.data["access_token"];
+      localStorage.setItem('token', accessToken) 
 			dispatch({ type: LOGIN_SUCCESS, payload: res.data });
 		})
 		.catch((err) => {
