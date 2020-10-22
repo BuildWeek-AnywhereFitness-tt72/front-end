@@ -5,6 +5,8 @@ import * as yup from 'yup';
 import { StyledLink } from "../../../reusable-components/reusableComponents";
 import createClassSchema from './validation/createClassSchema';
 
+import {axiosWithSecret} from "../../Login/axiosWithAuth";
+
 const StyledContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -116,7 +118,6 @@ const CreateClass = () => {
     const inputChange = (evt) => {
 
         const { name, value } = evt.target;
-        console.log(name, value)
         yup
             .reach(createClassSchema, name)
             .validate(value)
@@ -138,7 +139,8 @@ const CreateClass = () => {
         })
     }
 
-    const formSubmit = () => {
+    const formSubmit = (e) => {
+        e.preventDefault();
         const newClass = {
             name: formValues.name.trim(),
             type: formValues.type,
@@ -154,7 +156,14 @@ const CreateClass = () => {
             }
         };
 
+        console.log(newClass);
+
         //Post Function Call
+        axiosWithSecret()
+        .post("/sessions.session", JSON.stringify(newClass))
+        .then(res => {
+            console.log(res);
+        }).catch(err => console.log(err));
     }
 
     useEffect(() => {
@@ -298,7 +307,7 @@ const CreateClass = () => {
 
                 
 
-                <StyledLink disabled={disabled}>Create Class</StyledLink>
+                <button disabled={disabled}>Create Class</button>
             </StyledForm>
         </StyledContainer>
     )
