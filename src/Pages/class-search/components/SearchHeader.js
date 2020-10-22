@@ -41,6 +41,9 @@ const Button = styled.a`
 	font-size: 2rem;
 	font-weight: 600;
 	border-radius: 10px;
+	&:hover {
+		color: ${pr => pr.theme.eggshell};
+	}
 `;
 
 const InputContainer = styled.div`
@@ -65,7 +68,7 @@ const Input = styled.input.attrs(pr => ({
 
 const SearchHeader = props => {
 	
-	const {input, searchChange, isDisabled, searchSubmit} = props;
+	const {input, searchChange, isDisabled, searchSubmit, user} = props;
 
 	const onChange = (evt) => {
 		const {name, value} = evt.target;
@@ -99,7 +102,7 @@ const SearchHeader = props => {
 				<Button className="submit-btn" isDisabled={isDisabled} onClick={searchSubmit }>Search</Button>
 			<div>
 				<p>About</p>
-				<p>Hello, User!</p>
+				<p>Hello, {user ? user.username : "User"}!</p>
 			</div>
 		</StyledSearchHeader>
 	);
