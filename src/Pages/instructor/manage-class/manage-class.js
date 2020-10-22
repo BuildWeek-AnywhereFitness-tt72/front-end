@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import {axiosWithAuth} from "../../../utils/axioswauth";
 
 import ClassRow from './class-row';
 import ClassCard from './class-card';
@@ -26,6 +27,8 @@ const StyledMyClasses = styled.div`
     .classList {
         display: flex;
         justify-content: flex-start;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
     
 `
@@ -96,8 +99,19 @@ const initialEnrollment = [
 
 const ManageClass = () => {
 
-    const [activeSessions, setActiveSessions] = useState(initialSessions);
+    const [activeSessions, setActiveSessions] = useState([]);
     const [currentEnrollment, setCurrentEnrollment] = useState(initialEnrollment);
+
+    useEffect(() => {
+        if(activeSessions.length === 0) {
+            axiosWithAuth()
+            .get("/sessions/sessions")
+            .then(res => {
+                console.log(res);
+                setActiveSessions(res.data);
+            }).catch(err => console.log(err));
+        }
+    }, [activeSessions])
 
     return (
         <StyledContainer>
