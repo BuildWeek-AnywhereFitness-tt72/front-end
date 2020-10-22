@@ -13,6 +13,2254 @@ export const classTypeImages = {
 	"other": "https://s3-alpha-sig.figma.com/img/884d/be23/cb91098f8f470ddf0c046ca2b8601a7f?Expires=1604275200&Signature=cz-pvbepqI852znn3jTQR7Yxg22PzhMJML08v1SoS~5EuCsRFaZExA2jqdS9B0IreMu6s-cy3q~BLfRNF-b9jJWoN7Tm109tw1f5OQZlCQ5O8dsgCs~8RoHzhYLTdKs4HT1CCKiYmNSavLX1Cj--MDR7AVC3WENY8nOXIHJ91mYuJsyWWulzJTSnZhlkXm8iO-ts6m~IrNahDJI5lDl164p5hvkiCxa~1ric0oColT~-GsTySh9GsrU~yzSb-zwVlMMrmKvMWI3jkUbkdWk4SGlSe-I4NDnDdswoFnOm37cfYUYetvMTzm6F8-24eFTflz4Ir70SPb7vXWzrhFD6aw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
 }
 
+export const allUsers = [
+	{
+			"userid": 6,
+			"username": "admin",
+			"roles": [
+					{
+							"role": {
+									"roleid": 1,
+									"name": "ADMIN"
+							}
+					},
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					},
+					{
+							"role": {
+									"roleid": 3,
+									"name": "DATA"
+							}
+					},
+					{
+							"role": {
+									"roleid": 4,
+									"name": "CLIENT"
+							}
+					},
+					{
+							"role": {
+									"roleid": 5,
+									"name": "INSTRUCTOR"
+							}
+					}
+			],
+			"sessions": []
+	},
+	{
+			"userid": 7,
+			"username": "client",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					},
+					{
+							"role": {
+									"roleid": 4,
+									"name": "CLIENT"
+							}
+					}
+			],
+			"sessions": []
+	},
+	{
+			"userid": 8,
+			"username": "instructor",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					},
+					{
+							"role": {
+									"roleid": 5,
+									"name": "INSTRUCTOR"
+							}
+					}
+			],
+			"sessions": []
+	},
+	{
+			"userid": 11,
+			"username": "rudolph.hayes",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 9,
+									"name": "Chuck Norris doesn't need the cloud to scale his applications, he uses his laptop.",
+									"type": "Government",
+									"time": "1839-06-05 16:00:00",
+									"duration": "41 minutes",
+									"intensity": "Shetland Sheepdog",
+									"maxsize": 11,
+									"locations": {
+											"locationid": 10,
+											"address": "Jerrod Gateway 40995 ",
+											"city": "Lenfort",
+											"state": "Vermont",
+											"zip": "60993-9521"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 11,
+															"username": "rudolph.hayes",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											}
+									]
+							},
+							"instructor": true
+					}
+			]
+	},
+	{
+			"userid": 14,
+			"username": "abdul.hermann",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 12,
+									"name": "All browsers support the hex definitions #chuck and #norris for the colors black and blue.",
+									"type": "Design",
+									"time": "1895-10-08 16:00:00",
+									"duration": "49 minutes",
+									"intensity": "Pyrenees",
+									"maxsize": 2,
+									"locations": {
+											"locationid": 13,
+											"address": "Lavenia View 3237 ",
+											"city": "South Alfonsofort",
+											"state": "Illinois",
+											"zip": "41451"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 45,
+															"username": "carylon.pouros",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 14,
+															"username": "abdul.hermann",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 52,
+															"username": "domonique.bogan",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 44,
+															"username": "toya.oconnell",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": true
+					}
+			]
+	},
+	{
+			"userid": 17,
+			"username": "lida.rippin",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 15,
+									"name": "Chuck Norris doesn't need garbage collection because he doesn't call .Dispose(), he calls .DropKick().",
+									"type": "Community-Services",
+									"time": "1986-09-23 17:00:00",
+									"duration": "69 minutes",
+									"intensity": "Rhodesian Ridgeback",
+									"maxsize": 11,
+									"locations": {
+											"locationid": 16,
+											"address": "Wiza Parkways 1157 ",
+											"city": "Zemlakton",
+											"state": "Massachusetts",
+											"zip": "29153-0184"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 17,
+															"username": "lida.rippin",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 39,
+															"username": "chadwick.upton",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": true
+					}
+			]
+	},
+	{
+			"userid": 20,
+			"username": "bernardo.okeefe",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 18,
+									"name": "Chuck Norris breaks RSA 128-bit encrypted codes in milliseconds.",
+									"type": "Retail",
+									"time": "1935-09-18 16:00:00",
+									"duration": "37 minutes",
+									"intensity": "Brittany Spaniel",
+									"maxsize": 40,
+									"locations": {
+											"locationid": 19,
+											"address": "Russ Underpass 092 ",
+											"city": "South Anniehaven",
+											"state": "Idaho",
+											"zip": "07888-0039"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 20,
+															"username": "bernardo.okeefe",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											}
+									]
+							},
+							"instructor": true
+					}
+			]
+	},
+	{
+			"userid": 23,
+			"username": "willia.conn",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 21,
+									"name": "Chuck Norris' protocol design method has no status, requests or responses, only commands.",
+									"type": "Hospitality",
+									"time": "2014-08-04 17:00:00",
+									"duration": "62 minutes",
+									"intensity": "Chow",
+									"maxsize": 24,
+									"locations": {
+											"locationid": 22,
+											"address": "Edmundo Springs 4388 ",
+											"city": "New Josphinechester",
+											"state": "Louisiana",
+											"zip": "33317"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 49,
+															"username": "virgilio.krajcik",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 23,
+															"username": "willia.conn",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 42,
+															"username": "oneida.shields",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 53,
+															"username": "adrianna.schumm",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": true
+					}
+			]
+	},
+	{
+			"userid": 26,
+			"username": "lizeth.klocko",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 24,
+									"name": "When Chuck Norris points to null, null quakes in fear.",
+									"type": "Government",
+									"time": "2011-11-03 17:00:00",
+									"duration": "72 minutes",
+									"intensity": "Papillon",
+									"maxsize": 10,
+									"locations": {
+											"locationid": 25,
+											"address": "Loura Harbor 288 ",
+											"city": "East Truman",
+											"state": "Ohio",
+											"zip": "11102"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 41,
+															"username": "richard.prohaska",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 26,
+															"username": "lizeth.klocko",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											}
+									]
+							},
+							"instructor": true
+					}
+			]
+	},
+	{
+			"userid": 29,
+			"username": "man.kohler",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 27,
+									"name": "All browsers support the hex definitions #chuck and #norris for the colors black and blue.",
+									"type": "Government",
+									"time": "1972-05-05 17:00:00",
+									"duration": "00 minutes",
+									"intensity": "Shihtzu",
+									"maxsize": 14,
+									"locations": {
+											"locationid": 28,
+											"address": "Rippin Key 91043 ",
+											"city": "New Reikofort",
+											"state": "North Dakota",
+											"zip": "22866"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 40,
+															"username": "belen.ryan",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 29,
+															"username": "man.kohler",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 48,
+															"username": "roxy.jacobs",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": true
+					}
+			]
+	},
+	{
+			"userid": 32,
+			"username": "buffy.hammes",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 30,
+									"name": "All arrays Chuck Norris declares are of infinite size, because Chuck Norris knows no bounds.",
+									"type": "Design",
+									"time": "1993-04-23 17:00:00",
+									"duration": "23 minutes",
+									"intensity": "Appenzeller",
+									"maxsize": 8,
+									"locations": {
+											"locationid": 31,
+											"address": "Leigh Villages 3754 ",
+											"city": "West Branthaven",
+											"state": "Texas",
+											"zip": "61481"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 46,
+															"username": "hee.treutel",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 47,
+															"username": "yong.windler",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 32,
+															"username": "buffy.hammes",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 43,
+															"username": "bettye.zulauf",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": true
+					}
+			]
+	},
+	{
+			"userid": 35,
+			"username": "augustina.schuppe",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 33,
+									"name": "\"It works on my machine\" always holds true for Chuck Norris.",
+									"type": "Sales",
+									"time": "1925-01-05 16:00:00",
+									"duration": "51 minutes",
+									"intensity": "Otterhound",
+									"maxsize": 8,
+									"locations": {
+											"locationid": 34,
+											"address": "Oberbrunner Shores 6896 ",
+											"city": "Lake Guyburgh",
+											"state": "South Dakota",
+											"zip": "95154-1315"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 50,
+															"username": "carrol.ondricka",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 35,
+															"username": "augustina.schuppe",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											}
+									]
+							},
+							"instructor": true
+					}
+			]
+	},
+	{
+			"userid": 38,
+			"username": "taylor.lang",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 36,
+									"name": "You don't disable the Chuck Norris plug-in, it disables you.",
+									"type": "Marketing",
+									"time": "1868-04-02 16:00:00",
+									"duration": "09 minutes",
+									"intensity": "Beagle",
+									"maxsize": 32,
+									"locations": {
+											"locationid": 37,
+											"address": "McKenzie Underpass 670 ",
+											"city": "New Edwinbury",
+											"state": "Michigan",
+											"zip": "71554-5763"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 51,
+															"username": "millie.lesch",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 38,
+															"username": "taylor.lang",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											}
+									]
+							},
+							"instructor": true
+					}
+			]
+	},
+	{
+			"userid": 39,
+			"username": "chadwick.upton",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 15,
+									"name": "Chuck Norris doesn't need garbage collection because he doesn't call .Dispose(), he calls .DropKick().",
+									"type": "Community-Services",
+									"time": "1986-09-23 17:00:00",
+									"duration": "69 minutes",
+									"intensity": "Rhodesian Ridgeback",
+									"maxsize": 11,
+									"locations": {
+											"locationid": 16,
+											"address": "Wiza Parkways 1157 ",
+											"city": "Zemlakton",
+											"state": "Massachusetts",
+											"zip": "29153-0184"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 17,
+															"username": "lida.rippin",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 39,
+															"username": "chadwick.upton",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 40,
+			"username": "belen.ryan",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 27,
+									"name": "All browsers support the hex definitions #chuck and #norris for the colors black and blue.",
+									"type": "Government",
+									"time": "1972-05-05 17:00:00",
+									"duration": "00 minutes",
+									"intensity": "Shihtzu",
+									"maxsize": 14,
+									"locations": {
+											"locationid": 28,
+											"address": "Rippin Key 91043 ",
+											"city": "New Reikofort",
+											"state": "North Dakota",
+											"zip": "22866"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 40,
+															"username": "belen.ryan",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 29,
+															"username": "man.kohler",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 48,
+															"username": "roxy.jacobs",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 41,
+			"username": "richard.prohaska",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 24,
+									"name": "When Chuck Norris points to null, null quakes in fear.",
+									"type": "Government",
+									"time": "2011-11-03 17:00:00",
+									"duration": "72 minutes",
+									"intensity": "Papillon",
+									"maxsize": 10,
+									"locations": {
+											"locationid": 25,
+											"address": "Loura Harbor 288 ",
+											"city": "East Truman",
+											"state": "Ohio",
+											"zip": "11102"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 41,
+															"username": "richard.prohaska",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 26,
+															"username": "lizeth.klocko",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 42,
+			"username": "oneida.shields",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 21,
+									"name": "Chuck Norris' protocol design method has no status, requests or responses, only commands.",
+									"type": "Hospitality",
+									"time": "2014-08-04 17:00:00",
+									"duration": "62 minutes",
+									"intensity": "Chow",
+									"maxsize": 24,
+									"locations": {
+											"locationid": 22,
+											"address": "Edmundo Springs 4388 ",
+											"city": "New Josphinechester",
+											"state": "Louisiana",
+											"zip": "33317"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 49,
+															"username": "virgilio.krajcik",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 23,
+															"username": "willia.conn",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 42,
+															"username": "oneida.shields",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 53,
+															"username": "adrianna.schumm",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 43,
+			"username": "bettye.zulauf",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 30,
+									"name": "All arrays Chuck Norris declares are of infinite size, because Chuck Norris knows no bounds.",
+									"type": "Design",
+									"time": "1993-04-23 17:00:00",
+									"duration": "23 minutes",
+									"intensity": "Appenzeller",
+									"maxsize": 8,
+									"locations": {
+											"locationid": 31,
+											"address": "Leigh Villages 3754 ",
+											"city": "West Branthaven",
+											"state": "Texas",
+											"zip": "61481"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 46,
+															"username": "hee.treutel",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 47,
+															"username": "yong.windler",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 32,
+															"username": "buffy.hammes",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 43,
+															"username": "bettye.zulauf",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 44,
+			"username": "toya.oconnell",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 12,
+									"name": "All browsers support the hex definitions #chuck and #norris for the colors black and blue.",
+									"type": "Design",
+									"time": "1895-10-08 16:00:00",
+									"duration": "49 minutes",
+									"intensity": "Pyrenees",
+									"maxsize": 2,
+									"locations": {
+											"locationid": 13,
+											"address": "Lavenia View 3237 ",
+											"city": "South Alfonsofort",
+											"state": "Illinois",
+											"zip": "41451"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 45,
+															"username": "carylon.pouros",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 14,
+															"username": "abdul.hermann",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 52,
+															"username": "domonique.bogan",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 44,
+															"username": "toya.oconnell",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 45,
+			"username": "carylon.pouros",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 12,
+									"name": "All browsers support the hex definitions #chuck and #norris for the colors black and blue.",
+									"type": "Design",
+									"time": "1895-10-08 16:00:00",
+									"duration": "49 minutes",
+									"intensity": "Pyrenees",
+									"maxsize": 2,
+									"locations": {
+											"locationid": 13,
+											"address": "Lavenia View 3237 ",
+											"city": "South Alfonsofort",
+											"state": "Illinois",
+											"zip": "41451"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 45,
+															"username": "carylon.pouros",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 14,
+															"username": "abdul.hermann",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 52,
+															"username": "domonique.bogan",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 44,
+															"username": "toya.oconnell",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 46,
+			"username": "hee.treutel",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 30,
+									"name": "All arrays Chuck Norris declares are of infinite size, because Chuck Norris knows no bounds.",
+									"type": "Design",
+									"time": "1993-04-23 17:00:00",
+									"duration": "23 minutes",
+									"intensity": "Appenzeller",
+									"maxsize": 8,
+									"locations": {
+											"locationid": 31,
+											"address": "Leigh Villages 3754 ",
+											"city": "West Branthaven",
+											"state": "Texas",
+											"zip": "61481"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 46,
+															"username": "hee.treutel",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 47,
+															"username": "yong.windler",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 32,
+															"username": "buffy.hammes",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 43,
+															"username": "bettye.zulauf",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 47,
+			"username": "yong.windler",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 30,
+									"name": "All arrays Chuck Norris declares are of infinite size, because Chuck Norris knows no bounds.",
+									"type": "Design",
+									"time": "1993-04-23 17:00:00",
+									"duration": "23 minutes",
+									"intensity": "Appenzeller",
+									"maxsize": 8,
+									"locations": {
+											"locationid": 31,
+											"address": "Leigh Villages 3754 ",
+											"city": "West Branthaven",
+											"state": "Texas",
+											"zip": "61481"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 46,
+															"username": "hee.treutel",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 47,
+															"username": "yong.windler",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 32,
+															"username": "buffy.hammes",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 43,
+															"username": "bettye.zulauf",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 48,
+			"username": "roxy.jacobs",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 27,
+									"name": "All browsers support the hex definitions #chuck and #norris for the colors black and blue.",
+									"type": "Government",
+									"time": "1972-05-05 17:00:00",
+									"duration": "00 minutes",
+									"intensity": "Shihtzu",
+									"maxsize": 14,
+									"locations": {
+											"locationid": 28,
+											"address": "Rippin Key 91043 ",
+											"city": "New Reikofort",
+											"state": "North Dakota",
+											"zip": "22866"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 40,
+															"username": "belen.ryan",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 29,
+															"username": "man.kohler",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 48,
+															"username": "roxy.jacobs",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 49,
+			"username": "virgilio.krajcik",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 21,
+									"name": "Chuck Norris' protocol design method has no status, requests or responses, only commands.",
+									"type": "Hospitality",
+									"time": "2014-08-04 17:00:00",
+									"duration": "62 minutes",
+									"intensity": "Chow",
+									"maxsize": 24,
+									"locations": {
+											"locationid": 22,
+											"address": "Edmundo Springs 4388 ",
+											"city": "New Josphinechester",
+											"state": "Louisiana",
+											"zip": "33317"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 49,
+															"username": "virgilio.krajcik",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 23,
+															"username": "willia.conn",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 42,
+															"username": "oneida.shields",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 53,
+															"username": "adrianna.schumm",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 50,
+			"username": "carrol.ondricka",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 33,
+									"name": "\"It works on my machine\" always holds true for Chuck Norris.",
+									"type": "Sales",
+									"time": "1925-01-05 16:00:00",
+									"duration": "51 minutes",
+									"intensity": "Otterhound",
+									"maxsize": 8,
+									"locations": {
+											"locationid": 34,
+											"address": "Oberbrunner Shores 6896 ",
+											"city": "Lake Guyburgh",
+											"state": "South Dakota",
+											"zip": "95154-1315"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 50,
+															"username": "carrol.ondricka",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 35,
+															"username": "augustina.schuppe",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 51,
+			"username": "millie.lesch",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 36,
+									"name": "You don't disable the Chuck Norris plug-in, it disables you.",
+									"type": "Marketing",
+									"time": "1868-04-02 16:00:00",
+									"duration": "09 minutes",
+									"intensity": "Beagle",
+									"maxsize": 32,
+									"locations": {
+											"locationid": 37,
+											"address": "McKenzie Underpass 670 ",
+											"city": "New Edwinbury",
+											"state": "Michigan",
+											"zip": "71554-5763"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 51,
+															"username": "millie.lesch",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 38,
+															"username": "taylor.lang",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 52,
+			"username": "domonique.bogan",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 12,
+									"name": "All browsers support the hex definitions #chuck and #norris for the colors black and blue.",
+									"type": "Design",
+									"time": "1895-10-08 16:00:00",
+									"duration": "49 minutes",
+									"intensity": "Pyrenees",
+									"maxsize": 2,
+									"locations": {
+											"locationid": 13,
+											"address": "Lavenia View 3237 ",
+											"city": "South Alfonsofort",
+											"state": "Illinois",
+											"zip": "41451"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 45,
+															"username": "carylon.pouros",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 14,
+															"username": "abdul.hermann",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 52,
+															"username": "domonique.bogan",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 44,
+															"username": "toya.oconnell",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 53,
+			"username": "adrianna.schumm",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					}
+			],
+			"sessions": [
+					{
+							"sessions": {
+									"sessionid": 21,
+									"name": "Chuck Norris' protocol design method has no status, requests or responses, only commands.",
+									"type": "Hospitality",
+									"time": "2014-08-04 17:00:00",
+									"duration": "62 minutes",
+									"intensity": "Chow",
+									"maxsize": 24,
+									"locations": {
+											"locationid": 22,
+											"address": "Edmundo Springs 4388 ",
+											"city": "New Josphinechester",
+											"state": "Louisiana",
+											"zip": "33317"
+									},
+									"users": [
+											{
+													"user": {
+															"userid": 49,
+															"username": "virgilio.krajcik",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 23,
+															"username": "willia.conn",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": true
+											},
+											{
+													"user": {
+															"userid": 42,
+															"username": "oneida.shields",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											},
+											{
+													"user": {
+															"userid": 53,
+															"username": "adrianna.schumm",
+															"roles": [
+																	{
+																			"role": {
+																					"roleid": 2,
+																					"name": "USER"
+																			}
+																	}
+															]
+													},
+													"instructor": false
+											}
+									]
+							},
+							"instructor": false
+					}
+			]
+	},
+	{
+			"userid": 54,
+			"username": "shrjfr",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					},
+					{
+							"role": {
+									"roleid": 4,
+									"name": "CLIENT"
+							}
+					}
+			],
+			"sessions": []
+	},
+	{
+			"userid": 55,
+			"username": "saharjafari",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					},
+					{
+							"role": {
+									"roleid": 5,
+									"name": "INSTRUCTOR"
+							}
+					}
+			],
+			"sessions": []
+	},
+	{
+			"userid": 56,
+			"username": "chaz2",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					},
+					{
+							"role": {
+									"roleid": 4,
+									"name": "CLIENT"
+							}
+					}
+			],
+			"sessions": []
+	},
+	{
+			"userid": 57,
+			"username": "chazk22",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					},
+					{
+							"role": {
+									"roleid": 4,
+									"name": "CLIENT"
+							}
+					}
+			],
+			"sessions": []
+	},
+	{
+			"userid": 58,
+			"username": "chazk2",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					},
+					{
+							"role": {
+									"roleid": 4,
+									"name": "CLIENT"
+							}
+					}
+			],
+			"sessions": []
+	},
+	{
+			"userid": 59,
+			"username": "chazk",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					},
+					{
+							"role": {
+									"roleid": 4,
+									"name": "CLIENT"
+							}
+					}
+			],
+			"sessions": []
+	},
+	{
+			"userid": 60,
+			"username": "afternpm",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					},
+					{
+							"role": {
+									"roleid": 4,
+									"name": "CLIENT"
+							}
+					}
+			],
+			"sessions": []
+	},
+	{
+			"userid": 61,
+			"username": "afternpm2",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					},
+					{
+							"role": {
+									"roleid": 5,
+									"name": "INSTRUCTOR"
+							}
+					}
+			],
+			"sessions": []
+	},
+	{
+			"userid": 62,
+			"username": "afternpm3",
+			"roles": [
+					{
+							"role": {
+									"roleid": 2,
+									"name": "USER"
+							}
+					},
+					{
+							"role": {
+									"roleid": 4,
+									"name": "CLIENT"
+							}
+					}
+			],
+			"sessions": []
+	}
+]
 
 export const allSessions = [
 	{

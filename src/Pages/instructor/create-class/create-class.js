@@ -58,6 +58,7 @@ const StyledAddress = styled.div`
         display: flex;
         justify-content:  flex-start;
 
+        
         label {
             width: 15%;
         }
@@ -67,7 +68,7 @@ const StyledAddress = styled.div`
         }
 
         .zip {
-            width: 10.75%;
+            width: 11%;
         }
     }
 `
@@ -157,8 +158,6 @@ const CreateClass = () => {
     }
 
     useEffect(() => {
-        
-
         createClassSchema.isValid(formValues).then((valid) => {
             setDisabled(!valid)
         });

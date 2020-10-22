@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
 const LandingPage = styled.div`
 	max-width: 100%;
 	font-family: Raleway, sans-serif;
@@ -74,9 +73,8 @@ const LandingPage = styled.div`
 		align-items: center;
 	}
 `;
-
 const StyledLink = styled(Link).attrs(pr => ({
-	backgroundColor: pr.backgroundColor || pr.theme.primaryOrange,
+	backgroundColor: pr.backgroundcolor || pr.theme.primaryOrange,
 	color: pr.color || pr.theme.charcoal,
 }))`
   display: inline-block;
@@ -94,7 +92,6 @@ const StyledLink = styled(Link).attrs(pr => ({
     color: ${(pr) => pr.theme.charcoal};
   }
 `;
-
 const HeroTextContainer = styled.div`
   display: ${(pr) => (pr.isOpen ? "block" : "none")};
   position: relative;
@@ -103,14 +100,12 @@ const HeroTextContainer = styled.div`
   left: 25px;
   top: 180px;
 `;
-
 const HelpCollapse = styled.div`
   display: ${(pr) => (pr.isHelpOpen ? "block" : "none")};
   transition: all 0.4s ease-in-out;
   height: 250px;
   max-width: 100%;
 `;
-
 const DeveloperNav = styled.div`
   background: lightgray;
   border: 10px solid ${(pr) => pr.theme.primaryOrange};
@@ -135,26 +130,21 @@ const DeveloperNav = styled.div`
     align-items: center;
   }
 `;
-
 const Dash = () => {
   const [isBrowseOpen, setIsBrowseOpen] = useState(true);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
-
   const handleAboutClick = () => {
     setIsAboutOpen(!isAboutOpen);
     setIsBrowseOpen(!isBrowseOpen);
   };
-
   const handleHelpClick = () => {
     setIsHelpOpen(!isHelpOpen);
   };
-
   const handleTitleClick = () => {
     setIsAboutOpen(false);
     setIsBrowseOpen(true);
   };
-
   return (
     <LandingPage className="landing-container">
       <div className="header">
@@ -202,23 +192,20 @@ const Dash = () => {
       <div className="link-container">
         <StyledLink to="/Login">Login</StyledLink>
       </div>
-
-			{/* PURELY FOR EASE OF ACCESS — NOT PART OF THE PAGE */}
-			<DeveloperNav className="for-developers">
-				<h4>JUST FOR US</h4>
-				<p>This is simply for ease of access; not part of the page! I figured it would be easier to navigate through all our pages if we had all the links in one spot</p>
-				<nav>
-					<StyledLink to="/dash">Dash</StyledLink>
-					<StyledLink to="/register">Sign Up</StyledLink>
-					<StyledLink to="/Login">Login</StyledLink>
-					<StyledLink to="/instructor">Instructor</StyledLink>
-					<StyledLink to="/classes/search">Search</StyledLink>
-					<StyledLink to="/classes/manage">Manage</StyledLink>
-
-				</nav>
-			</DeveloperNav>
-		</LandingPage>
-	);
+      {/* PURELY FOR EASE OF ACCESS — NOT PART OF THE PAGE */}
+      <DeveloperNav className="for-developers">
+        <h4>JUST FOR US</h4>
+        <p>This is simply for ease of access; not part of the page! I figured it would be easier to navigate through all our pages if we had all the links in one spot</p>
+        <nav>
+          <StyledLink to="/dash">Dash</StyledLink>
+          <StyledLink to="/register">Sign Up</StyledLink>
+          <StyledLink to="/Login">Login</StyledLink>
+          <StyledLink to="/instructor">Instructor</StyledLink>
+          <StyledLink to="/classes/search">Search</StyledLink>
+          <StyledLink to="/classes/manage">Manage</StyledLink>
+        </nav>
+      </DeveloperNav>
+    </LandingPage>
+  );
 };
-
 export default Dash;

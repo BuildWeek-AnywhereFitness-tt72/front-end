@@ -1,56 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import ClassSearchHead from "../class-search/ClassSearchHead";
 import ClassCard from "./components/ClassCard.js";
 
 import { HeroImgJr } from "../../reusable-components/reusableComponents";
-
-const StyledHeroImg = styled(HeroImgJr)`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`;
-
-const StyledClassManage = styled.div`
-	color: ${pr => pr.theme.charcoal};
-	div.main-gal {
-		display: block;
-		height: 80rem;
-		width: 90%;
-		background-color: white;
-		h3 {
-			font-size: 3rem;
-			font-weight: 500;
-			line-height: 3.522rem;
-		}
-		div.manage-gallery {
-			display: flex;
-			flex-flow: column nowrap;
-			justify-content: space-evenly;
-			align-items: center;
-			height: 90%;
-			h5 {
-				display: block;
-				text-align: center;
-				width: 33.5rem;
-				height: 2.4rem;
-				font-weight: 80rem;
-				font-size: 2rem;
-				line-height: 2.348rem;
-				letter-spacing: 5;
-			}
-			div.class-container {
-				display: flex;
-				flex-flow: row nowrap;
-				/* overflow-x: scroll; */
-				/* overflow-y: hidden; */
-				width: 90%;
-				height: 50%;
-			}
-
-		}
-	}
-`;
+import { user26, user26DOUBLE, user26MANY } from "./data/data";
 
 const initActiveSessions = [
 	{
@@ -100,39 +54,96 @@ const initSessionHistory = [
 	},
 ];
 
+
+const StyledHeroImg = styled(HeroImgJr)`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
+const StyledClassManage = styled.div`
+	color: ${pr => pr.theme.charcoal};
+	div.main-gal {
+		display: block;
+		height: 95%;
+		width: 90%;
+		background-color: white;
+		h3 {
+			font-size: 3rem;
+			font-weight: 500;
+			line-height: 3.522rem;
+			/* padding: 2rem; */
+		}
+		div.manage-gallery {
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: space-evenly;
+			align-items: center;
+			height: 90%;
+			h5 {
+				display: block;
+				text-align: center;
+				width: 33.5rem;
+				height: 2.4rem;
+				font-weight: 80rem;
+				font-size: 2rem;
+				line-height: 2.348rem;
+				letter-spacing: 5;
+			}
+			div.class-container {
+				display: flex;
+				flex-flow: row nowrap;
+				justify-content: center;
+				overflow-x: auto;
+				/* overflow-x: scroll; */
+				/* overflow-y: hidden; */
+				width: 90%;
+				height: 50%;
+			}
+
+		}
+	}
+`;
+
 const ClassManage = props => {
-	// const [user, setUser] = useState();
-	// const [activeSessions, setActiveSessions] = useState(initActiveSessions);
-	// const [sessionHistory, setSessionHistory] = useState(initSessionHistory);
-	const [activeSessions, ] = useState(initActiveSessions);
-	const [sessionHistory, ] = useState(initSessionHistory);
+	const [user, setUser] = useState(user26MANY);
+	const [sessions, setSessions] = useState(user["sessions"]);
+	const [activeSessions, setActiveSessions] = useState(user["sessions"]);
+	const [sessionHistory, setSessionHistory] = useState(user["sessions"]);
+	// const [activeSessions,] = useState(initActiveSessions);
+	// const [sessionHistory,] = useState(initSessionHistory);
+	// console.log(activeSessions);
+
+	const handleDelete = (session) => {
+		alert(`${user} deleted ${session.name}`);
+	};
 
 	return (
 		<StyledClassManage>
 
-			<ClassSearchHead />
-			<StyledHeroImg className="hero-image-container" position={"50% 30%"} height={"100rem"}>
-			<div className="main-gal">
-				<h3>Manage My Classes</h3>
-				<div className="manage-gallery">
-					<h5>My Classes</h5>
-					<div className="my-classes class-container">
-						{
-							activeSessions.map(session => {
-								return <ClassCard session={session} />
-							})
-						}
-					</div>
+			<ClassSearchHead user={user} />
+			<StyledHeroImg className="hero-image-container" position={"50% 30%"} height={"82.12vh"}>
+				<div className="main-gal">
+					<h3>Manage My Classes</h3>
+					<div className="manage-gallery">
+						<h5>My Classes</h5>
+						<div className="my-classes class-container">
+							{
+								activeSessions.map(session => {
+									return <ClassCard id={`${session.sessions.sessionid} true`} session={session.sessions} isActive={true} handleDelete={handleDelete} />
+								})
+							}
+						</div>
 						<h5>My History</h5>
-					<div className="my-history class-container">
-						{
-							sessionHistory.map(session => {
-								return <ClassCard session={session} />
-							})
-						}
+						<div className="my-history class-container">
+							{
+								sessionHistory.map(session => {
+									return <ClassCard id={`${session.sessions.sessionid} ${false}`} session={session.sessions}  isActive={false} />
+								})
+							}
+						</div>
 					</div>
 				</div>
-			</div>
 			</StyledHeroImg>
 		</StyledClassManage>
 
