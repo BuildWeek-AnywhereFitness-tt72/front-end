@@ -6,7 +6,7 @@ import SearchOptionsDropdown from "./components/SearchOptionsDropdown";
 // import searchFormSchema from "./validation/searchFormSchema";
 
 const searchFormSchema = Yup.object().shape({
-	sessionInput: Yup.string().required(),
+	name: Yup.string().required(),
 	locationInput: Yup.string().required(),
 	dateInput: Yup.string(),
 });
@@ -32,12 +32,47 @@ const initFilters = {
 	classLevel: "",
 };
 
+const initSInput = {
+	name: "",
+	type: {
+		yoga: false,
+		bootcamp: false,
+		weightlifting: false,
+		bikingSpin: false,
+		functionalFitness: false,
+		boxing: false,
+		cardio: false,
+		stretch: false,
+		dance: false,
+		running: false,
+	},
+	time: {
+		date: "", 
+		time: "", 
+	},
+	intensity: {
+		beginner: false,
+		intermediate: false,
+		advanced: false,
+	},
+	duration: "",
+	locations: {
+		address: "",
+		city: "",
+		state: "",
+		zip: "",
+	},
+
+}
+
 const ClassSearchHead = props => {
 	const { executeSearch, user } = props;
+	const [inputs, setInputs] = useState(initSInput);
 	const [input, setInput] = useState(initInput);
 	const [errors, setErrors] = useState(initInput);
 	const [filters, setFilters] = useState(initFilters);
 	const [isDisabled, setIsDisabled] = useState(true);
+	const [filterResults, setFilterResults] = useState([]);
 
 	const searchChange = (name, value) => {
 		Yup.reach(searchFormSchema, name)

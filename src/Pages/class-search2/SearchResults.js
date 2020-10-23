@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import ResultCard from "./ResultCard";
+// import ResultCard from "./ResultCard";
+import ResultCard from "./ResultCard.js";
+
 const StyledResults = styled.div`
 	display: ${pr => pr.displayParam};
 	flex-flow: column nowrap;
