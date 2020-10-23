@@ -217,8 +217,10 @@ const Checkboxes = props => {
 	// 	getComparableFilterSpecs(filters);
 	// }, [filters])
 	useEffect(() => {
+		// console.log(filters);
+		// console.log(getComparableFilterSpecs(filters));
 		filterCustom(getComparableFilterSpecs(filters));
-	}, [filters, filterCustom])
+	}, [filters])
 
 
 	return (

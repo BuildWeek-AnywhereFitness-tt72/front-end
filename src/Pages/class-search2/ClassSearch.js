@@ -93,7 +93,7 @@ const ClassSearch = props => {
 	const [searchbar, setSearchbar] = useState(initSearch);
 	const [errors, setErrors] = useState(initSearch);
 
-	const filterGeneral = useCallback(
+	const filterGeneral = 
 		(search) => {
 		// const search = searchbar.search;
 		const filtered = searchResults.filter(session => {
@@ -125,11 +125,14 @@ const ClassSearch = props => {
 		});
 		setFilteredResults(filtered);
 		return filteredResults;
-	}, [searchbar]);
+	};
 
-	const filterCustom = ({ typesArr, durationRange, intensityArr, timeOptions }) => {
-
-		const filtered = filteredResults.filter(session => {
+	const filterCustom = (specs) => {
+		// console.log(specs);
+		const { typesArr, durationRange, intensityArr, timeOptions } = specs;
+		// console.log(searchResults);
+		const filtered = searchResults.filter(session => {
+			console.log(session);
 			const sessionDuration = Number(session.duration.split(" ")[0]);
 			const sessionIntensity = session.intensity;
 			// const sessionLocation = session.locations;
@@ -137,11 +140,15 @@ const ClassSearch = props => {
 			const sessionTime = Number(session.time.split(" ")[1].split(":")[0]);
 			// const sessionDate = session.time.split(" ")[0];
 			const sessionType = session.type;
+			console.log(`sDuration: ${sessionDuration}`)
+			console.log(`sIntensity: ${sessionIntensity}`)
+			console.log(`sTime: ${sessionTime}`)
+			console.log(`sType: ${sessionType}`)
 
 
 			const durationMatch = (sessionDuration <= durationRange[1]) && (sessionDuration >= durationRange[0]);
 			const typeMatches = typesArr.filter(type => {
-				return sessionType.includes(type);
+				return sessionType.toLowerCase().includes(type.toLowerCase()) || sessionType.toLowerCase() === type.toLowerCase();
 			});
 			const intensityMatches = intensityArr.filter(intensity => {
 				return sessionIntensity.includes(intensity);
@@ -174,12 +181,9 @@ const ClassSearch = props => {
 		setSearchbar({ ...searchbar, [name]: value })
 	};
 
-
-
-
-	// useEffect(() => {
-		
-	// }, [searchbar.search, filterGeneral])
+	useEffect(() => {
+		filterGeneral(searchbar.search);
+	}, [searchbar])
 	// filterGeneral(searchbar.search);
 
 	// useEffect(() => {

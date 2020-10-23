@@ -2265,7 +2265,7 @@ export const allUsers = [
 
 export const allSessions = [
 	{
-		"sessionid": 9,
+		"sessionid": 80,
 		"name": "Boxing in an abandoned ring with Chris",
 		"type": "Boxing",
 		"time": "2019-12-21 16:00:00",
@@ -2313,7 +2313,7 @@ export const allSessions = [
 		]
 	},
 	{
-		"sessionid": 10,
+		"sessionid": 60,
 		"name": "Running in the rain",
 		"type": "Running",
 		"time": "2020-10-22 16:00:00",
