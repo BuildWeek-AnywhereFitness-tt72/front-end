@@ -93,6 +93,99 @@ const initActiveFilters = {
 	intensityActive: false,
 }
 
+const getComparableFilterSpecs = (filters) => {
+	const getTypesArr = () => {
+		return Object.entries(filters.type).map(x => {
+			if (x[1]) {
+				return x[0];
+			} else {
+				return undefined;
+			}
+		}).filter(x => { return x !== undefined });
+	};
+	const getDurationRange = () => {
+		const durationArr = Object.entries(filters.duration)
+			.map(x => {
+				if (x[1]) {
+					return x[0];
+				} else {
+					return undefined;
+				}
+			}).filter(x => { return x !== undefined });
+			
+		const durationRange = [];
+		if (durationArr.length > 0) {
+			const splitDuration = durationArr.map(x => { return x.split("_") }).shift();
+			splitDuration.forEach(arr => {
+				const durationMin = Number(arr[0]);
+				const durationMax = durationMin === 60 ? Number.MAX_SAFE_INTEGER : Number(arr[1]);
+				if (!durationRange[0] || durationMin < durationRange[0]) {
+					durationRange[0] = durationMin;
+				}
+				if (!durationRange[1] || durationMax > durationRange[1]) {
+					durationRange[1] = durationMax;
+				}
+			})
+		}
+		return durationRange;
+	};
+	const getIntensityArr = () => {
+		return Object.entries(filters.intensity)
+			.map(x => {
+				if (x[1]) {
+					return x[0];
+				} else {
+					return undefined;
+				}
+			}).filter(x => { return x !== undefined });
+	};
+	const getTimeRanges = () => {
+		const timeArr = Object.entries(filters.time)
+			.map(x => {
+				if (x[1]) {
+					return x[0];
+				} else {
+					return undefined;
+				}
+			}).filter(x => { return x !== undefined });
+		const timeOptions = [];
+		timeArr.forEach(x => {
+			switch (x) {
+				case "earlyAM":
+					timeOptions.push([5, 9]);
+					break;
+				case "lateAM":
+					timeOptions.push([9, 11]);
+					break;
+				case "mid":
+					timeOptions.push([11, 13]);
+					break;
+				case "earlyPM":
+					timeOptions.push([13-15]);
+					break;
+				case "latePM":
+					timeOptions.push([15, 17]);
+					break;
+				case "earlyEv":
+					timeOptions.push([17, 19]);
+					break;
+				default:
+					timeOptions.push([19, 22]);
+					break;
+			}
+		})
+		return timeOptions;
+	};
+
+	return {
+		typesArr: getTypesArr(),
+		durationRange: getDurationRange(),
+		intensityArr: getIntensityArr(),
+		timeOptions: getTimeRanges(), 
+	}
+
+};
+
 const useActiveFilters = () => {
 	const [activeFilters, setActiveFilters] = useState(initActiveFilters);
 
@@ -107,7 +200,7 @@ const Checkboxes = props => {
 	const [activeFilters, setActive] = useActiveFilters();
 	const [filters, setFilters] = useState(initFilters);
 	// const { filters, parentCheck } = props;
-	const {filterCustom} = props;
+	const { filterCustom } = props;
 
 
 	const handleCheck = (evt) => {
@@ -120,8 +213,11 @@ const Checkboxes = props => {
 		})
 	};
 
-	useEffect( () => {
-		filterCustom(filters);
+	// useEffect(() => {
+	// 	getComparableFilterSpecs(filters);
+	// }, [filters])
+	useEffect(() => {
+		filterCustom(getComparableFilterSpecs(filters));
 	}, [filters, filterCustom])
 
 
@@ -134,7 +230,7 @@ const Checkboxes = props => {
 				<a onClick={() => setActive("intensity")}>Class Intensity</a>
 				<DayPickerInput />
 			</OptionsContainer>
-	
+
 			<CheckboxContainer className="boxes-container type" shown={activeFilters.typeActive}>
 				<input name="type-yoga" type="checkbox" filter="type" key="typeBox1" checked={filters.type.yoga} onChange={handleCheck} />
 				<label for="type-yoga">yoga</label>
@@ -202,7 +298,7 @@ const Checkboxes = props => {
 export default Checkboxes;
 
 
-		{/* 
+{/* 
 			{
 				Object.entries(filters).map(([k1, v1]) => {
 					

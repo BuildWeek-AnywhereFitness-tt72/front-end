@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import * as Yup from "yup";
 import styled from "styled-components";
 
@@ -93,7 +93,9 @@ const ClassSearch = props => {
 	const [searchbar, setSearchbar] = useState(initSearch);
 	const [errors, setErrors] = useState(initSearch);
 
-	const filterGeneral = search => {
+	const filterGeneral = useCallback(
+		(search) => {
+		// const search = searchbar.search;
 		const filtered = searchResults.filter(session => {
 			const arrToCompare = [
 				session.duration,
@@ -123,163 +125,41 @@ const ClassSearch = props => {
 		});
 		setFilteredResults(filtered);
 		return filteredResults;
-	};
+	}, [searchbar]);
 
-	const getActiveOptions = (filters) => {
-		console.log(filters);
-		const activeOptions = {};
-
-		const typeReqs = [];
-		for (const [k, v] in Object.entries(filters.type)) {
-			if (v) {
-				typeReqs.push(k);
-			}
-		};
-		activeOptions.typeReqs = typeReqs;
-		
-		
-		const durationReqs = [];
-		// activeOptions.push(duration);
-		for (const [k, v] in Object.entries(filters.duration)) {
-			console.log(k, v)
-			console.log(filters.duration);
-			if (v) {
-				if (k === "f_60_Plus") {
-					durationReqs.push("60-+");
-				} else {
-					const kArr = k.split("_");
-					durationReqs.push(`${kArr[1]}-${kArr[2]}`);
-				}
-			}
-		};
-		activeOptions.durationReqs = durationReqs;
-		
-
-		
-			const timeReqs = [];
-			// activeOptions.push(time);
-			for (const [k, v] in Object.entries(filters.time)) {
-				if (v) {
-					switch (k) {
-						case "earlyAM":
-							timeReqs.push("5:00AM-9:00AM");
-							break;
-						case "lateAM":
-							timeReqs.push("9:00AM-10:00AM")
-							break;
-						case "mid":
-							timeReqs.push("10:00AM-12:00PM");
-							break;
-						case "earlyPM":
-							timeReqs.push("12:00PM-2:00PM");
-							break;
-						case "latePM":
-							timeReqs.push("2:00PM-4:00PM");
-							break;
-						case "earlyEv":
-							timeReqs.push("4:00PM-7:00PM");
-							break;
-						default:
-							timeReqs.push("7:00PM-10:00PM");
-					}
-				}
-			}
-			activeOptions.timeReqs = timeReqs;
-		
-		
-			const intensityReqs = [];
-			// activeOptions.push(intensity);
-			for (const [k, v] in Object.entries(filters.intensity)) {
-				if (v) {
-					intensityReqs.push("k");
-				}
-			}
-			activeOptions.intensityReqs = intensityReqs;
-		
-		return activeOptions;
-	};
-
-	async function filterCustom (filters) {
-		// const options = await getActiveOptions(filters);
-		// console.log(options);
+	const filterCustom = ({ typesArr, durationRange, intensityArr, timeOptions }) => {
 
 		const filtered = filteredResults.filter(session => {
-			const arrToCompare = [
-				session.duration,
-				session.intensity,
-				session.locations.address,
-				session.locations.city,
-				session.locations.state,
-				session.name,
-				session.time,
-				session.type,
-			];
-			const typeArr = Object.entries(filters.type).map(x => {
-					if (x[1] === true) {
-						return x[0]
-					}
-				}).filter(x => x!==undefined);
-			const durationArr = Object.entries(filters.duration).map(x => {
-				if (x[1]) {
-					return x[0]
-				}
-			}).filter(x => x!==undefined);
-			const timeArr = Object.entries(filters.time).map(x => {
-				if (x[1]) {
-					return x[0]
-				}
-			}).filter(x => x!==undefined);
-			const intensity = Object.entries(filters.intensity).map(x => {
-				if (x[1]) {
-					return x[0]
-				}
-			}).filter(x => x!==undefined);
-			console.log(typeArr);
-			console.log(durationArr);
-			
-			// const durationMatched = durationArr.filter(x => {
-			// 	return session.duration.splice(2) <= x[2] || session.duration >= x[1];
-			// })
-			
-			// arrToCompare.filter(x => {
-			// 	for (const [k1, v1] of Object.entries(filters)) {
-			// 		for (const [k2, v2] of Object.entries(v1)) {
-			// 			return (x.includes(k2) || x === k2);
-			// 		}
-			// 	}
-			// })
-			// const matched = arrToCompare.filter(x => {
-			// 	for (const [k1,v1] of Object.entries(options)) {
+			const sessionDuration = Number(session.duration.split(" ")[0]);
+			const sessionIntensity = session.intensity;
+			// const sessionLocation = session.locations;
+			// const sessionName = session.name;
+			const sessionTime = Number(session.time.split(" ")[1].split(":")[0]);
+			// const sessionDate = session.time.split(" ")[0];
+			const sessionType = session.type;
 
-			// 	}
-			// });
-			return durationMatched;
-			// return (matched.length !== 0);
+
+			const durationMatch = (sessionDuration <= durationRange[1]) && (sessionDuration >= durationRange[0]);
+			const typeMatches = typesArr.filter(type => {
+				return sessionType.includes(type);
+			});
+			const intensityMatches = intensityArr.filter(intensity => {
+				return sessionIntensity.includes(intensity);
+			})
+			const timeMatch = timeOptions.filter(arr => {
+				// const splitTime = opt.split("-");
+				return (sessionTime >= Number(arr[0]) && (sessionTime <= Number(arr[1])))
+			})
+
+			return durationMatch 
+				|| typeMatches.length > 0 
+				|| intensityMatches.length > 0 
+				|| timeMatch.length > 0;
+
 		});
 		console.log(filtered);
-
+		setFilteredResults(filtered);
 	};
-
-
-	// const handleCheck = (name, filterName, checked) => {
-	// 	// console.log(evt.target);
-	// 	// console.log(k1, k2, evt.target)
-	// 	// const { name, checked, } = evt.target;
-	// 	// const nameArr = name.split("-");
-	// 	// console.log(nameArr, checked);
-	// 	// console.log(filters);
-		// setFilters(prevState => {
-		// 	// console.log(prevState);
-		// 	// console.log(nameArr[0], nameArr[1], checked);
-		// 	// console.log(evt.target)
-		// 	let copy = Object.assign({}, prevState[nameArr[0]]);
-		// 	copy[nameArr[1]] = checked;
-		// 	return copy;
-		// })
-	// 	// console.log(filters);
-	// 	setFilters({ ...filters, [filterName]: {[name]: [checked]}});
-	// };
-
 
 	const onSearchChange = (evt) => {
 		const { name, value } = evt.target;
@@ -297,9 +177,14 @@ const ClassSearch = props => {
 
 
 
-	useEffect(() => {
-		filterGeneral(searchbar.search);
-	}, [searchbar.search])
+	// useEffect(() => {
+		
+	// }, [searchbar.search, filterGeneral])
+	// filterGeneral(searchbar.search);
+
+	// useEffect(() => {
+	// 	filterCustom()
+	// }, [])
 
 	// useEffect(() => {
 	// 	filterCustom();

@@ -14,102 +14,7 @@ export const classTypeImages = {
 }
 
 export const allUsers = [
-	{
-		"sessionid": 9,
-		"name": "Boxing in an abandoned ring with Chris",
-		"type": "Boxing",
-		"time": "2019-12-21 16:00:00",
-		"duration": "64 minutes",
-		"intensity": "Beginning",
-		"maxsize": 47,
-		"locations": {
-			"locationid": 10,
-			"address": "Williamson Lakes 8599",
-			"city": "West Yahairaburgh",
-			"state": "Nebraska",
-			"zip": "22963"
-		},
-		"users": [
-			{
-				"user": {
-					"userid": 11,
-					"username": "burt.mckenzie",
-					"roles": [
-						{
-							"role": {
-								"roleid": 2,
-								"name": "USER"
-							}
-						}
-					]
-				},
-				"instructor": true
-			},
-			{
-				"user": {
-					"userid": 47,
-					"username": "shanika.torphy",
-					"roles": [
-						{
-							"role": {
-								"roleid": 2,
-								"name": "USER"
-							}
-						}
-					]
-				},
-				"instructor": false
-			}
-		]
-	},
-	{
-		"sessionid": 10,
-		"name": "Running in the rain",
-		"type": "Running",
-		"time": "2020-10-22 16:00:00",
-		"duration": "64 minutes",
-		"intensity": "Beginning",
-		"maxsize": 47,
-		"locations": {
-			"locationid": 10,
-			"address": "Williamson Lakes 8599",
-			"city": "West Yahairaburgh",
-			"state": "Nebraska",
-			"zip": "22963"
-		},
-		"users": [
-			{
-				"user": {
-					"userid": 11,
-					"username": "burt.mckenzie",
-					"roles": [
-						{
-							"role": {
-								"roleid": 2,
-								"name": "USER"
-							}
-						}
-					]
-				},
-				"instructor": true
-			},
-			{
-				"user": {
-					"userid": 47,
-					"username": "shanika.torphy",
-					"roles": [
-						{
-							"role": {
-								"roleid": 2,
-								"name": "USER"
-							}
-						}
-					]
-				},
-				"instructor": false
-			}
-		]
-	},
+	
 	{
 			"userid": 6,
 			"username": "admin",
@@ -2359,6 +2264,102 @@ export const allUsers = [
 ]
 
 export const allSessions = [
+	{
+		"sessionid": 9,
+		"name": "Boxing in an abandoned ring with Chris",
+		"type": "Boxing",
+		"time": "2019-12-21 16:00:00",
+		"duration": "64 minutes",
+		"intensity": "Beginning",
+		"maxsize": 47,
+		"locations": {
+			"locationid": 10,
+			"address": "Williamson Lakes 8599",
+			"city": "West Yahairaburgh",
+			"state": "Nebraska",
+			"zip": "22963"
+		},
+		"users": [
+			{
+				"user": {
+					"userid": 11,
+					"username": "burt.mckenzie",
+					"roles": [
+						{
+							"role": {
+								"roleid": 2,
+								"name": "USER"
+							}
+						}
+					]
+				},
+				"instructor": true
+			},
+			{
+				"user": {
+					"userid": 47,
+					"username": "shanika.torphy",
+					"roles": [
+						{
+							"role": {
+								"roleid": 2,
+								"name": "USER"
+							}
+						}
+					]
+				},
+				"instructor": false
+			}
+		]
+	},
+	{
+		"sessionid": 10,
+		"name": "Running in the rain",
+		"type": "Running",
+		"time": "2020-10-22 16:00:00",
+		"duration": "64 minutes",
+		"intensity": "Beginning",
+		"maxsize": 47,
+		"locations": {
+			"locationid": 10,
+			"address": "Williamson Lakes 8599",
+			"city": "West Yahairaburgh",
+			"state": "Nebraska",
+			"zip": "22963"
+		},
+		"users": [
+			{
+				"user": {
+					"userid": 11,
+					"username": "burt.mckenzie",
+					"roles": [
+						{
+							"role": {
+								"roleid": 2,
+								"name": "USER"
+							}
+						}
+					]
+				},
+				"instructor": true
+			},
+			{
+				"user": {
+					"userid": 47,
+					"username": "shanika.torphy",
+					"roles": [
+						{
+							"role": {
+								"roleid": 2,
+								"name": "USER"
+							}
+						}
+					]
+				},
+				"instructor": false
+			}
+		]
+	},
 	{
 		"sessionid": 9,
 		"name": "Chuck Norris's keyboard doesn't have a Ctrl key because nothing controls Chuck Norris.",
