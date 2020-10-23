@@ -5,6 +5,9 @@ import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
 // styling
 import { login } from '../../store/actions/index.js';
+
+import img from '../../../src/assets/loginbox.jpg';
+
 const StyledDiv = styled.div`
 	display: flex;
 	justify-content: center;
@@ -13,30 +16,37 @@ const StyledDiv = styled.div`
 	width: 80vw;
 	margin: 0 auto;
 	h2 {
+		text-shadow: 3px 3px 3px white;
 		display: inline-block;
-		font-size: 2rem;
+		font-size: 4rem;
 		padding: 2%;
 		margin: 10% auto;
 	}
 	div.login-container {
+		box-shadow: -4px 4px 4px gray;
 		padding-bottom: 1rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		margin: 0 auto;
 		justify-content: center;
-		background-color: white;
-		border: 4px solid #41a95e;
-		height: 50vh;
-		width: 25vw;
+		background-color: tan;
+		border: 8px double #41a95e;
+		height: 80vh;
+		width: 40vw;
 		border-radius: 10px;
 		input {
+			box-shadow: -3px 3px 5px black;
 			padding: 2%;
 			width: 80%;
+			height: 30%;
 		}
-	};
-
-`
+		div.register-link {
+			margin-top: 10px;
+			padding-top: 5%;
+		}
+	}
+`;
 const Button = styled.button`
 	display: ${(pr) => (pr.isDisabled ? 'none' : 'flex')};
 	background-color: ${(pr) => pr.theme.charcoal};
@@ -49,6 +59,7 @@ const Button = styled.button`
 	font-size: 2rem;
 	font-weight: 600;
 	border-radius: 10px;
+	margin-top: 10px;
 	&:hover {
 		cursor: pointer;
 		color: ${(pr) => pr.theme.eggshell};
@@ -84,11 +95,12 @@ const Login = (props) => {
 	// 	console.log(values);
 	// 	console.log(errors);
 	// };
-  // if we are loggedin successfully, we should go to the dash
-  useEffect(() => {
-    if (props.isLoggedIn === true) {
-      history.push('/Dash');
-    }}, [props.isLoggedIn])
+	// if we are loggedin successfully, we should go to the dash
+	useEffect(() => {
+		if (props.isLoggedIn === true) {
+			history.push('/Dash');
+		}
+	}, [props.isLoggedIn]);
 
 	const handleOnClick = (evt) => {
 		evt.preventDefault();
@@ -97,7 +109,7 @@ const Login = (props) => {
 
 	return (
 		<StyledDiv>
-			<form className="form container" >
+			<form className="form container">
 				<div className="login-container">
 					<div className="errors">
 						<div>{errors.username}</div>
@@ -123,16 +135,19 @@ const Login = (props) => {
 					/>
 
 					<Button onClick={handleOnClick}>Login</Button>
-
-					{/* <Link to="/Register.js">New? Register here</Link> */}
+					<div className="register-link">
+						<Link to="../Register/Register.js">
+							New? Register here
+						</Link>
+					</div>
 				</div>
 			</form>
 		</StyledDiv>
 	);
 };
 const mapStateToProps = (state) => {
-  return {
-    isLoggedIn: state.loginReducer.isLoggedIn,
-  };
+	return {
+		isLoggedIn: state.loginReducer.isLoggedIn,
+	};
 };
 export default connect(mapStateToProps, { login })(Login);
