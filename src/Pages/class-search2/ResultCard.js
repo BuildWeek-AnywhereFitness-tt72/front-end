@@ -76,8 +76,8 @@ const ResultCard = props => {
 			<div className="card-container class-text left">
 				<div className="class-card details">
 					<h3>{type}</h3>
-					<h6>{name}</h6>
-					<p>{`${locations.address}, ${locations.city} ${locations.state} ${locations.zip}`}</p>
+					<h6>{name}</h6>}
+					{locations && <p>{`${locations.address}, ${locations.city} ${locations.state} ${locations.zip}`}</p>}
 				</div>
 			</div>
 			<div className="card-container right">
