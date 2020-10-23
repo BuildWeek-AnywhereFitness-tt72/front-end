@@ -134,6 +134,9 @@ const Dash = () => {
   const [isBrowseOpen, setIsBrowseOpen] = useState(true);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
+  const token = window.localStorage.getItem("token");
+  const loginBtnText = token ? "Logout" : "Login";
+
   const handleAboutClick = () => {
     setIsAboutOpen(!isAboutOpen);
     setIsBrowseOpen(!isBrowseOpen);
@@ -144,6 +147,11 @@ const Dash = () => {
   const handleTitleClick = () => {
     setIsAboutOpen(false);
     setIsBrowseOpen(true);
+  };
+  const onLoginClick = (e) => {
+    if (token && e.target.innerText === "Logout") {
+      window.localStorage.clear();
+    }
   };
   return (
     <LandingPage className="landing-container">
@@ -199,7 +207,7 @@ const Dash = () => {
         <nav>
           <StyledLink to="/dash">Dash</StyledLink>
           <StyledLink to="/register">Sign Up</StyledLink>
-          <StyledLink to="/Login">Login</StyledLink>
+          <StyledLink to="/Login" onClick={onLoginClick}>{loginBtnText}</StyledLink>
           <StyledLink to="/instructor">Instructor</StyledLink>
           <StyledLink to="/classes/search">Search</StyledLink>
           <StyledLink to="/classes/manage">Manage</StyledLink>
