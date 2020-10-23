@@ -35,18 +35,27 @@ import styled from "styled-components";
 // `;
 
 const validFilters = {
-	type: ["yoga", "weightlifting", "biking/spin", "functional-fitness", "boxing", "cardio", "stretch", "dance", "running", "bootcamp",],
+	type: ["yoga", 
+	"weightlifting", 
+	"biking/spin", 
+	"functional-fitness", 
+	"boxing", 
+	"cardio", 
+	"stretch", 
+	"dance", 
+	"running", 
+	"bootcamp",],
 	duration: ["0-15", "15-30", "30-45", "45-60", "60+",],
 	time: ["early-morning", "late-morning", "midday", "early-afternoon", "late-afternoon", "early-evening", "late-evening",],
 	intensity: ["beginner", "intermediate", "advanced"],
 }
 
-const BoxesContainer = styled.div`
-	display: ${pr => pr.shown ? "flex" : "none"};
-	flex-flow: row wrap;
-	width: 100%;
-	height: 200px;
-`;
+// const BoxesContainer = styled.div`
+// 	display: ${pr => pr.shown ? "flex" : "none"};
+// 	flex-flow: row wrap;
+// 	width: 100%;
+// 	height: 200px;
+// `;
 
 const initIsOpen = {
 	type: false,
@@ -62,10 +71,10 @@ const Options = styled.div`
 	align-items: center;
 `;
 
-const Checkbox = styled.div`
-	width: 200px;
-	height: 10px;
-`;
+// const Checkbox = styled.div`
+// 	width: 200px;
+// 	height: 10px;
+// `;
 
 const SearchOptionsDropdown = props => {
 	const { filtersChange, searchChange, input } = props;
