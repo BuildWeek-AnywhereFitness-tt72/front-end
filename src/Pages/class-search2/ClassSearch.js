@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import * as Yup from "yup";
 import styled from "styled-components";
 
-
 import { allSessions } from "../../reusable-components/data";
 import CheckBoxes from "./Checkboxes";
 
@@ -87,132 +86,12 @@ const Input = styled.input.attrs(pr => ({
 `;
 
 
-
-// const CheckboxContainer = styled.div`
-// 	display: ${pr => pr.shown ? "flex" : "none"};
-// 	flex-flow: row wrap;
-// 	width: 50rem;
-// 	justify-content: center;
-// 	align-items: center;
-// 	input, label {
-// 		font-size: 2rem;
-// 		font-family: Raleway;
-// 	}
-// `;
-
-const initType = {
-	yoga: false,
-	weightlifting: false,
-	biking: false,
-	functionalFitness: false,
-	boxing: false,
-	cardio: false,
-	stretch: false,
-	dance: false,
-	running: false,
-	bootcamp: false,
-};
-
-const initDuration = {
-	f_00_15: false,
-	f_15_30: false,
-	f_30_45: false,
-	f_45_60: false,
-	f_60_Plus: false,
-}
-
-const initTime = {
-	earlyAM: false,
-	lateAM: false,
-	mid: false,
-	earlyPM: false,
-	latePM: false,
-	earlyEv: false,
-	lateEv: false,
-}
-
-const initIntensity = {
-	beginner: false,
-	intermediate: false,
-	advanced: false,
-}
-
-
-
-// const useFilter = (filterName, filterActive, initState) => {
-// 	const [filterName, setFilterName] = useState(initState);
-// 	const [filterActive, setFilterActive] = useState(false);
-// 	return [filterName, setFilterName, filterActive, setFilterActive];
-// };
-
-// const useFilters = () => {
-// 	const [typeActive, setTypeActive] = useState(false);
-// 	const [durationActive, setDurationActive] = useState(false);
-// 	const [timeActive, setTimeActive] = useState(false);
-// 	const [intensityActive, setIntensityActive] = useState(false);
-
-// 	const [type, setType] = useState(initType);
-// 	const [duration, setDuration] = useState(initDuration);
-// 	const [time, setTime] = useState(initTime);
-// 	const [intensity, setIntensity] = useState(initIntensity);
-
-// 	return [
-// 		type, setType, typeActive, setTypeActive,
-// 		duration, setDuration, durationActive, setDurationActive,
-// 		timeActive, setTimeActive, time, setTime,
-// 		intensity, setIntensity, intensityActive, setIntensityActive
-// 	];
-// };
-
-const initFilters = {
-	type: {
-		yoga: false,
-		weightlifting: false,
-		biking: false,
-		functionalFitness: false,
-		boxing: false,
-		cardio: false,
-		stretch: false,
-		dance: false,
-		running: false,
-		bootcamp: false,
-	},
-	duration: {
-		f_00_15: false,
-		f_15_30: false,
-		f_30_45: false,
-		f_45_60: false,
-		f_60_Plus: false,
-	},
-	time: {
-		earlyAM: false,
-		lateAM: false,
-		mid: false,
-		earlyPM: false,
-		latePM: false,
-		earlyEv: false,
-		lateEv: false,
-	},
-	intensity: {
-		beginner: false,
-		intermediate: false,
-		advanced: false,
-	}
-};
-
-
 const ClassSearch = props => {
 	// this will use an axios call if back-end gets connected
 	const [searchResults] = useState(allSessions);
 	const [filteredResults, setFilteredResults] = useState(allSessions);
 	const [searchbar, setSearchbar] = useState(initSearch);
 	const [errors, setErrors] = useState(initSearch);
-	// const [resultsOpen, setResultsOpen] = useState(true);
-
-	// const [filtersActive, setFiltersActive] = useState(false);
-	const [filters, setFilters] = useState(initFilters);
-
-	// const 
 
 	const filterGeneral = search => {
 		const filtered = searchResults.filter(session => {
@@ -246,116 +125,84 @@ const ClassSearch = props => {
 		return filteredResults;
 	};
 
-	// const createCheckboxes = () => {
-	// 	// const arrOfChecksArr = [];
-	// 	const arrChecks = [];
-	// 	// console.log(filters);
-	// 	for (const [k1, v1] of Object.entries(filters)) {
-	// 		for (const [k2, v2] of Object.entries(v1)) {
-	// 			// console.log(`k1:${k1}, v1:${v1}, k2:${k2}, v2:${v2}`)
-	// 			arrChecks.push(
-	// 				<label key={`${k1}-${k2}`} for={`${k1}-${k2}`}>
-	// 					<input name={`${k1}-${k2}`} type="checkbox" key={`typebox-${k2}`} checked={filters[k1][k2]} onChange={handleCheck} />
-	// 					{k2}
-	// 				</label>
-	// 			);
-	// 			// arrOfChecksArr.push(arrChecks);
-	// 		}
-	// 	}
-	// 	// console.log(arrChecks);
-	// 	return arrChecks;
-	// };
-	
-	// const createContainer = (filterName, dependency) => {
-	// 	const checks = createCheckboxes().map(x => {
-	// 		if (x.key.includes(filterName)) {
-	// 			return x;
-	// 		}
-	// 	});
-	// 	return (
-	// 		<CheckboxContainer className={`boxes-container ${filterName}`} shown={dependency}>
-	// 			{ checks }
-	// 		</CheckboxContainer>
-	// 	);
-	// };
+	const getActiveOptions = (filters) => {
+		console.log(filters);
+		const activeOptions = {};
 
-	// const getActiveOptions = () => {
-	// 	if (!filtersActive) {
-	// 		return null;
-	// 	}
-	// 	const activeOptions = {};
-	// 	if (typeActive) {
-	// 		const typeReqs = [];
-	// 		// activeOptions.push(type);
-	// 		for (const [k, v] in Object.entries(type)) {
-	// 			if (v) {
-	// 				typeReqs.push(k);
-	// 			}
-	// 		};
-	// 		activeOptions.typeReqs = typeReqs;
-	// 	}
-	// 	if (durationActive) {
-	// 		const durationReqs = [];
-	// 		// activeOptions.push(duration);
-	// 		for (const [k, v] in Object.entries(duration)) {
-	// 			if (v) {
-	// 				if (k === "f_60_Plus") {
-	// 					durationReqs.push("60-+");
-	// 				} else {
-	// 					const kArr = k.split("_");
-	// 					durationReqs.push(`${kArr[1]}-${kArr[2]}`);
-	// 				}
-	// 			}
-	// 		};
-	// 		activeOptions.durationReqs = durationReqs;
-	// 	}
+		const typeReqs = [];
+		for (const [k, v] in Object.entries(filters.type)) {
+			if (v) {
+				typeReqs.push(k);
+			}
+		};
+		activeOptions.typeReqs = typeReqs;
+		
+		
+		const durationReqs = [];
+		// activeOptions.push(duration);
+		for (const [k, v] in Object.entries(filters.duration)) {
+			console.log(k, v)
+			console.log(filters.duration);
+			if (v) {
+				if (k === "f_60_Plus") {
+					durationReqs.push("60-+");
+				} else {
+					const kArr = k.split("_");
+					durationReqs.push(`${kArr[1]}-${kArr[2]}`);
+				}
+			}
+		};
+		activeOptions.durationReqs = durationReqs;
+		
 
-	// 	if (timeActive) {
-	// 		const timeReqs = [];
-	// 		// activeOptions.push(time);
-	// 		for (const [k, v] in Object.entries(time)) {
-	// 			if (v) {
-	// 				switch (k) {
-	// 					case "earlyAM":
-	// 						timeReqs.push("5:00AM-9:00AM");
-	// 						break;
-	// 					case "lateAM":
-	// 						timeReqs.push("9:00AM-10:00AM")
-	// 						break;
-	// 					case "mid":
-	// 						timeReqs.push("10:00AM-12:00PM");
-	// 						break;
-	// 					case "earlyPM":
-	// 						timeReqs.push("12:00PM-2:00PM");
-	// 						break;
-	// 					case "latePM":
-	// 						timeReqs.push("2:00PM-4:00PM");
-	// 						break;
-	// 					case "earlyEv":
-	// 						timeReqs.push("4:00PM-7:00PM");
-	// 						break;
-	// 					default:
-	// 						timeReqs.push("7:00PM-10:00PM");
-	// 				}
-	// 			}
-	// 		}
-	// 		activeOptions.timeReqs = timeReqs;
-	// 	}
-	// 	if (intensityActive) {
-	// 		const intensityReqs = [];
-	// 		// activeOptions.push(intensity);
-	// 		for (const [k, v] in Object.entries(intensity)) {
-	// 			if (v) {
-	// 				intensityReqs.push("k");
-	// 			}
-	// 		}
-	// 		activeOptions.intensityReqs = intensityReqs;
-	// 	}
-	// 	return activeOptions;
-	// };
+		
+			const timeReqs = [];
+			// activeOptions.push(time);
+			for (const [k, v] in Object.entries(filters.time)) {
+				if (v) {
+					switch (k) {
+						case "earlyAM":
+							timeReqs.push("5:00AM-9:00AM");
+							break;
+						case "lateAM":
+							timeReqs.push("9:00AM-10:00AM")
+							break;
+						case "mid":
+							timeReqs.push("10:00AM-12:00PM");
+							break;
+						case "earlyPM":
+							timeReqs.push("12:00PM-2:00PM");
+							break;
+						case "latePM":
+							timeReqs.push("2:00PM-4:00PM");
+							break;
+						case "earlyEv":
+							timeReqs.push("4:00PM-7:00PM");
+							break;
+						default:
+							timeReqs.push("7:00PM-10:00PM");
+					}
+				}
+			}
+			activeOptions.timeReqs = timeReqs;
+		
+		
+			const intensityReqs = [];
+			// activeOptions.push(intensity);
+			for (const [k, v] in Object.entries(filters.intensity)) {
+				if (v) {
+					intensityReqs.push("k");
+				}
+			}
+			activeOptions.intensityReqs = intensityReqs;
+		
+		return activeOptions;
+	};
 
-	const filterCustom = () => {
-		// const options = getActiveOptions();
+	async function filterCustom (filters) {
+		// const options = await getActiveOptions(filters);
+		// console.log(options);
+
 		const filtered = filteredResults.filter(session => {
 			const arrToCompare = [
 				session.duration,
@@ -367,38 +214,71 @@ const ClassSearch = props => {
 				session.time,
 				session.type,
 			];
-			const matched = arrToCompare.filter(x => {
-				for (const [k1, v1] of Object.entries(filters)) {
-					for (const [k2, v2] of Object.entries(v1)) {
-						return (x.includes(k2) || x === k2);
+			const typeArr = Object.entries(filters.type).map(x => {
+					if (x[1] === true) {
+						return x[0]
 					}
+				}).filter(x => x!==undefined);
+			const durationArr = Object.entries(filters.duration).map(x => {
+				if (x[1]) {
+					return x[0]
 				}
-			})
-			return (matched.length !== 0);
+			}).filter(x => x!==undefined);
+			const timeArr = Object.entries(filters.time).map(x => {
+				if (x[1]) {
+					return x[0]
+				}
+			}).filter(x => x!==undefined);
+			const intensity = Object.entries(filters.intensity).map(x => {
+				if (x[1]) {
+					return x[0]
+				}
+			}).filter(x => x!==undefined);
+			console.log(typeArr);
+			console.log(durationArr);
+			
+			// const durationMatched = durationArr.filter(x => {
+			// 	return session.duration.splice(2) <= x[2] || session.duration >= x[1];
+			// })
+			
+			// arrToCompare.filter(x => {
+			// 	for (const [k1, v1] of Object.entries(filters)) {
+			// 		for (const [k2, v2] of Object.entries(v1)) {
+			// 			return (x.includes(k2) || x === k2);
+			// 		}
+			// 	}
+			// })
+			// const matched = arrToCompare.filter(x => {
+			// 	for (const [k1,v1] of Object.entries(options)) {
 
+			// 	}
+			// });
+			return durationMatched;
+			// return (matched.length !== 0);
 		});
 		console.log(filtered);
 
 	};
 
 
-	const handleCheck = (evt, k1, k2) => {
-		// console.log(evt.target);
-		console.log(k1, k2, evt.target)
-		const { name, checked, } = evt.target;
-		const nameArr = name.split("-");
-		console.log(nameArr, checked);
-		console.log(filters);
-		setFilters(prevState => {
-			console.log(prevState);
-			console.log(nameArr[0], nameArr[1], checked);
-			console.log(evt.target)
-			let copy = Object.assign({}, prevState[nameArr[0]]);
-			copy[nameArr[1]] = checked;
-			return copy;
-		})
-		console.log(filters);
-	};
+	// const handleCheck = (name, filterName, checked) => {
+	// 	// console.log(evt.target);
+	// 	// console.log(k1, k2, evt.target)
+	// 	// const { name, checked, } = evt.target;
+	// 	// const nameArr = name.split("-");
+	// 	// console.log(nameArr, checked);
+	// 	// console.log(filters);
+		// setFilters(prevState => {
+		// 	// console.log(prevState);
+		// 	// console.log(nameArr[0], nameArr[1], checked);
+		// 	// console.log(evt.target)
+		// 	let copy = Object.assign({}, prevState[nameArr[0]]);
+		// 	copy[nameArr[1]] = checked;
+		// 	return copy;
+		// })
+	// 	// console.log(filters);
+	// 	setFilters({ ...filters, [filterName]: {[name]: [checked]}});
+	// };
 
 
 	const onSearchChange = (evt) => {
@@ -421,9 +301,9 @@ const ClassSearch = props => {
 		filterGeneral(searchbar.search);
 	}, [searchbar.search])
 
-	useEffect(() => {
-		filterCustom();
-	}, [filters]);
+	// useEffect(() => {
+	// 	filterCustom();
+	// }, [filters]);
 
 	return (
 		<div className="class-search-container">
@@ -436,7 +316,7 @@ const ClassSearch = props => {
 					</InputContainer>
 					<div><p>About</p><p>Hello User</p></div>
 				</StyledSearchHeader>
-				{/* <CheckBoxes filters={filters} /> */}
+				<CheckBoxes filterCustom={filterCustom} />
 			</form>
 			<StyledClassSearch>
 				<SearchResults results={filteredResults} input={searchbar.search} displayParam={"flex"} />
